@@ -13,6 +13,7 @@ export default async function ({ name, tokens }) {
     settingsFile.accounts.map((act, i) => {
         if(act.name === name) settingsFile.accounts[i].tokens = tokens;
     });
+    
     return await fs.writeFile(settingsFileLocation, JSON.stringify(settingsFile, null, 2));
 }
 

@@ -16,6 +16,7 @@ export default async () => {
             1: workers.process,
             2: workers.registry,
             3: workers.api,
+            4: workers.rotator,
         }
     }
     // que system so we dont overwrite latest tokens
@@ -39,7 +40,7 @@ export default async () => {
     // If Worker Process
     if(!cluster.isMaster) config.workers[cluster.worker.id].start({ config });
 
-    
+
     return true;
 }
   

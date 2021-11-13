@@ -30,9 +30,11 @@ export default async function (args) {
         name: 'Handle.zip'
     });
 
+    // Get Handle Terms
     const handleTos = await handle64.get();
     
-    if(handleTos.exists) { 
+    // If we havent accepted the ToS, do that
+    if(!handleTos.exists) { 
         updatedTos = await handle64.set();
     }
 

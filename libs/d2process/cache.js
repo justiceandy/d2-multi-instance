@@ -11,7 +11,9 @@ export async function get() {
 }
 
 export async function update(procs) {
-    return true;
+    return procs.length ? procs.running.map(i => {
+        existing[i.pid] = i;
+    }) : null
 }
 
 export async function updateTokens({ pid, name, tokens }) {

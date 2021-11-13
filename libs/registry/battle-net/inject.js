@@ -5,17 +5,23 @@
 import regedit from 'regedit';
 import registryKeys from './keys';
 import get from './get';
+import util from 'util';
 
 export default async function ({
-    account, accountState, webToken, timestamp, validate = true
+    account, accountState, webToken, timestamp, silent = false, rotate,
 }) {
-
-    // Validate that are Byte Arrays
-
-    // Validate that is epoch timestamp
+    
+    const currentKeys = await get();
+    const result = {
+        updated: false,
+        validated: {
+            tokens: null,
+            state: null,
+            account: null,
+        }
+    }
 
     const osiKey = `${registryKeys.osi.type}\\${registryKeys.osi.name.replaceAll('/','\\')}`
-  
     const registryPayload = {};
     
     registryPayload[osiKey] = {
@@ -37,21 +43,24 @@ export default async function ({
         },
     };
 
-    if(validate) {
-        const currentKeys = await get();
+    result.validated.tokens = !util.isDeepStrictEqual(currentKeys[osiKey].values['WEB_TOKEN'].value, registryPayload[osiKey]['WEB_TOKEN'].value);
+    result.validated.state = !util.isDeepStrictEqual(currentKeys[osiKey].values['ACCOUNT_STATE'].value, registryPayload[osiKey]['ACCOUNT_STATE'].value);
+    result.validated.account = !util.isDeepStrictEqual(currentKeys[osiKey].values['ACCOUNT'].value, registryPayload[osiKey]['ACCOUNT'].value);
+
+    if(!silent) {
         console.log('----------------------')
-        console.log(currentKeys[osiKey].values['WEB_TOKEN'].value);
-        console.log(registryPayload[osiKey]['WEB_TOKEN'].value)
+        console.log('Web Tokens Are New:', result.validated.tokens);
         console.log('----------------------')
-        console.log(currentKeys[osiKey].values['ACCOUNT_STATE'].value);
-        console.log(registryPayload[osiKey]['ACCOUNT_STATE'].value)
+        console.log('Account State is New:', result.validated.state);
         console.log('----------------------')
-        console.log(currentKeys[osiKey].values['ACCOUNT'].value);
-        console.log(registryPayload[osiKey]['ACCOUNT'].value)
+        console.log('Account is New:', result.validated.account);
         console.log('----------------------')
     }
-    regedit.putValue(registryPayload, (e) => {
-        console.log(e)
-    });
-    return true;
+
+    if(result.validated.tokens && result.validated.state && result.validated.account){
+        result.updated = true;
+        regedit.putValue(registryPayload, (e) => null);
+    }
+    
+    return result;
 }

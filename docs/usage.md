@@ -1,9 +1,19 @@
 ### CLI Usage
 How to guide on CLI Commands
 
-### Steps to Run Multiple Copies
-1) Start Up First Client, Login to Bnet and launch D2R
-2) Run `run.bat` to kill the handler
-3) Repeat for n number of accounts
+### List 
+The List action returns the current running d2r processes and their associated accounts
 
-- Setup
+```
+npm run list
+```
+
+### Kill
+The Kill Action removes any active D2R.exe Handlers that prevent multiple instances.
+
+```
+npm run kill
+```
+
+### Background Service
+It is recommended to run this application as a background service. The above actions are automated. See [Running as a Service](./service.md)

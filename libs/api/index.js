@@ -14,7 +14,7 @@ export function start (port) {
     app.use('/process', process);
 
     return app.listen(port, () => {
-        console.log(`API Listening: ${port}`)
+        return true;
     })
 }
 

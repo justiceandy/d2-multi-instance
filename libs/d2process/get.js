@@ -25,7 +25,7 @@ export default async function() {
     return { name, pid, hex, handle }
   }
   catch(e) {
-    if(e.stdout === `No matching handles found.\r\r\n`) console.log('Failed to Find D2 Handler')
+    if(e.stdout === `No matching handles found.\r\r\n`) console.log('Warning: Failed to Find D2 Handler')
     else { console.log('Handler Error', e)}
     return null;
   }

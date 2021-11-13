@@ -5,6 +5,7 @@ import update from './update';
 import getOldestToken from './getOldestToken';
 import getGameFolderAuth from './getGameFolderAuth';
 import login from './login';
+import rotateToken from './rotateToken';
 
 export default { 
     getByFolder, 
