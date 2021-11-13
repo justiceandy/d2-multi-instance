@@ -1,0 +1,2 @@
+### Setting up Positional Game Windows
+For multibox setups, this script was originally going to position windows based on specified input but the best way to manage multiple client windows is with powertoys [Fancy Windows](https://docs.microsoft.com/en-us/windows/powertoys/fancyzones)
