@@ -1,9 +1,13 @@
 import inquirer from 'inquirer';
 import fs from 'fs';
+import fsp from 'fs/promises';
 import { d2process, settings } from '../libs';
 import { download, unzip, moduleDir } from '../libs/utils';
 import output from './output/setup';
 import handle64 from '../libs/registry/handle64-tos';
+import os from 'os';
+import path from 'path';
+import setup from './output/setup';
 
 /*
     Module handles Setting up CLI
@@ -13,7 +17,12 @@ import handle64 from '../libs/registry/handle64-tos';
 export default async function (args) {
     const { __dirname } = moduleDir(import.meta.url);
     const utilDir = `${__dirname}/../utils`;
-    let updatedTos = false;
+    const defaultSettings = await settings.preferences.defaults();
+    const currentSettings = await settings.get();
+    const promptDefaults = currentSettings ? currentSettings : defaultSettings;
+    let answers = {};
+
+    // let updatedTos = false;
 
     // Download Handle Zip
     // const handleZip = await download('https://download.sysinternals.com/files/Handle.zip', utilDir);
@@ -21,20 +30,34 @@ export default async function (args) {
     // // Export Handle Zip
     // const unpacked = await unzip(`${utilDir}/Handle.zip`, utilDir);
 
-    const handleTos = await handle64.get();
+    // const handleTos = await handle64.get();
 
-    if(!handleTos.exists) { 
-        updatedTos = await handle64.set();
-    }
+    // if(!handleTos.exists) { 
+    //     updatedTos = await handle64.set();
+    // }
 
-    // Account Data for Each
+    console.log('--------------------------------------')
+    console.log('        Account Settings              ')
+    console.log('--------------------------------------')
+
+    // Step 1) Number of Accounts
+    const accountNumberPrompt = {
+        type: 'number',
+        name: 'accounts',
+        default: 2,
+        message: "How many accounts do you want to setup?",
+    };
+
+    // Step 2) Account Data for Each
     const accountInfoPrompt = (index) => {
-        const accountNumber = index++;
+        const accountNumber = index + 1;
+        const defaults = currentSettings.accounts[index] || null;
         return [
             {
                 type: 'input',
-                name: `account${accountNumber}_name`,
-                message: `Account ${accountNumber} Email:`,
+                name: `name`,
+                message: `Email:`,
+                default: defaults ? defaults.name : '',
                 validate(value) {
                     const pass = value.match(
                     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -48,8 +71,9 @@ export default async function (args) {
             },
             {
                 type: 'input',
-                name: `account${accountNumber}_folder`,
-                message: `Account ${accountNumber} Game Folder:`,
+                name: `folder`,
+                message: `Game Folder:`,
+                default: defaults ? defaults.folder : '',
                 validate(value) {
                     const pass = value.match(
                         /^[a-zA-Z]:\\(((?![<>:"/\\|?*]).)+((?<![ .])\\)?)*$/
@@ -62,43 +86,115 @@ export default async function (args) {
             },
             {
                 type: 'input',
-                name: `account${accountNumber}_display`,
-                message: `Account ${accountNumber} Display Name:`,
+                name: `display`,
+                message: `Display Name:`,
+                default: defaults ? defaults.display : '',
                 validate(value) {
-                    const pass = value.match(
-                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                    );
+                    const pass = value.length < 1 ? false : true;
                     if (pass) {
-                    return true;
+                        return true;
                     }
-
-                    return 'Enter Valid Battle.net Email';
+                    return 'Display Name must have a value';
                 },
             },
         ]
     }
 
-
-    // Prompts for Sym Link
-
-
-    // Store Init Settings File
-
-    const questions = await inquirer.prompt({
-        type: 'number',
-        name: 'accounts',
-        message: "How many accounts do you want to setup?",
-    })
-    .then((res) => {
-        const accountData = [];
-        for(let x = 0; x < parseInt(res.accounts); x++){
-            accountInfoPrompt(x).map(i => {
-                accountData.push(i);
-            })
+    // Step 3) Preferences
+    const preferencesPrompt = [
+        {
+            type: 'list',
+            name: 'changeWindowTitles',
+            message: "Change window titles to match account name",
+            default: !promptDefaults.changeWindowTitles ? 'Disabled' : 'Enabled',
+            choices: [ "Enabled", "Disabled" ]
+        },
+        {
+            type: 'input',
+            name: 'shortcutDirectory',
+            message: "Directory to save shortcuts",
+            default: path.join(os.homedir(), "Desktop"),
+        },
+        {
+            type: 'list',
+            name: 'notifications',
+            message: "Recieve Windows Notifications for Background Process Events",
+            default: !promptDefaults.notifications ? 'Disabled' : 'Enabled',
+            choices: [ "Enabled", "Disabled" ]
+        },
+        {
+            type: 'list',
+            name: 'automatedLogin',
+            message: "Automated Bnet Login",
+            default: !promptDefaults.automatedLogin ? 'Disabled' : 'Enabled',
+            choices: [ "Enabled", "Disabled" ]
+        },
+        {
+            type: 'list',
+            name: 'api',
+            message: "Include Local API Endpoints",
+            default: !promptDefaults.api.include ? 'Disabled' : 'Enabled',
+            choices: [ "Enabled", "Disabled" ]
         }
-        return inquirer.prompt(accountData)
-    }).then((res) => {
-        console.log(res)
-    });
+    ];
 
+    const apiSettings = [
+        {
+            type: 'number',
+            name: 'port',
+            message: "Local Port for API",
+            default: promptDefaults.api.port
+        }
+    ];
+
+    // // Store Init Settings File
+    return await inquirer.prompt(accountNumberPrompt)
+        .then(async (res) => {
+            console.log(' ')
+            answers.accountNumber = res.accounts;
+            answers.accounts = [];
+            for(let x = 0; x < parseInt(res.accounts); x++){
+                console.log(`----------- Account ${x + 1} -------------`)
+                const results = await inquirer.prompt(accountInfoPrompt(x));
+                answers.accounts.push({
+                    name: results.name,
+                    folder: results.folder,
+                    display: results.display,
+                    tokens: currentSettings.accounts[x] 
+                    ? currentSettings.accounts[x].tokens
+                    : {},
+                });
+                console.log(' ')
+            }
+            return true;
+        })
+        .then((res) => {
+            console.log('--------------------------------------')
+            console.log('        General Preferences           ')
+            console.log('--------------------------------------')
+            return inquirer.prompt(preferencesPrompt)
+        })
+        .then((res) => {
+
+            Object.keys(res).map(i => {
+                if(res[i] === 'Enabled') res[i] = true;
+                if(res[i] === 'Disabled') res[i] = false;
+            })
+            answers = Object.assign({}, answers, res);
+            if(res.api === 'Enabled') return inquirer.prompt(apiSettings)
+            return false;
+        })
+        .then((res) => {
+            answers.api = {
+                include: answers.api,
+                port: res && res.port ? res.port : promptDefaults.api.port,
+            }
+            return fsp.writeFile(settings.storagePath(), JSON.stringify(answers, null, 2));
+        })
+        .then(res => {
+            console.log('--------------------------------------')
+            console.log('Saved to', settings.storagePath());
+            console.log('--------------------------------------')
+            return true;
+        });
 };

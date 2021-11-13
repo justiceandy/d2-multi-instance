@@ -1,10 +1,14 @@
 ### D2 Multi Instance Launcher
 Note: This project is still not ready for a GA release. Tread Carefully.
 
+
 ### Overview
 Diablo 2 Resurrected has a handler method to detect if multiple instances are running on 1 pc. This project exists to disable that functionality and allow multiple instances to run. Also includes some QOL things when run as a background service. It does not support sending multiple key inputs like IsoBoxer. Its currently unclear on Blizzards stance on this.
 
 Note: This project only works on windows. Its not practical multiboxing on other platforms.
+
+
+![Example](./assets/desktop-launchers.png)
 
 ### Table of Contents
 - [Setup](./docs/setup.md)
@@ -26,7 +30,7 @@ Note: This project only works on windows. Its not practical multiboxing on other
 | inject | Inject a saved accounts auth token into registry |
 
 ### Project Assumptions
-- Each Instance of Diablo is required to have its own directory. See [Game Files]()
+- Each Instance of D2R is required to have its own directory. See [Game Files]()
 - Login for Bnet will still be handled manually
 
 ### Dependencies
@@ -37,7 +41,6 @@ Note: This project only works on windows. Its not practical multiboxing on other
 
 ### Handle64
 By usage of this application you are agreeing to the handle [TOS](https://docs.microsoft.com/en-us/sysinternals/license-terms). The installer script accepts this eula for you.
-
 
 ### Whats different from D2RML
 Sunblood has a great project for this that uses AutoIt to support multiple accounts. its well suited for automated login and heavily inspired this repository.

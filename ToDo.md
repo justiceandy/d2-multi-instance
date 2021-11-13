@@ -12,12 +12,8 @@
     - List of Native Modules for
 
 - Install Notification Toaster for Icon/Text
-
-- Finish Setup
 - Test Clean Install
 
-- Add Tests/Linter
-- Add CI Jobs
 
 - Documentation
     - Service
@@ -31,6 +27,10 @@
 -  Login Script
 -  Better Chalk Output
 -  if settings.json doesnt exist
--  http interface
- - Docker Builder Image
  - region swap support
+
+
+ - CI
+    - test
+    - lint
+    - e2e
