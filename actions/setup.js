@@ -1,13 +1,12 @@
 import inquirer from 'inquirer';
 import fs from 'fs';
 import fsp from 'fs/promises';
-import { d2process, settings } from '../libs';
-import { download, unzip, moduleDir } from '../libs/utils';
-import output from './output/setup';
-import handle64 from '../libs/registry/handle64-tos';
 import os from 'os';
 import path from 'path';
-import setup from './output/setup';
+import { settings } from '../libs';
+import { unzipUrl, moduleDir } from '../libs/utils';
+import handle64 from '../libs/registry/handle64-tos';
+import output from './output/setup';
 
 /*
     Module handles Setting up CLI
@@ -22,19 +21,20 @@ export default async function (args) {
     const promptDefaults = currentSettings ? currentSettings : defaultSettings;
     let answers = {};
 
-    // let updatedTos = false;
+    let updatedTos = false;
 
-    // Download Handle Zip
-    // const handleZip = await download('https://download.sysinternals.com/files/Handle.zip', utilDir);
-   
-    // // Export Handle Zip
-    // const unpacked = await unzip(`${utilDir}/Handle.zip`, utilDir);
+    // Download Handle
+    const unpacked = await unzipUrl({
+        url: 'http://download.sysinternals.com/files/Handle.zip',
+        dest: `${utilDir}`,
+        name: 'Handle.zip'
+    });
 
-    // const handleTos = await handle64.get();
-
-    // if(!handleTos.exists) { 
-    //     updatedTos = await handle64.set();
-    // }
+    const handleTos = await handle64.get();
+    
+    if(handleTos.exists) { 
+        updatedTos = await handle64.set();
+    }
 
     console.log('--------------------------------------')
     console.log('        Account Settings              ')

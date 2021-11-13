@@ -1,23 +1,35 @@
 ### Running as a Service
 This CLI supports being run a service while listening to windows registry and window events for d2. This can add some background system overhead. However this is the most convient way to run the application until electron interface is added.
 
+![Example](../assets/background-service.png)
+
 ### Running
 - Navigate to Project Directory in Terminal
 - Run `npm run service`
 - Service will now be started with 2 Worker Nodes
 
-### Service Overview
+### Background Service Overview
 Since listening for Registry and Process changes for D2 is blocking, 2 worker nodes are spun up alongside the main process using Node's internal [Cluster](https://nodejs.org/api/cluster.html) API.
 
-### API Endpoints
-Basic endpoints are available. Default Port is 3000 but that can be changed in setup config.
+### Worker 1: Process Watcher
+This worker will scan for active d2r processes that include the handler method to prevent multiple instances. If it finds it, it will kill the handler and change the application window to match the display name in `./settings.json`.
 
+
+### Worker 2: Registry Watcher
+This worker will watch the D2R OSI key in the windows registry for changes and report those events to the main process. When a registry item is changed, we know a token was refreshed and save that to disk.
+
+The `ACCOUNT` sub key in OSI only changes during the login process from the Battle.net client. The backend process utilizes this to keep a relationship between a token and its account.
+
+Refresh events will also include this `ACCOUNT` key value, so if we capture all of them.. we can stay authenticated.
+
+### Worker 3: API 
+Basic endpoints are available. Default Port is 3000 but that can be changed in setup config.
 
 | Endpoints | Description |
 | --- | ----------- |
-| `/accounts` | List Running D2 Processes w/ Associated Accounts |
-| `/process` | Attempt to Multi Instance Process Handler |
-| `/settings` | Setup and Initialize  |
+| `/accounts` | List Stored Accounts |
+| `/process` | List Current Running Processes |
+| `/settings` | Output Current Settings  |
 
 ie. `http://127.0.0.1:3000/accounts`
 

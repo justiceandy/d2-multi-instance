@@ -13,12 +13,6 @@
 
 - Install Notification Toaster for Icon/Text
 - Test Clean Install
-
-
-- Documentation
-    - Service
-    - Under the Hood Breakdown of Registry Keys + Process Watching
-
 - Sym Link Test / Support
 
 - Rotate Keys
@@ -28,7 +22,6 @@
 -  Better Chalk Output
 -  if settings.json doesnt exist
  - region swap support
-
 
  - CI
     - test

@@ -16,6 +16,7 @@ export default {
     shortcuts, 
     notifications,
     service,
+    api,
 };
 
 export { 
@@ -26,4 +27,5 @@ export {
     shortcuts, 
     notifications,
     service,
+    api,
 };

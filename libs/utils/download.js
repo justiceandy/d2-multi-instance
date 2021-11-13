@@ -1,10 +1,10 @@
-import http from 'http';
+import https from 'https';
 import fs from 'fs';
 
 export default function download(url, dest) {
     return new Promise((resolve, reject) => {
         const file = fs.createWriteStream(dest, { flags: "wx" });
-        const request = http.get(url, response => {
+        const request = https.get(url, response => {
             if (response.statusCode === 200) {
                 response.pipe(file);
             } else {
@@ -22,6 +22,7 @@ export default function download(url, dest) {
             resolve();
         });
         file.on("error", err => {
+            console.log(err);
             file.close();
             if (err.code === "EEXIST") {
                 reject("File already exists");

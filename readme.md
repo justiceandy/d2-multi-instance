@@ -1,14 +1,13 @@
 ### D2 Multi Instance Launcher
 Note: This project is still not ready for a GA release. Tread Carefully.
 
-
 ### Overview
 Diablo 2 Resurrected has a handler method to detect if multiple instances are running on 1 pc. This project exists to disable that functionality and allow multiple instances to run. Also includes some QOL things when run as a background service. It does not support sending multiple key inputs like IsoBoxer. Its currently unclear on Blizzards stance on this.
 
 Note: This project only works on windows. Its not practical multiboxing on other platforms.
 
 
-![Example](./assets/desktop-launchers.png)
+![Example](./assets/d2-yellow-med.jpg)
 
 ### Table of Contents
 - [Setup](./docs/setup.md)

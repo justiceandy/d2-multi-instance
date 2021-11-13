@@ -2,14 +2,14 @@
 import errorHandler from './errorHandler';
 import sleep from './sleep';
 import moduleDir from './moduleDir';
-import unzip from './unzip';
+import unzipUrl from './unzipUrl';
 import download from './download';
 
 export default {
     errorHandler,
     sleep,
     moduleDir,
-    unzip,
+    unzipUrl,
     download,
 }
 
@@ -17,6 +17,6 @@ export {
     errorHandler,
     sleep,
     moduleDir,
-    unzip,
+    unzipUrl,
     download,
 }
