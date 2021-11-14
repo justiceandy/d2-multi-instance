@@ -8,7 +8,7 @@ const log = console.log;
     Module Contains CLI Output for the Kill Action
 */
 const onStart = () => {
-    globals.init();
+    globals.header();
 }
 
 const info = () => {
