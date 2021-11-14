@@ -2,6 +2,8 @@
   "name": "d2-login",
   "version": "1.0.0",
   "bin": "index.js",
+  "author": "chillcapped",
+  "license": "ISC",
   "type": "module",
   "description": "supports logging into multiple bnet accounts for diablo 2 multiboxing",
   "main": "index.js",
@@ -17,8 +19,14 @@
     "login": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action login",
     "rotate": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action rotate"
   },
-  "author": "",
-  "license": "ISC",
+  "pkg": {
+    "assets": [
+      "views/**/*"
+    ],
+    "targets": [
+      "node8"
+    ]
+  },
   "dependencies": {
     "base-64": "^1.0.0",
     "chalk": "^4.1.2",

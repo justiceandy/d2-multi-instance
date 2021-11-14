@@ -42,7 +42,7 @@ export default async ({ pid = null, account = null, keys }) => {
                 tokenTime: existing.tokens['ACCOUNT_TS'],
             }
         } else {
-            console.log('No Session Found for Token', result.tokens['ACCOUNT'], eventTime)
+            console.log('No Session Found for Token', result.tokens['ACCOUNT'], eventTime.split(' ')[1])
             return false;
         }
     }
@@ -66,8 +66,7 @@ export default async ({ pid = null, account = null, keys }) => {
                 const thisProcess = currentProcCache.running.filter(i => {
                    return i.name === accountData.name
                 }).pop();
-                console.log('Tokens Updated:', name, thisProcess.pid, lastToken, result.tokens['WEB_TOKEN'], eventTime);
-                // await processCache.updateTokens({ name, tokens: result.tokens });
+                console.log('Tokens Updated:', name, thisProcess.pid, lastToken, result.tokens['WEB_TOKEN'], eventTime.split(' ')[1]);
                 const base64Token = Buffer.from(JSON.stringify(savedAuthToken)).toString('base64');
                 // Write Tokens to Game Folder
                 await fs.writeFile(path.resolve(`${gameFolder}/multi-launcher-auth.bin`), base64Token);

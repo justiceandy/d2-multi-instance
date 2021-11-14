@@ -14,13 +14,14 @@
 - Install Notification Toaster for Icon/Text
 - Test Clean Install
 - Sym Link Test / Support
-
-- Rotate Keys
-    - Rotate on New Session Update
-
 -  Login Script
 -  Better Chalk Output
+
+
 -  if settings.json doesnt exist
+-  Desktop SHortcut on setup
+    - Custom Dir
+
  - region swap support
 
  - CI

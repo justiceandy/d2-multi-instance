@@ -16,14 +16,14 @@ export default async function({
     // Purge Existing 
 
     // Create Batch File
-    const batchFile = await generateBat({ account, gameFolder });
+    const batchFile = await generateBat({ account, diplayName, gameFolder });
 
     // Create Desktop Shortcut
     const shortcutsCreated = createDesktopShortcut({
         windows: {
-            filePath: path.resolve(`${gameFolder}\\Diablo II Resurrected Launcher.exe.bat`),
-            name: account,
-            comment: 'D2R Multi Instance Account',
+            filePath: path.resolve(`${gameFolder}\\Diablo II Resurrected Launcher.exe`),
+            name: `${displayName} Auth`,
+            comment: `Battle Net Login for ${account}`,
             icon: `${rootPath}/assets/icons/launcher-icon.ico`,
             arguments: '-osu -w',
             window: 'minimized',

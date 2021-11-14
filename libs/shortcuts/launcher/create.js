@@ -16,13 +16,13 @@ export default async function({
     // Purge Existing 
 
     // Create Batch File
-    const batchFile = await generateBat({ account, gameFolder });
+    const batchFile = await generateBat({ account, displayName, gameFolder });
 
     // Create Desktop Shortcut
     const shortcutsCreated = createDesktopShortcut({
         windows: {
             filePath: path.resolve(`${gameFolder}\\multi-launcher.bat`),
-            name: account,
+            name: displayName,
             comment: 'D2R Multi Instance Account',
             icon: `${rootPath}/assets/icons/launcher-icon.ico`,
             arguments: '-osu -w',
