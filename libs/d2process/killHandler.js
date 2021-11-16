@@ -13,7 +13,9 @@ export default async function({ hex, pid }) {
   };
   sudo.exec(`"${__dirname}/../../utils/handle64.exe" -c "${hex}" -y -p "${pid}" -nobanner`, options,
     (error, stdout, stderr) => {
-      if (error) return null;
+      if (error) {
+        console.log(error)
+      };
       console.log('Killed Handler:', pid);
     }
   );

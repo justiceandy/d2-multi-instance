@@ -7,7 +7,7 @@ import output from './output/list';
  */
 export default async function ({ debug }) {
     output.onStart();
-    const accounts = account.list();
+    const accounts = await account.list();
     const { running } = await d2process.list();
     output.list(running, accounts);
     return { running, accounts };

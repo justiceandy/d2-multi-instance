@@ -37,6 +37,7 @@ Note: This project only works on windows. Its not practical multiboxing on other
 
 ### Direct Dependencies
 - [Node.js 15+](https://nodejs.org/en/)
+- [Windows Build Tools](https://www.npmjs.com/package/windows-build-tools)
 
 
 ### Bundle with Application

@@ -11,7 +11,7 @@ import cache from './cache';
 export default async function() {
     const d2Processes = await find('name', 'D2R.exe');
     const existing = await cache.get();
-
+   
     const combineAccountData = async (i) => {
         const account = await settings.account.getByFolder(i.bin.replace('\\D2R.exe', ''));
         const { bin, pid, ppid } = i;

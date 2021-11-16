@@ -21,10 +21,14 @@ const list = (processes, accounts) => {
             loggedIn.push(i.account)
         })
     };
-    const loggedOut = accounts.filter(i => !loggedIn.includes(i.account));
-    loggedOut.map(i => {
-        log(chalk.red(`❌ ${i.account}`))
-    })
+    console.log(accounts)
+    if(accounts){
+        const loggedOut = accounts.filter(i => !loggedIn.includes(i.account));
+        loggedOut.map(i => {
+            log(chalk.red(`❌ ${i.account}`))
+        })
+    }
+ 
     log(chalk.grey('--------------------------------------------'));
 }
 
