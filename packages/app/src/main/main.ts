@@ -17,9 +17,7 @@ import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 import { settings } from '@d2r/libs';
-import { stateSyncEnhancer } from 'electron-redux/main'
-import { createStore } from 'redux'
-import { rootReducer } from '../store'
+
 
 export default class AppUpdater {
   constructor() {
@@ -90,8 +88,6 @@ const createWindow = async () => {
     height: 728,
     icon: getAssetPath('icon.png'),
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
       preload: path.join(__dirname, 'preload.js'),
     },
   });
@@ -153,21 +149,3 @@ app
     });
   })
   .catch(console.log);
-
-
-  
-const initialState = {
-  globalCounter: 1,
-  localCounter: 1,
-}
-
-const store = createStore(rootReducer, initialState, stateSyncEnhancer())
-
-const render = () => {
-  if (mainWindow) {
-      const { globalCounter, localCounter } = store.getState()
-      mainWindow.setTitle(`Global counter: [${globalCounter}] | Local counter: [${localCounter}]`)
-  }
-}
-
-store.subscribe(render)
