@@ -1,0 +1,57 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+.Menu {
+  background: black;
+  float: left;
+  width: 150px;
+  height: 100vh;
+  border-right: 1px solid #202020;
+}
+
+
+.Menu ul, .MenuFooter ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.Menu ul li {
+  text-align: center;
+  text-decoration: none;
+  color: #a58546;
+  border-bottom: 1px solid #363636;
+  border-top: 1px solid #202020;
+  text-indent: -6px;
+}
+
+.MenuIcon {
+  margin-top: -4px;
+  float: left;
+  margin-left: 9px;
+  margin-right: -3px;
+}
+
+.Menu ul li:hover {
+  background: #323232;
+  color: #e9c964;
+  text-decoration: none;
+}
+
+.Menu ul li a {
+  text-decoration: inherit;
+  color: inherit;
+  padding-top: 15px;
+  display: block;
+  padding-bottom: 15px;
+}
+
+.MenuFooter {
+  position: absolute;
+  bottom: 0px;
+  float: left;
+  text-align: center;
+  width: 150px;
+}

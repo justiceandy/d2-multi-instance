@@ -1,0 +1,41 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+
+
+ .Header {
+    background: black;
+  display: flex;
+  align-content: flex-start;
+  position: relative;
+  z-index: 2;
+  position: relative;
+ }
+
+ .Header img {
+    float: left;
+    margin-right: 10px;
+    margin-left: 28px;
+    margin-top: -7px;
+    padding-bottom: 10px;
+ }
+
+ .Header h1 {
+    float: left;
+    margin-top: 30px;
+    margin-left: 25px;
+    color: #d99300;
+    font-size: 2.2em;
+    text-shadow: 2px 2px #693811;
+ }
+
+ .HeaderUser{
+    position: absolute;
+    right: 0px;
+    margin-right: 7px;
+    margin-top: 7px;
+    color: #d99434;
+ }
+
+

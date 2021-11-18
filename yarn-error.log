@@ -1,0 +1,57 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Diablo2\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install --mutex network:42424 --non-interactive
+
+PATH: 
+  C:\Program Files\WindowsApps\Microsoft.PowerShellPreview_7.2.101.0_x64__8wekyb3d8bbwe;C:\Python310\Scripts\;C:\Python310\;C:\Windows\System32;C:\ProgramData\npm;C:\Python310\Scripts\;C:\Python310\;C:\Windows\System32;C:\ProgramData\npm;%PATH%;C:\Program Files\Git\cmd;C:\Windows\System32\Wbem;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\Diablo2\AppData\Local\Microsoft\WindowsApps;C:\Users\Diablo2\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Diablo2\AppData\Roaming\nvm;C:\Users\Diablo2\AppData\Local\Yarn\bin;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\Diablo2\AppData\Roaming\npm;C:\Program Files\Git\cmd;C:\Windows\System32\Wbem;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\Diablo2\AppData\Local\Microsoft\WindowsApps;C:\Users\Diablo2\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Diablo2\AppData\Roaming\nvm;C:\Users\Diablo2\AppData\Local\Yarn\bin;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\Diablo2\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  14.18.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Diablo2\code\d2-login\packages\libs\node_modules\ffi-napi\build\Release\ffi_bindings.node'
+
+npm manifest: 
+  {
+    "name": "@d2r/launcher",
+    "version": "1.0.0",
+    "bin": "index.js",
+    "private": "true",
+    "description": "supports logging into multiple bnet accounts for diablo 2 multiboxing",
+    "main": "index.js",
+    "scripts": {
+      "bootstrap": "lerna exec npm install --no-bail",
+      "postbootstrap" : "lerna link"
+     },
+    "author": "",
+    "license": "ISC",
+    "workspaces": {
+      "packages": [
+        "packages/*"
+      ],
+      "nohoist": [
+        "**/app",
+        "**/app/**"
+      ]
+    },
+    "engines": {
+      "yarn": "^1.4.2"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+      "lerna": "^4.0.0",
+  		"electron-builder": "^22.13.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

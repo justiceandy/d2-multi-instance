@@ -1,0 +1,58 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+
+
+ .Header {
+   background: black;
+   display: flex;
+   align-content: flex-start;
+   z-index: 2;
+   position: relative;
+   --stone-bg: url(https://images.blz-contentstack.com/v3/assets/blt45749e0fed8aa592/bltaac1c234002cf91b/601441486506885fe6215eca/site-bg-xs.jpg);
+   margin: 0;
+   background-color: black;
+   background-image: radial-gradient(circle farthest-corner at 50% calc(50% - 200px), rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 90%, black 100%), var(--stone-bg);
+   overflow-x: hidden;
+   --row-gap: var(--size-600);
+   -webkit-app-region: drag
+ }
+
+ .Header img {
+    float: left;
+    margin-right: 10px;
+    margin-left: 28px;
+    margin-top: -7px;
+    padding-bottom: 10px;
+ }
+
+ .Header h1 {
+   float: left;
+   margin-top: 23px;
+   margin-left: 25px;
+   margin-bottom: 0px;
+   color: #bdbdbd;
+   font-size: 2.2em;
+   text-shadow: 2px 2px #0e0e0e;
+ }
+
+ .HeaderBtns{
+    position: absolute;
+    right: 0px;
+    margin-right: 7px;
+    margin-top: 7px;
+    color: #d99434;
+ }
+
+
+.HeaderText {
+   float:left;
+}
+
+.HeaderText label {
+   float: left;
+   clear: left;
+   margin-left: 54px;
+   color: #d89a36;
+}

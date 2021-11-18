@@ -1,0 +1,41 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+
+h1 .MenuAddIcon{
+  width: 1.5rem;
+  height: 1.5rem;
+  float: right;
+  margin-right: 13px;
+  margin-top: 0px;
+  color: #c3c3c3;
+}
+h1 a:first-of-type{
+  margin-right: 25px;
+  float: right;
+}
+.AccountList ul {
+  list-style: none;
+  padding-left: 0px;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.AccountList ul li {
+  list-style: none;
+  margin-left: 0px;
+  box-sizing: border-box;
+  max-width: 370px;
+  display: inline-block;
+  width: 45%;
+  margin-right: 10px;
+  box-shadow: 1px 1px 1px 1px rgb(0 0 0);
+  height: 55px;
+  margin-bottom: 7px;
+  border-radius: 3px;
+}
+

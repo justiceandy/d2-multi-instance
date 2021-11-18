@@ -1,0 +1,89 @@
+
+
+.AccountItem {
+    border: 1px solid #0e0e0e;
+    background: #121212;
+    color: black;
+    padding: 10px;
+    height: 55px;
+    padding-top: 17px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.AccountItem label {
+    float: left;
+    background: none;
+    margin-top: -22px;
+    margin-left: 0px;
+    height: 53px;
+    padding-top: 16px;
+    box-sizing: border-box;
+    color: #8d8d8d;
+    font-size: 1.3em;
+    padding-right: 20px;
+    border-right: 0px;
+    text-shadow: 2px 2px #0e0e0e;
+    overflow: hidden;
+    width: 47%;
+    text-align: left;
+    cursor: pointer;
+    text-indent: 6px;
+}
+
+.AccountItem .actIcons {
+    float: right;
+    color: #2a2a2a;
+    margin-right: 5px;
+    display: contents;
+}
+
+.AccountItem:hover {
+    
+}
+
+.AccountItem .OrderIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    float: left;
+    color: #8d8d82;
+    margin-top: -3px;
+}
+.AccountItem:hover label,  .AccountItem:hover .OrderIcon {
+    color: #fbb037
+}
+
+.AccountItem .LaunchIcon, .AccountItem .RefreshIcon, .AccountItem .EditIcon {
+    float: right;
+    padding: 8px;
+    margin-top: -12px;
+    border-radius: 3px;
+    margin-left: 10px;
+    color: white;
+    box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
+  }
+
+  .AccountItem .LaunchIcon {
+    background: #0063df;
+  }
+  
+  .AccountItem .LaunchIcon:hover {
+    background: #006aec;
+  }
+  .AccountItem .RefreshIcon {
+    background: #0c9103;
+  }
+  .AccountItem .RefreshIcon:hover {
+    background: #0ea103;
+  }
+  .AccountItem .EditIcon {
+    background: #3a3a3a;
+    display: none;
+  }
+  .AccountItem .EditIcon:hover {
+    background: #535353;
+  }
+
+  .AccountItem:hover .EditIcon{
+    display: block;
+}

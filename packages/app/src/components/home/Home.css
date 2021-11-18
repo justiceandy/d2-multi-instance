@@ -1,0 +1,75 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+
+
+
+.Page {
+  margin-top: 0px;
+  margin-left: 150px;
+  z-index: 1;
+  font-family: system-ui;
+}
+
+.Page h1 {
+  background: #0e0e0e;
+  margin-top: 0;
+  border-bottom: 1px solid #000000;
+  padding-left: 10px;
+  font-size: 1.2em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 700;
+  border-top: 1px solid #0a0a0ad9;
+  color: #d9991d;
+  border-left: 1px solid #242424;
+}
+
+
+.PageToolTip {
+  position: absolute;
+  bottom: 10px;
+  margin-left:10px;
+  font-size: 0.9em;
+  color: #808080d1;
+}
+
+.PageContent {
+
+}
+
+
+.PageTopMenu {
+  height: 285px;
+}
+
+.PageTopMenu div {
+  float: left;
+  width: 50%;
+}
+
+.PageTopMenu ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 10px;
+  margin-top: -1px;
+  max-width: 400px;
+}
+
+.PageTopMenu ul li {
+  margin-bottom: 10px;
+  border-bottom: 1px dotted #bdbdbd3d;
+  padding-bottom: 11px;
+  color: #bdbdbd;
+  padding: 5px;
+  font-family: system-ui;
+  text-shadow: 2px 2px #0e0e0e;
+}
+
+.PageTopMenu ul li span {
+  color: #00bf44;
+  font-weight: 700;
+  float: right;
+  margin-right: 10px;
+}

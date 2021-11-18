@@ -1,7 +1,5 @@
 node_modules
-accounts.json
 settings.json
-settings-og.json
-old
 utils/Handle.zip
 utils/handle64.exe
+dist

@@ -1,0 +1,178 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+.AccountEdit .FormLabels, .AccountEdit .FormValues{
+  float: left;
+  width: 40%;
+  box-sizing: border-box;
+}
+
+.AccountEdit ul {
+  list-style: none;
+  margin-left: 0px;
+  padding-left: 14px;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0;
+}
+
+.AccountEdit ul li {
+  font-family: system-ui;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.AccountEdit .Container {
+  max-width: 505px;
+  margin-top: -10px;
+}
+
+.AccountEdit .FormLabels {
+}
+
+.AccountEdit .FormLabels ul li {
+  padding: 5px;
+  height: 48px;
+  border-bottom: 1px dotted #4040408a;
+  padding-left: 0px;
+  padding-top: 11px;
+  text-align: center;
+}
+.AccountEdit .FormLabels ul li:last-of-type{
+  border-bottom: 0px;
+}
+.AccountEdit .FormValues {
+  width: 60%;
+}
+
+.AccountEdit .FormValues input {
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #0a0a0a;
+  color: #525252;
+  font-family: system-ui;
+  font-size: 1.1em;
+  background: #fbfbfb;
+}
+
+.AccountEdit .FormAction {
+  float: left;
+  width: 100%;
+  text-align: right;
+  box-sizing: border-box;
+  padding-top: 25px;
+  border-top: 1px solid #2f2f2f;
+}
+
+.AccountEdit .FormAction p {
+  float: left;
+  padding-left: 22px;
+  font-size: .9em;
+  color: #bbbbbb;
+}
+.AccountEdit .FormAction a {
+  color: white;
+  text-decoration: none;
+  background: #d89a36;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 3px;
+  font-weight: 700;
+  border: 1px solid #9f6200;
+}
+
+.AccountEdit .TabContainer {
+  float: left;
+  width: 100%;
+  background: #222222;
+  margin-top: -12px;
+  height: 45px;
+  border-bottom: 2px solid #BFBFC1;
+}
+.AccountEdit .TabContainer ul li {
+  float: left;
+  width: auto;
+  padding-right: 15px;
+  background: #222222;
+  color: white;
+  padding-left: 15px;
+  border-bottom: 1px solid #0e0e0e;
+  margin-right: 1px;
+  min-width: 100px;
+  margin-right: 5px;
+  padding-bottom: 13px;
+  text-align: center;
+}
+.AccountEdit .TabContainer ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+.AccountEdit .TabContainer ul li:active {
+  background: #222222;
+  color: #d89a36;
+ }
+.AccountEdit {
+  margin-top: 0px;
+  margin-left: 150px;
+  z-index: 1;
+  font-family: system-ui;
+}
+
+.AccountEdit h1{
+  background: #0e0e0e;
+  height: 25px;
+  margin-top: 0;
+  border-bottom: 1px solid #000000;
+  padding-left: 10px;
+  font-size: 1.2em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 700;
+  border-top: 1px solid #0a0a0ad9;
+  color: #d9991d;
+  border-left: 1px solid #242424;
+}
+
+.AccountEdit .ContentContainer {
+  z-index: 1;
+  font-family: system-ui;
+  float: left;
+  margin: auto;
+  width: 545px;
+  border-top: 1px solid #2f2f2f;
+  padding-top: 10px;
+}
+
+.FormValues .centered {
+  text-align: center;
+}
+.CheckboxItem {
+  color: white;
+  margin-right: 40px;
+  margin-top: 6px;
+}
+
+.CheckboxItem:before li {
+  text-align: center;
+}
+
+.AccountEdit h1 .chevIcon {
+  float: left;
+  margin-top: 3px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.AccountEdit h1 label {
+  float: left;
+}
+
+.AccountEdit .FormValues li {
+  padding-top: 5px;
+  padding-bottom: 8px;
+}

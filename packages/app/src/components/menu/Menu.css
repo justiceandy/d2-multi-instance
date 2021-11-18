@@ -1,0 +1,79 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+.Menu {
+  background: #101010;
+  float: left;
+  width: 150px;
+  height: 100vh;
+  border-top: 1px solid #0e0e0e;
+}
+
+
+.Menu ul, .MenuFooter ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.Menu ul li {
+  text-align: center;
+  text-decoration: none;
+  color: #bdbdbd;
+  border-top: 1px solid #131313;
+  text-indent: -6px;
+  border-bottom: 3px solid #0a0a0a;
+  font-family: system-ui;
+}
+
+.MenuIcon {
+  margin-top: -4px;
+  float: left;
+  margin-left: 9px;
+  margin-right: -3px;
+}
+
+.Menu ul li:hover {
+  background: #101010;
+  color: #d89a36;
+  text-decoration: none;
+  border-bottom: 3px solid #ff9d00fc;
+}
+
+.Menu ul li a {
+  text-decoration: inherit;
+  color: inherit;
+  padding-top: 12px;
+  display: block;
+  padding-bottom: 11px;
+  box-sizing: border-box;
+}
+
+.MenuFooter {
+  position: absolute;
+  bottom: 15px;
+  float: left;
+  text-align: center;
+  width: 150px;
+  color: #bdbdbd8f;
+}
+
+
+.MenuFooter ul {
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+.MenuFooter ul li {
+  float: left;
+  margin-right: 10px;
+}
+
+.MenuFooter ul li:hover {
+  color: white;
+}

@@ -1,0 +1,147 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+.AccountCreate .FormLabels, .AccountCreate .FormValues{
+  float: left;
+  width: 40%;
+  box-sizing: border-box;
+}
+
+.AccountCreate ul {
+  list-style: none;
+  margin-left: 0px;
+  padding-left: 14px;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+.AccountCreate ul li {
+  font-family: system-ui;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.AccountCreate .Container {
+  max-width: 505px;
+  margin-top: -10px;
+}
+
+.AccountCreate .FormLabels {
+}
+
+.AccountCreate .FormLabels ul li {
+  padding: 5px;
+  height: 48px;
+  padding-top: 12px;
+  border-top: 1px dotted #000000;
+  padding-left: 0px;
+  text-indent: 10px;
+}
+
+.AccountCreate .FormValues {
+  width: 60%;
+}
+
+.AccountCreate .FormValues input {
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.AccountCreate .FormAction {
+  float: left;
+  width: 100%;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.AccountCreate .FormAction p {
+  float: left;
+  padding-left: 22px;
+  font-size: .9em;
+  color: #bbbbbb;
+}
+.AccountCreate .FormAction a {
+  color: white;
+  text-decoration: none;
+  background: #d89a36;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 3px;
+  font-weight: 700;
+  border: 1px solid #9f6200;
+}
+
+.AccountCreate .TabContainer {
+  float: left;
+  width: 100%;
+  background: #222222;
+  margin-top: -10px;
+  height: 42px;
+  border-bottom: 2px solid #BFBFC1;
+}
+.AccountCreate .TabContainer ul li {
+  float: left;
+  width: auto;
+  padding-right: 15px;
+  background: #222222;
+  color: white;
+  padding-left: 15px;
+  border-bottom: 1px solid #0e0e0e;
+  margin-right: 1px;
+}
+.AccountCreate .TabContainer ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+.AccountCreate .TabContainer ul li:active {
+  background: #222222;
+  color: #d89a36;
+ }
+.AccountCreate {
+  margin-top: 0px;
+  margin-left: 150px;
+  z-index: 1;
+  font-family: system-ui;
+}
+
+.AccountCreate h1{
+  background: #0e0e0e;
+  height: 25px;
+  margin-top: 0;
+  border-bottom: 1px solid #000000;
+  padding-left: 10px;
+  font-size: 1.2em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 700;
+  border-top: 1px solid #0a0a0ad9;
+  color: #d9991d;
+  border-left: 1px solid #242424;
+}
+
+.AccountCreate .ContentContainer {
+  margin-top: 0px;
+  margin-left: 2px;
+  z-index: 1;
+  font-family: system-ui;
+  float: left;
+  padding-top: 9px;
+  width: 580px;
+}
+
+
+.AccountCreate h1 .chevIcon {
+  float: left;
+  margin-top: 3px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.AccountCreate h1 label {
+  float: left;
+}

@@ -1,0 +1,27 @@
+.AccountHotkey .FormValues ul {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.AccountHotkey .FormValues li {
+    padding-top: 5px;
+    padding-bottom: 8px;
+    color: black;
+}
+
+.AccountHotkey .FormAction {
+
+}
+
+.AccountHotkey .FormValues .MenuAddIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+    margin-right: 40px;
+    margin-top: 6px;
+}
+
+.AccountHotkey{
+    width: 100%;
+}

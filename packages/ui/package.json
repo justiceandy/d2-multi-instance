@@ -1,0 +1,20 @@
+{
+  "name": "@d2r/ui",
+  "version": "1.0.0",
+  "bin": "index.js",
+  "description": "D2R React UI Components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mdi/font": "^6.5.95",
+    "@mdi/js": "^6.5.95",
+    "@mdi/react": "^1.5.0"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
