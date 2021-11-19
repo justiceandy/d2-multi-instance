@@ -5,9 +5,6 @@
   ],
   "exclude": [
     "node_modules",
-    "./node_modules",
-    "./node_modules/*",
-    "./node_modules/@types/node/index.d.ts",
   ],
   "compilerOptions": {
     // Tells TypeScript to read JS files, as
@@ -22,6 +19,6 @@
     // Types should go into this directory.
     // Removing this would place the .d.ts files
     // next to the .js files
-    "outDir": "./dist"
+    "outDir": "./dist",
   }
 }

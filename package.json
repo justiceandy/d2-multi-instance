@@ -14,9 +14,11 @@
   "license": "ISC",
   "workspaces": {
     "packages": [
-      "packages/app",
+      "packages/api",
       "packages/libs",
       "packages/cli",
+      "packages/electron",
+      "packages/web",
       "packages/ui"
     ],
     "nohoist": [
