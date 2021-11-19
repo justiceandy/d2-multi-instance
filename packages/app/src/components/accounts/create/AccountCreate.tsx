@@ -10,7 +10,8 @@ import AccountBnetCreate from './bnet/AccountBnet';
 import AccountWindowCreate from './window/AccountWindow';
 import AccountHotKeyCreate from './hotkey/AccountHotkey';
 
-export default function AccountCreate () {
+export default function AccountCreate (state:any) {
+  console.log(state)
     return (
       <div className="AccountEdit">
         <h1>

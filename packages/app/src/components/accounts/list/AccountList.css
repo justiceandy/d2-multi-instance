@@ -17,25 +17,28 @@ h1 a:first-of-type{
 }
 .AccountList ul {
   list-style: none;
-  padding-left: 0px;
-  align-items: center;
   width: 100%;
+  padding-left: 15px;
   margin: auto;
   box-sizing: border-box;
   text-align: center;
+  align-items: flex-end;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .AccountList ul li {
   list-style: none;
   margin-left: 0px;
-  box-sizing: border-box;
   max-width: 370px;
-  display: inline-block;
-  width: 45%;
-  margin-right: 10px;
-  box-shadow: 1px 1px 1px 1px rgb(0 0 0);
+  width: 48%;
+  padding-right: 10px;
   height: 55px;
-  margin-bottom: 7px;
+  margin-bottom: 11px;
   border-radius: 3px;
+  box-sizing: border-box;
 }
 

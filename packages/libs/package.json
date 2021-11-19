@@ -18,10 +18,15 @@
     "shortcuts": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action shortcuts",
     "inject": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action inject",
     "login": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action login",
-    "rotate": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action rotate"
+    "rotate": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action rotate",
+    "unpublish": "npm unpublish --registry http://127.0.0.1:4873/ --force",
+    "publish": "npm publish --registry http://127.0.0.1:4873/"
   },
   "author": "",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "http://127.0.0.1:4873/"
+  },
   "dependencies": {
     "@d2r/cli": "^1.0.0",
     "base-64": "^1.0.0",

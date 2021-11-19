@@ -7,19 +7,46 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna exec npm install --no-bail",
+    "registry": "docker run -it --rm --name verdaccio -p 4873:4873 verdaccio/verdaccio",
     "postbootstrap" : "lerna link"
    },
   "author": "",
   "license": "ISC",
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/app",
+      "packages/libs",
+      "packages/cli",
+      "packages/ui"
     ],
     "nohoist": [
       "**/electron-webpack",
       "**/electron-webpack/**",
+      "**/electron-rebuilder/**",
+      "**/electron-rebuilder",
       "**/electron-builder/**",
-      "**/electron-builder"
+      "**/electron-builder",
+      "**/electron-rebuild",
+      "**/electron-rebuild/**",
+      "**/electron-react-boilerplate/**",
+      "**/electron-react-boilerplate",
+      "**/iconv/**",
+      "**/iconv",
+      "**/iconv/**",
+      "**/robotjs",
+      "**/robotjs/**",
+      "**/ref-wchar-napi/**",
+      "**/ref-wchar-napi",
+      "electron",
+      "@electron",
+      "**/@electron",
+      "**/@electron/**",
+      "**/cross-env",
+      "**/cross-env/**",
+      "**/webpack",
+      "**/webpack/**",
+      "**/opencollective-postinstall/**",
+      "**/opencollective-postinstall"
     ]
   },
   "engines": {
@@ -28,9 +55,7 @@
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
-		"electron": "^15.3.0",
     "@babel/preset-env": "^7.16.4",
-    "electron-builder": "^22.13.1",
     "lerna": "^4.0.0",
     "typescript": "^4.4.4"
   }

@@ -18,18 +18,21 @@ export default function AccountBnetEdit () {
       <div className="AccountClient">
         <div className="FormLabels">
             <ul>
-              <li>Email:</li>
-              <li>Password:</li>
-              <li>Automated Login:</li>
+              <li>Battle.net Email:</li>
+              <li>Battle.net Password:</li>
+              <li>Automated:</li>
             </ul>
         </div>
         <div className="FormValues">
           <ul>
           <li><input name="display" type="text" onChange={onValueChange} /></li>
           <li><input name="bnetUser" type="text" onChange={onValueChange} /></li>
-          <li className="centered"><Icon className="CheckboxItem" path={mdiCheckboxBlankOutline}
-              title="Add Acccount"
-              size={1} /></li>
+          <li className="centered">
+              <Icon className="CheckboxItem" 
+                    path={mdiCheckboxBlankOutline}
+                    title="Add Acccount"
+                    size={1} />
+          </li>
           </ul>
         </div>
         <div className="FormAction">

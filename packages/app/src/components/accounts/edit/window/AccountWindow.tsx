@@ -19,7 +19,7 @@ export default function AccountWindowEdit () {
         </div>
         <div className="FormValues">
           <ul>
-          <li><Icon className="MenuAddIcon" path={mdiCheckboxBlankOutline}
+          <li className="centered"><Icon className="MenuAddIcon" path={mdiCheckboxBlankOutline}
               title="Power Tray Zone"
               size={1} /></li>
           </ul>

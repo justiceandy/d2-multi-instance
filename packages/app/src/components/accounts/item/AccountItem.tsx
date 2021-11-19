@@ -21,7 +21,7 @@ export default function AccountItem ({ name, id }:any) {
                 title="Launch"
                 size={1} />
             <Link to={{
-                pathname: `/accounts/edit/general/${id}`, 
+                pathname: `/accounts/${id}/edit/general`, 
             }}>
             <label>{name}</label>
             </Link>

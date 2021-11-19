@@ -1,51 +1,35 @@
 import './Settings.css';
 import { Link } from 'react-router-dom';
-import Icon from '@mdi/react'
-import { mdiCheckboxBlankOutline } from '@mdi/js';
+import { Switch, Route } from 'react-router-dom';
+import SettingsApiEdit from './api/SettingsAPI';
+import SettingsDriverEdit from './driver/SettingsDriver';
+import SettingsShortcutEdit from './shortcuts/SettingsShortcut';
+import SettingsGeneralEdit from './general/SettingsGeneral';
 
-const onValueChange = async (e:any) => {
-  console.log('Value', e)
-  return true;
-}
-const saveAccount = async (e:any) => {
-  e.preventDefault();
-  console.log('Saving')
-  return true;
-}
-export default function Settings () {
+export default function Settings (state:any) {
+  console.log(state)
     return (
-        <div className="Page">
+        <div className="SettingsPage Page">
           <h1>Settings</h1>
-          <div className="FormLabels">
+          <div className="TabContainer">
             <ul>
-                <li>Enable API:</li>
-                <li>Windows Notifications:</li>
-                <li>Automated Battle.net Login:</li>
-                <li>Change Window Titles:</li>
-                <li>Shortcut Directory:</li>
+              <Link to={`/settings/general`} className="General"><li>General</li></Link>
+              <Link to={`/settings/api`} className="General"><li>API</li></Link>
+              <Link to={`/settings/shortcuts`} className="General"><li>Shortcuts</li></Link>
+              <Link to={`/settings/driver`} className="General"><li>Kernel Driver</li></Link>
             </ul>
           </div>
-          <div className="FormValues">
-              <ul>
-                <li><Icon className="MenuAddIcon" path={mdiCheckboxBlankOutline}
-                  title="Add Acccount"
-                  size={1} /></li>
-                <li><Icon className="MenuAddIcon" path={mdiCheckboxBlankOutline}
-                  title="Add Acccount"
-                  size={1} /></li>
-                <li><Icon className="MenuAddIcon" path={mdiCheckboxBlankOutline}
-                  title="Add Acccount"
-                  size={1} /></li>
-                <li><Icon className="MenuAddIcon" path={mdiCheckboxBlankOutline}
-                  title="Add Acccount"
-                  size={1} /></li>
-                <li><input name="bnetUser" type="text" onChange={onValueChange} /></li>
-              </ul>
-          </div>
-          <div className="FormAction">
-            <Link to="/account/save" onClick={saveAccount}>Save</Link>
-          </div>
-          <p className="PageToolTip">The Override Account level settings</p>
+          <Switch>
+            <Route path="/settings/general"
+                   render={() => <SettingsGeneralEdit {...state} />} />
+            <Route path="/settings/api"
+                   render={() => <SettingsApiEdit {...state} />} />
+            <Route path="/settings/shortcuts"
+                   render={() => <SettingsShortcutEdit {...state} />} />
+            <Route path="/settings/driver" 
+                   render={() => <SettingsDriverEdit {...state} />} />
+          </Switch>
+           <p className="PageToolTip">These override account level settings</p>
         </div>
     );
   };

@@ -8,7 +8,6 @@ import fs from 'fs/promises';
 import path from 'path';
 import processCache from '../../d2process/cache';
 import listProcesses from '../../d2process/list';
-import e from 'cors';
 
 export default async ({ pid = null, account = null, keys }) => {
 

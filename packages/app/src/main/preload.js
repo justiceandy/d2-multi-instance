@@ -2,11 +2,16 @@ const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electron', {
   ipcRenderer: {
+    getSettings: async () => {
+      const settings = await ipcRenderer.invoke('settings/get');
+      return settings;
+    },
+    getProcesses: async () => {
+      const processes = await ipcRenderer.invoke('processes/get');
+      return processes;
+    },
     myPing() {
       ipcRenderer.send('ipc-example', 'ping');
-    },
-    getSettings: async () => {
-      const settings = await ipcRenderer.invoke('get/settings');
     },
     on(channel, func) {
       const validChannels = ['ipc-example'];

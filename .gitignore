@@ -3,3 +3,5 @@ settings.json
 utils/Handle.zip
 utils/handle64.exe
 dist
+yarn-error.log
+.npmrc

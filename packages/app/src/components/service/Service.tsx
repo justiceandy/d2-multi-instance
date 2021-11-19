@@ -1,6 +1,7 @@
 import './Service.css';
 
-export default function Service () {
+export default function Service (state:any) {
+  console.log(state)
     return (
         <div className="Page">
           <h1>Service</h1>

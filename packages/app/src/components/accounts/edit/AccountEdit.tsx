@@ -10,34 +10,42 @@ import AccountBnetEdit from './bnet/AccountBnet';
 import AccountWindowEdit from './window/AccountWindow';
 import AccountHotKeyEdit from './hotkey/AccountHotkey';
 
-export default function AccountEdit () {
+export default function AccountEdit (state:any) {
+
+  const accountId = state.match.params.accountId;
+  const accountData = state.accounts[accountId];
+  const accountName = accountData.display;
+
     return (
       <div className="AccountEdit">
         <h1>
-          <label> Accounts </label>   
+          <label> Account </label>   
            <Icon className="chevIcon" path={mdiChevronRight}
                title="Home" 
                size={1} />
-            <label> Edit </label>  
+            <label>{accountName} </label>  
          </h1>
         <div className="TabContainer">
           <ul>
-           <Link to="/accounts/edit/general" className="General">
-            <li>General</li>
-            </Link>
-            <Link to="/accounts/edit/bnet" className="BattleNet"><li>Battle Net</li></Link>
-            <Link to="/accounts/edit/client" className="Client"><li>Client Args</li></Link>
-            <Link to="/accounts/edit/window"  className="Window"><li>Window</li></Link>
-            <Link to="/accounts/edit/hotkey"  className="Window"><li>Hotkey</li></Link>
+            <Link to={`/accounts/${accountId}/edit/general`} className="General"><li>General</li></Link>
+            <Link to={`/accounts/${accountId}/edit/bnet`} className="BattleNet"><li>Battle Net</li></Link>
+            <Link to={`/accounts/${accountId}/edit/client`} className="Client"><li>Client Args</li></Link>
+            <Link to={`/accounts/${accountId}/edit/window`}  className="Window"><li>Window</li></Link>
+            <Link to={`/accounts/${accountId}/edit/hotkey`}  className="Window"><li>Hotkey</li></Link>
           </ul>
         </div>
         <div className="ContentContainer">
           <Switch>
-            <Route path="/accounts/edit/general" component={AccountGeneralEdit} />
-            <Route path="/accounts/edit/client" component={AccountClientEdit} />
-            <Route path="/accounts/edit/bnet" component={AccountBnetEdit} />
-            <Route path="/accounts/edit/window" component={AccountWindowEdit} />
-            <Route path="/accounts/edit/hotkey" component={AccountHotKeyEdit} />
+            <Route path="/accounts/:accountId/edit/general"
+                   render={() => <AccountGeneralEdit {...accountData} />} />
+            <Route path="/accounts/:accountId/edit/client"
+                   render={() => <AccountClientEdit {...accountData} />} /> 
+            <Route path="/accounts/:accountId/edit/bnet"
+                   render={() => <AccountBnetEdit {...accountData} />} />
+            <Route path="/accounts/:accountId/edit/window"
+                   render={() => <AccountWindowEdit {...accountData} />} />
+            <Route path="/accounts/:accountId/edit/hotkey" 
+                   render={() => <AccountHotKeyEdit {...accountData} />} />
           </Switch>
         </div>
       </div>

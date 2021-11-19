@@ -53,10 +53,12 @@
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #0a0a0a;
-  color: #525252;
+  color: #3e2600;
   font-family: system-ui;
-  font-size: 1.1em;
+  font-size: 1em;
   background: #fbfbfb;
+  padding-left: 10px;
+  font-weight: 700;
 }
 
 .AccountEdit .FormAction {

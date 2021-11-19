@@ -16,8 +16,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
-import { settings } from '@d2r/libs';
-
+import initHandlers from './handlers';
 
 export default class AppUpdater {
   constructor() {
@@ -29,18 +28,8 @@ export default class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 
-ipcMain.on('ipc-example', async (event, arg) => {
-  const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
-  console.log(msgTemplate(arg));
-  event.reply('ipc-example', msgTemplate('pong'));
-});
-
-ipcMain.handle('get/settings', async () => {
-  const result = await settings.get();
-  console.log(result)
-  return result;
-})
-
+// App Handlers
+initHandlers(ipcMain)
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -83,16 +72,17 @@ const createWindow = async () => {
   mainWindow = new BrowserWindow({
     show: false,
     width: 1024,
+    maxWidth: 1024,
     autoHideMenuBar: true,
     frame: false,
     height: 728,
+    maxHeight: 728,
     icon: getAssetPath('icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
   });
 
-  console.log(getAssetPath())
   mainWindow.loadURL(resolveHtmlPath('index.html'));
 
   mainWindow.on('ready-to-show', () => {
@@ -139,9 +129,7 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
-
     createWindow();
-
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
       // dock icon is clicked and there are no other windows open.

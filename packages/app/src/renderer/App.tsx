@@ -10,22 +10,22 @@ import AccountEdit from 'components/accounts/edit/AccountEdit';
 import AccountCreate from 'components/accounts/create/AccountCreate';
 import Processes from 'components/processes/Processes';
 
-export default function App() {
+export default function App({ settings }:any) {
   return (
     <div>
-    <Header />
-    <Router>
-      <Menu />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/accounts" component={Accounts} />
-        <Route path="/accounts/edit" component={AccountEdit} />
-        <Route path="/accounts/create" component={AccountCreate} />
-        <Route exact path="/settings" component={Settings} />
-        <Route exact path="/service" component={Service} />
-        <Route exact path="/processes" component={Processes} />
-      </Switch>
-    </Router>
+      <Header />
+      <Router>
+        <Menu />
+        <Switch>
+          <Route exact path="/" render={() => <Home {...settings} />} />
+          <Route exact path="/accounts" render={() => <Accounts {...settings} />} />
+          <Route path="/accounts/create"  render={() => <AccountCreate {...settings} />} />
+          <Route path="/settings"  render={() => <Settings {...settings} />} />
+          <Route path="/service"  render={() => <Service {...settings} />} />
+          <Route path="/processes"  render={() => <Processes {...settings} />} />
+          <Route path="/accounts/:accountId/edit"  render={(params) => <AccountEdit {...settings} {...params} />} />
+        </Switch>
+      </Router>
     </div>
   );
 }

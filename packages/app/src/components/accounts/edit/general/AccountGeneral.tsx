@@ -15,11 +15,12 @@ const onUploadHandler = async (e:any) => {
 
 const onValueChange = async (e:any) => {
   console.log('Value', e)
-  return true;
+  return e.target.value;
 }
 
 export default function AccountGeneralEdit (account:any) {
-  const { displayName, gameFolder = "", region } = account;
+  const { display = "", folder = "", region = 'NA' } = account;
+  console.log(account)
     return (
       <div className="AccountClient">
         <div className="FormLabels">
@@ -31,15 +32,19 @@ export default function AccountGeneralEdit (account:any) {
         </div>
         <div className="FormValues">
         <ul>
-            <li><input name="display" type="text" value={displayName} onChange={onValueChange} /></li>
-            <li><input 
-            /* @ts-expect-error */
-                    directory={gameFolder} 
-                    webkitdirectory={gameFolder}  
-                    type="file"
-                    onChange={onUploadHandler}
-            /></li>
-            <li><input name="region" type="text" value={region} onChange={onValueChange} /></li>
+            <li><input name="display" type="text" defaultValue={display} onChange={onValueChange} /></li>
+            <li>
+                {folder === "" ?
+                    <input 
+                         /* @ts-expect-error */
+                         directory={folder} 
+                         webkitdirectory={folder}  
+                         type="file"
+                         onChange={onUploadHandler}/>
+                    : <input name="region" type="text" defaultValue={folder} onChange={onValueChange} />
+                }
+            </li>
+            <li><input name="region" type="text" defaultValue={region} onChange={onValueChange} /></li>
         </ul>
         </div>
         <div className="FormAction">

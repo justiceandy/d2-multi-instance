@@ -2,8 +2,16 @@ import './Processes.css';
 import Icon from '@mdi/react'
 import { Link } from 'react-router-dom';
 import { mdiRefresh } from '@mdi/js';
+import {  interpret } from 'xstate';
+import ProcessStateMachine from './ProcessesState';
 
 export default function Processes () {
+  const dogService = interpret(ProcessStateMachine())
+    .onTransition((state) => console.log(state.value, state))
+    .start();
+    dogService.send('FETCH');
+    
+    console.log(dogService.state.value, dogService.state.context)
     return (
       <div className="Page ProcessList">
         <h1>Processes

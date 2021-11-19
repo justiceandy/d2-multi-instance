@@ -20,6 +20,9 @@
     "login": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action login",
     "rotate": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action rotate"
   },
+  "publishConfig": {
+    "registry": "http://127.0.0.1:4873/"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

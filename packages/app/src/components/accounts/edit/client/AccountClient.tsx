@@ -29,7 +29,7 @@ export default function AccountClientEdit () {
         <ul>
             <li><input name="display" type="text" onChange={onValueChange} /></li>
             <li><input name="bnetUser" type="text" onChange={onValueChange} /></li>
-            <li><Icon className="MenuAddIcon" path={mdiCheckboxBlankOutline}
+            <li className="centered"><Icon className="MenuAddIcon" path={mdiCheckboxBlankOutline}
               title="Add Acccount"
               size={1} /></li>
         </ul>
