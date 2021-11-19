@@ -1,15 +1,6 @@
 
 ----------
 
-- Electron Tray
-    - Key Press for Execution
-    - Event API Integration
-    - GUI For Setup
-    - Account Dashboard
-    - Data Store Interaction
-    - Bundle MSI Installer
-    - Component library for Tray
-    - List of Native Modules for
 
 - Install Notification Toaster for Icon/Text
 - Test Clean Install
@@ -24,6 +15,5 @@
  - region swap support
 
  - CI
-    - test
-    - lint
-    - e2e
+https://www.npmjs.com/package/swr
+https://www.npmjs.com/package/node-cache

@@ -13,7 +13,6 @@ export default {
     settings, 
     notifications,
     service,
-    api,
 };
 
 export { 

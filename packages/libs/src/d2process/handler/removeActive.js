@@ -4,14 +4,14 @@ import find from 'find-process';
 /*
     Module Finds Active Handler Instances and Kills them
 */
+
 // Merge Account Data and Proc Info
-const combineAccountData = async (({ bin, pid, ppid }) => {
+const combineAccountData = async ({ bin, pid, ppid }) => {
     const account = await settings.account.getByFolder(bin.replace('\\D2R.exe', ''));
     return { bin, pid, ppid, ...account };
-});
+};
 
 export default async function () {
-
     const processInfo = await d2process.get();
 
     // IF we failed to get process info
