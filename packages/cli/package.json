@@ -27,6 +27,8 @@
   "license": "ISC",
   "dependencies": {
     "@d2r/libs": "^1.0.0",
+    "@d2r/api": "^1.0.0",
+    "create-desktop-shortcuts": "^1.5.0",
     "chalk": "^4.1.2",
     "commander": "^8.3.0",
     "es-dirname": "^0.1.0"

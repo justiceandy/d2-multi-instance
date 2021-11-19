@@ -36,10 +36,10 @@ export default async function ({ silent, debug }) {
     const killedProcessInfo = kpCombined.pop();
 
     // Attempt Interact w/ Window Title
-    const titles = await d2process.setWindowTiles(killedProcessInfo.name);
+    const titles = await d2process.window.setTitle(killedProcessInfo.name);
 
     // Kill Multi Instance Check
-    const killed = await d2process.killHandler({ pid, hex });
+    const killed = await d2process.handler.killInstance({ pid, hex });
 
     // List Processes after Kill
     if(!silent) {

@@ -1,5 +1,5 @@
 import settings from "..";
-import inject from "@d2r/cli/dist/actions/inject";
+import inject from "./inject";
 
 export default async function () {
     const eventTime = new Date().toLocaleString('en-US', { timeZone:  Intl.DateTimeFormat().resolvedOptions().timeZone });

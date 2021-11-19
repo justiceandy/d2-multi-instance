@@ -1,0 +1,34 @@
+{
+    "name": "@d2r/web",
+    "version": "1.0.0",
+    "bin": "dist/index.js",
+    "description": "Web Interface for D2R",
+    "types": "dist/index.js",
+    "main": "dist/index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "lint": "echo \"Error: no test specified\" && exit 1",
+      "build": "babel src -d dist",
+      "watch": "babel --watch src -d dist",
+      "postbuild": "tsc -p ./tsconfig.json",
+      "predevpub": "npm run build && npm unpublish --registry http://127.0.0.1:4873/ --force",
+      "devpub": "npm publish --registry http://127.0.0.1:4873/ --force"
+     },
+    "author": "",
+    "license": "ISC",
+    "publishConfig": {
+      "registry": "http://127.0.0.1:4873/"
+    },
+    "dependencies": {
+      "@d2r/libs": "^1.0.0",
+      "express": "^4.17.1"
+    },
+    "devDependencies": {
+      "@babel/cli": "^7.16.0",
+      "@babel/core": "^7.16.0",
+      "@babel/preset-env": "^7.16.4",
+      "lerna": "^4.0.0",
+      "typescript": "^4.4.4"
+    }
+  }
+  

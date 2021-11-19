@@ -1,10 +1,9 @@
 import get from './get';
-import killHandler from './killHandler';
+import handler from './handler';
 import list from './list';
-import setWindowTiles from './setWidowTitles';
-import setEventHook from './setEventHook';
+import window from './window';
 import cache from './cache';
 
-export default { get, killHandler, list, setWindowTiles, setEventHook, cache };
+export default { get, handler, list, window, cache };
 
-export { get, killHandler, list, setWindowTiles, setEventHook, cache }
+export { get, handler, list, window, cache }
