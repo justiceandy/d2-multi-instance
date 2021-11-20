@@ -2,7 +2,6 @@
 import Icon from '@mdi/react'
 import {  
     mdiCrownOutline, 
-    mdiNumeric1CircleOutline, 
     mdiNumeric2CircleOutline, 
     mdiNumeric3CircleOutline, 
     mdiNumeric4CircleOutline, 
@@ -14,7 +13,7 @@ import {
 
 const accountOrderIcon = (order:string) => {
     const icons = {
-        '0': mdiNumeric1CircleOutline,
+        '0': mdiCrownOutline,
         '1': mdiNumeric2CircleOutline,
         '2': mdiNumeric3CircleOutline,
         '3': mdiNumeric4CircleOutline,

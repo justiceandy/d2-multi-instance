@@ -2,7 +2,7 @@
 
 import { settings, d2process } from '@d2r/libs';
 
-export default function init(ipcMain:any) {
+export default function init({ ipcMain }:any) {
     ipcMain.on('ipc-example', async (event:any, arg:any) => {
         const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
         console.log(msgTemplate(arg));

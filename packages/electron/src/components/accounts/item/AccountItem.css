@@ -1,19 +1,20 @@
 
 
 .AccountItem {
-    border: 1px solid #0e0e0e;
-    background: #121212;
-    color: black;
-    padding: 10px;
-    height: 55px;
-    padding-top: 17px;
-    box-sizing: border-box;
-    border-radius: 4px;
+  border: 1px solid #0e0e0e;
+  background: #121212;
+  color: black;
+  padding: 10px;
+  height: 55px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding-left: 4px;
+  display: flex;
+  align-content: flex-start;
 }
 
 .AccountItem .ActiveButtons {
   float: left;
-  margin-top: -4px;
 }
 
 .AccountItem .SquadLeader {
@@ -35,38 +36,33 @@
   color: inherit
 }
 .AccountItem .AccountNameContainer {
-    float: left;
-    background: none;
-    margin-top: -22px;
-    margin-left: 0px;
-    height: 53px;
-    padding-top: 16px;
-    box-sizing: border-box;
-    color: #8d8d8d;
-    font-size: 1.3em;
-    padding-right: 20px;
-    border-right: 0px;
-    text-shadow: 2px 2px #0e0e0e;
-    overflow: hidden;
-    width: 47%;
-    text-align: left;
-    cursor: pointer;
-    text-indent: 6px;
+  float: left;
+  background: none;
+  margin-left: 0px;
+  box-sizing: border-box;
+  color: #8d8d8d;
+  font-size: 1.3em;
+  padding-right: 5px;
+  border-right: 0px;
+  text-shadow: 2px 2px #0e0e0e;
+  overflow: hidden;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  text-indent: 6px;
 }
 
+.AccountItem .StatusIcons {
+  margin-top: 2px;
+}
 .AccountItem .AccountIdIcon {
   float: left;
   margin-top: 3px;
 }
 .AccountItem .actIcons {
-    float: right;
     color: #2a2a2a;
     margin-right: 5px;
     display: contents;
-}
-
-.AccountItem:hover {
-    
 }
 
 .AccountItem .OrderIcon {
@@ -83,7 +79,7 @@
 .AccountItem .LaunchIcon, .AccountItem .RefreshIcon, .AccountItem .EditIcon {
     float: right;
     padding: 8px;
-    margin-top: -12px;
+    margin-top: -4px;
     border-radius: 3px;
     margin-left: 10px;
     color: white;
@@ -113,4 +109,27 @@
 
   .AccountItem:hover .EditIcon{
     display: block;
+}
+
+.TokenCapturedIcon{
+  padding: 8px;
+  margin-top: -4px;
+  border-radius: 3px;
+  margin-left: 10px;
+  color: #8d8d8d;
+  box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
+}
+.AccountItem .KillProcessIcon {
+  padding: 8px;
+  margin-top: -4px;
+  border-radius: 3px;
+  margin-left: 10px;
+  color: #cdcdcd;
+  background: #222222;
+  box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
+}
+
+.AccountItem .AccountLink {
+  display: flex;
+  flex: 2;
 }

@@ -24,6 +24,9 @@
   border-top: 1px solid #0a0a0ad9;
   color: #bdbdbd;
   border-left: 1px solid #242424;
+  min-height: 48px;
+  box-sizing: border-box;
+  margin-bottom: 0px;
 }
 
 
@@ -49,6 +52,7 @@
   width: 50%;
   max-width: 350px;
   margin: auto;
+  padding-top: 10px;
 }
 
 .PageTopMenu ul {

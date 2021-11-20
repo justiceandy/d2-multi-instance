@@ -1,0 +1,16 @@
+.ui-page-header h1 {
+    background: #0e0e0e;
+    margin-top: 0;
+    border-bottom: 1px solid #000000;
+    padding-left: 10px;
+    font-size: 1.2em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 700;
+    border-top: 1px solid #0a0a0ad9;
+    color: #bdbdbd;
+    border-left: 1px solid #242424;
+    min-height: 48px;
+    box-sizing: border-box;
+    margin-bottom: 0px;
+  }

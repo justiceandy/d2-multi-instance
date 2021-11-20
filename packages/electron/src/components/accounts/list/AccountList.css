@@ -27,6 +27,7 @@ h1 a:first-of-type{
   align-content: center;
   flex-wrap: wrap;
   flex-direction: row;
+  padding-top: 10px;
   justify-content: flex-start;
 }
 

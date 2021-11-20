@@ -14,8 +14,6 @@ import {
     mdiShieldSync
 } from '@mdi/js';
 
-import { squadLeaderIcon } from './ItemIcons';
-
 const idleButtons = ({ state, launchGame, refreshAccount }:any) => {
     console.log(state);
     return (
@@ -37,11 +35,10 @@ const idleButtons = ({ state, launchGame, refreshAccount }:any) => {
 const activeButtons = ({ state }:any) => {
     return (
         <div className="ActiveButtons">
-            {squadLeaderIcon(state.context.isSquadLeader)}
             {state.value === 'running' ?
               <Link to="" onClick={() => null}>
               <Icon className="ActiveProcess" path={mdiAccessPoint}
-                  title="Main Account"
+                  title="Account is currently running"
                   size={1} />
                </Link>
             : null }
@@ -53,11 +50,11 @@ const runningButtons = ({ killProcess }:any) => {
     return (
         <div className="RunningButtons">
             <Icon className="TokenCapturedIcon" path={mdiShieldSync}
-                title="Main Account"
+                title="Tokens being captured"
                 size={1} />
             <Link to="" onClick={killProcess}>
                 <Icon className="KillProcessIcon" path={mdiCloseOctagon}
-                    title="Main Account"
+                    title="Close Process"
                     size={1} />
             </Link>
         </div>

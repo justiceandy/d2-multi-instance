@@ -27,7 +27,8 @@ export default function AccountItem ({ name, id }:any) {
     console.log(state.value)
     return (
         <div className="AccountItem">
-            <Link to={{
+            <Link 
+                className="AccountLink" to={{
                 pathname: `/accounts/${id}/edit/general`, 
             }}>
             <div className="AccountNameContainer">
@@ -38,7 +39,7 @@ export default function AccountItem ({ name, id }:any) {
             </div>
             </Link>
             <div className="StatusIcons">
-              {state.value === 'running' ? activeButtons({ state, send }) : null }
+              {activeButtons({ state, send })}
             </div>
             <div className="actIcons">
                    {state.value !== 'idle' && state.value !== 'running' ? 

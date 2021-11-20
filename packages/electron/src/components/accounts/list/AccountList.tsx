@@ -27,6 +27,7 @@ export default function AccountList ({ accounts = [] }:any) {
               ({ display }:any, i:any) => 
               <li key={i}><AccountItem name={display} id={i} /></li>)}
         </ul>
+        <p className="PageToolTip">Only 1 account can launch at a time</p>
       </div>
     );
   };

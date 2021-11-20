@@ -13,13 +13,13 @@ export default function Menu () {
               Home
               </Link>
             </li>
-           <li><Link to="/service">
-              Service</Link></li>
            <li><Link to="/accounts">
               Accounts</Link></li>
+           <li><Link to="/service">
+              Service</Link></li>
             <li><Link to="/processes">
-              Processes</Link></li>
-           <li><Link to="/settings">
+              Integrations</Link></li>
+           <li><Link to="/settings/general">
               Settings</Link></li>
          </ul>
         </div>

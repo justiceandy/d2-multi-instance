@@ -11,12 +11,20 @@
 .AccountEdit ul {
   list-style: none;
   margin-left: 0px;
-  padding-left: 14px;
+  padding-left: 0px;
   padding-top: 0px;
   margin-top: 0px;
   margin-bottom: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: space-around;
+  flex-wrap: wrap;
 }
 
+.TabContainer ul a {
+  flex: 1;
+}
 .AccountEdit ul li {
   font-family: system-ui;
   padding-top: 10px;
@@ -49,16 +57,16 @@
 }
 
 .AccountEdit .FormValues input {
-  padding: 5px;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #0a0a0a;
-  color: #3e2600;
+  border: 1px solid #060606c7;
+  color: #ffffff;
   font-family: system-ui;
   font-size: 1em;
-  background: #fbfbfb;
-  padding-left: 10px;
+  background: #232323;
   font-weight: 700;
+  border-radius: 4px;
+  padding: 10px;
 }
 
 .AccountEdit .FormAction {
@@ -91,22 +99,20 @@
 .AccountEdit .TabContainer {
   float: left;
   width: 100%;
-  background: #222222;
+  background: #0e0e0e;
   margin-top: -12px;
   height: 45px;
-  border-bottom: 2px solid #BFBFC1;
+  border-bottom: 2px solid #323232;
 }
 .AccountEdit .TabContainer ul li {
   float: left;
-  width: auto;
   padding-right: 15px;
   background: #222222;
   color: white;
   padding-left: 15px;
   border-bottom: 1px solid #0e0e0e;
   margin-right: 1px;
-  min-width: 100px;
-  margin-right: 5px;
+  width: 100%;
   padding-bottom: 13px;
   text-align: center;
 }
@@ -125,29 +131,23 @@
   font-family: system-ui;
 }
 
-.AccountEdit h1{
-  background: #0e0e0e;
-  height: 25px;
-  margin-top: 0;
-  border-bottom: 1px solid #000000;
-  padding-left: 10px;
-  font-size: 1.2em;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-weight: 700;
-  border-top: 1px solid #0a0a0ad9;
-  color: #d9991d;
-  border-left: 1px solid #242424;
-}
-
 .AccountEdit .ContentContainer {
   z-index: 1;
   font-family: system-ui;
   float: left;
   margin: auto;
-  width: 545px;
-  border-top: 1px solid #2f2f2f;
-  padding-top: 10px;
+  width: 100%;
+  padding-top: 15px;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.AccountEdit .ContentContainer .AccountClient {
+  width: 70vw;
 }
 
 .FormValues .centered {
@@ -175,6 +175,6 @@
 }
 
 .AccountEdit .FormValues li {
-  padding-top: 5px;
-  padding-bottom: 8px;
+  padding-top: 0;
+  margin-bottom: -2px;
 }

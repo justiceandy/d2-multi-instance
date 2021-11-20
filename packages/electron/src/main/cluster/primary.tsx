@@ -22,16 +22,16 @@ const start  = () => {
         if (process.platform !== 'darwin') app.quit();
     });
     
-    return app
+    app
     .whenReady()
     .then(() => {
-        initHandlers(ipcMain);
+        initHandlers({ ipcMain });
         const mainWindow = createMainWindow({ isDevelopment, ipcMain });
 
         app.on('activate', () => {
             // On macOS it's common to re-create a window in the app when the
             // dock icon is clicked and there are no other windows open.
-            if (mainWindow === null) createMainWindow({ isDevelopment });
+            if (mainWindow === null) createMainWindow({ isDevelopment, ipcMain });
         });
 
         return mainWindow

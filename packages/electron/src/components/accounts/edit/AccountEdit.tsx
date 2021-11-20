@@ -11,13 +11,12 @@ import AccountWindowEdit from './window/AccountWindow';
 import AccountHotKeyEdit from './hotkey/AccountHotkey';
 
 export default function AccountEdit (state:any) {
-
   const accountId = state.match.params.accountId;
   const accountData = state.accounts[accountId];
   const accountName = accountData.display;
 
     return (
-      <div className="AccountEdit">
+      <div className="AccountEdit Page">
         <h1>
           <label> Account </label>   
            <Icon className="chevIcon" path={mdiChevronRight}
