@@ -6,12 +6,12 @@ import {  interpret } from 'xstate';
 import ProcessStateMachine from './ProcessesState';
 
 export default function Processes () {
-  const dogService = interpret(ProcessStateMachine())
+  const processService = interpret(ProcessStateMachine())
     .onTransition((state) => console.log(state.value, state))
     .start();
-    dogService.send('FETCH');
+    processService.send('FETCH');
     
-    console.log(dogService.state.value, dogService.state.context)
+    console.log(processService.state.value, processService.state.context)
     return (
       <div className="Page ProcessList">
         <h1>Processes

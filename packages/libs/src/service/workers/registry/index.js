@@ -6,4 +6,5 @@ export default {
     start,
     message,
     online,
+    name: 'registry',
 }

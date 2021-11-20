@@ -1,41 +1,65 @@
-import './AccountItem.css';
 import { Link } from 'react-router-dom';
-import Icon from '@mdi/react'
-import { mdiRefresh, mdiPlay  } from '@mdi/js';
-import { mdiNumeric1CircleOutline } from '@mdi/js';
+import {  useMachine } from '@xstate/react';
+import AccountsStateMachine from './AccountItemState';
+import { accountOrderIcon } from './components/ItemIcons';
+import { activeButtons, launchingButtons, runningButtons, idleButtons } from './components/ItemActionButtons';
+import './AccountItem.css';
 
-const launchGame = (e:any) => {
-  console.log(e);
-  e.preventDefault();
-}
-
-const refreshAccount = (e:any) => {
-  console.log(e);
-  e.preventDefault();
-}
+const accountItemState = AccountsStateMachine();
 
 export default function AccountItem ({ name, id }:any) {
+    const [ state, send ] = useMachine(accountItemState);
+
+    const killProcess = (e:any) => {
+        e.preventDefault();
+        send('KILL');
+    };
+    const launchGame = (e:any) => {
+        e.preventDefault();
+        send('LAUNCH');
+    };
+    const refreshAccount = (e:any) => {
+        e.preventDefault();
+        send('AUTH');
+    };
+
+    send("UNLOCK");
+    console.log(state.value)
     return (
         <div className="AccountItem">
-            <Icon className="OrderIcon" path={mdiNumeric1CircleOutline}
-                title="Launch"
-                size={1} />
             <Link to={{
                 pathname: `/accounts/${id}/edit/general`, 
             }}>
-            <label>{name}</label>
+            <div className="AccountNameContainer">
+                {accountOrderIcon(id)}
+                <div className="AccountNameText">
+                   <span>{name}</span>
+                </div>
+            </div>
             </Link>
+            <div className="StatusIcons">
+              {state.value === 'running' ? activeButtons({ state, send }) : null }
+            </div>
             <div className="actIcons">
-            <Link to="game" onClick={launchGame}>
-                <Icon className="LaunchIcon" path={mdiPlay}
-                title="Launch"
-                size={1} />
-            </Link>
-            <Link to="game" onClick={refreshAccount}>
-                <Icon className="RefreshIcon" path={mdiRefresh}
-                title="Refresh Token"
-                size={1} />
-            </Link>
+                   {state.value !== 'idle' && state.value !== 'running' ? 
+                        launchingButtons({ 
+                            state,
+                            launchGame,
+                        })  : null 
+                    }
+                    {state.value === 'running' ? 
+                        runningButtons({ 
+                            state,
+                            killProcess,
+                        }) : null 
+                    }
+                    {state.value === 'idle' ? 
+                        idleButtons({ 
+                            state,
+                            launchGame,
+                            refreshAccount,
+                        }) : null 
+                    }
             </div>
         </div>
     );

@@ -14,13 +14,11 @@ const defaultConfig = () => {
         primary,
         workers: {
             1: workers.process,
-            3: workers.api,
-            2: workers.registry,
-            4: workers.rotator,
+            2: workers.api,
+            3: workers.registry,
         }
     }
 };
-
 const start = async ({ cluster, config }) => {
    // que system so we dont overwrite latest tokens
     const que = new Queue({

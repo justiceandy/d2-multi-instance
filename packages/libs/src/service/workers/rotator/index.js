@@ -4,4 +4,5 @@ import online from "./online";
 export default {
     start,
     online,
+    name: 'rotator',
 }

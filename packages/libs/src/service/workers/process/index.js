@@ -6,4 +6,5 @@ export default {
     manage,
     start,
     online,
+    name: 'process',
 }
