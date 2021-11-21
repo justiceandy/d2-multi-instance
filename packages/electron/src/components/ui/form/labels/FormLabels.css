@@ -1,0 +1,40 @@
+.ui-form-labels {
+    float: left;
+    width: 40%;
+    box-sizing: border-box;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.MuiCheckbox-root {
+    color: #b5b5b5 !important;
+}
+.ui-form-labels ul {
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: space-between;
+    flex-wrap: nowrap;
+    text-align: center;
+    flex: 1;
+    flex-direction: column;
+}
+
+.ui-form-labels ul li {
+    padding: 5px;
+    padding-left: 0px;
+    text-align: center;
+    padding-top: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 11px;
+    margin-bottom: 9px;
+    box-sizing: border-box;
+}

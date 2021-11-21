@@ -1,14 +1,8 @@
-import { Link } from 'react-router-dom';
 import Icon from '@mdi/react'
 import { mdiCheckboxBlankOutline } from '@mdi/js';
 
 import './AccountBnet.css';
 
-const saveAccount = async (e:any) => {
-  e.preventDefault();
-  console.log('Saving')
-  return true;
-}
 const onValueChange = async (e:any) => {
   console.log('Value', e)
   return true;
@@ -20,13 +14,13 @@ export default function AccountBnetEdit () {
             <ul>
               <li>Battle.net Email:</li>
               <li>Battle.net Password:</li>
-              <li>Automated:</li>
+              <li>Enabled:</li>
             </ul>
         </div>
         <div className="FormValues">
           <ul>
-          <li><input name="display" type="text" onChange={onValueChange} /></li>
-          <li><input name="bnetUser" type="text" onChange={onValueChange} /></li>
+          <li><input name="display" type="text" placeholder={"automated@blizzard.com"} onChange={onValueChange} /></li>
+          <li><input name="bnetUser"  placeholder={"Encrypted"} type="password" onChange={onValueChange} /></li>
           <li className="centered">
               <Icon className="CheckboxItem" 
                     path={mdiCheckboxBlankOutline}
@@ -35,10 +29,6 @@ export default function AccountBnetEdit () {
           </li>
           </ul>
         </div>
-        <div className="FormAction">
-          <Link to="/account/save" onClick={saveAccount}>Save</Link>
-        </div>
-        <p className="PageToolTip">See Credential Store</p>
     </div>
     );
   };

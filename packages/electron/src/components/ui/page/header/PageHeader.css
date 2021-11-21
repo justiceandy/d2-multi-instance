@@ -14,3 +14,18 @@
     box-sizing: border-box;
     margin-bottom: 0px;
   }
+
+
+  .ui-page-header-icons {
+    float: right;
+    margin-right: 25px;
+  }
+
+  .ui-page-header-icons a {
+    float: right;
+    margin-left: 10px;
+  }
+  .ui-page-header-single-title {
+    float: left;
+    text-indent: 5px;
+  }

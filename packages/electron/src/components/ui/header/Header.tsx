@@ -1,5 +1,5 @@
 import './Header.css';
-import icon from '../../../assets/d2-logo.png';
+import icon from '../../../../assets/d2-logo.png';
 import Icon from '@mdi/react'
 import { mdiClose, mdiWindowMinimize } from '@mdi/js';
 
@@ -16,10 +16,10 @@ export default function Header () {
             <label>Sign in with Discord</label>
           </div> */}
           <div className="HeaderBtns">
-             <Icon className="MenuIcon" path={ mdiWindowMinimize}
+             <Icon className="CloseIcon" path={ mdiWindowMinimize}
                title="Home"
                size={1} />
-             <Icon className="MenuIcon" path={ mdiClose}
+             <Icon className="CloseIcon" path={ mdiClose}
                title="Home"
                size={1} />
           </div>

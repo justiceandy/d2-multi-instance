@@ -1,12 +1,6 @@
-import { Link } from 'react-router-dom';
 import './AccountGeneral.css';
 
 
-const saveAccount = async (e:any) => {
-  e.preventDefault();
-  console.log('Saving')
-  return true;
-}
 
 const onUploadHandler = async (e:any) => {
   console.log('Saving', e)
@@ -47,9 +41,9 @@ export default function AccountGeneralEdit (account:any) {
             <li><input name="region" type="text" defaultValue={region} onChange={onValueChange} /></li>
         </ul>
         </div>
-        <div className="FormAction">
+        {/* <div className="FormAction">
         <Link to="/account/save" onClick={saveAccount}>Save</Link>
-        </div>
+        </div> */}
     </div>
     );
   };

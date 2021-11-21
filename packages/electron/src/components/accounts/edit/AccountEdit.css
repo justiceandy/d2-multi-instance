@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.AccountEdit ul {
+.AccountEdit .ContentContainer ul {
   list-style: none;
   margin-left: 0px;
   padding-left: 0px;
@@ -16,19 +16,26 @@
   margin-top: 0px;
   margin-bottom: 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: stretch;
-  align-content: space-around;
+  align-content: center;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .TabContainer ul a {
   flex: 1;
 }
-.AccountEdit ul li {
+
+.AccountEdit .FormLabels {
+  padding-top: 5px;
+  max-width: 200px;
+  text-align: center;
+}
+.AccountEdit .ContentContainer ul li {
   font-family: system-ui;
-  padding-top: 10px;
-  padding-bottom: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -43,19 +50,27 @@
 
 .AccountEdit .FormLabels ul li {
   padding: 5px;
-  height: 48px;
-  border-bottom: 1px dotted #4040408a;
   padding-left: 0px;
-  padding-top: 11px;
   text-align: center;
+  padding-top: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 11px;
+  margin-bottom: 9px;
 }
 .AccountEdit .FormLabels ul li:last-of-type{
   border-bottom: 0px;
 }
 .AccountEdit .FormValues {
-  width: 60%;
+  flex: 3;
 }
 
+
+.AccountClient {
+  display: flex;
+    flex-wrap: wrap;
+}
 .AccountEdit .FormValues input {
   width: 100%;
   box-sizing: border-box;
@@ -70,12 +85,11 @@
 }
 
 .AccountEdit .FormAction {
-  float: left;
   width: 100%;
   text-align: right;
   box-sizing: border-box;
-  padding-top: 25px;
-  border-top: 1px solid #2f2f2f;
+  height: 50px;
+  margin-top: 5px;
 }
 
 .AccountEdit .FormAction p {
@@ -87,13 +101,14 @@
 .AccountEdit .FormAction a {
   color: white;
   text-decoration: none;
-  background: #d89a36;
+  background: #005068;
   padding: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  border-radius: 3px;
+  border-radius: 5px;
   font-weight: 700;
-  border: 1px solid #9f6200;
+  border: 1px solid #00222c;
+  float: right;
 }
 
 .AccountEdit .TabContainer {
@@ -115,6 +130,9 @@
   width: 100%;
   padding-bottom: 13px;
   text-align: center;
+}
+.AccountEdit .ui-tab-container ul {
+  max-width:715px;
 }
 .AccountEdit .TabContainer ul li a {
   text-decoration: none;
@@ -139,15 +157,18 @@
   width: 100%;
   padding-top: 15px;
   display: flex;
-  align-content: center;
+  align-content: flex-start;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
+  height: 100vh;
   flex-wrap: wrap;
+  background: #181818;
 }
 
 .AccountEdit .ContentContainer .AccountClient {
   width: 70vw;
+  max-width: 630px;
 }
 
 .FormValues .centered {

@@ -10,10 +10,6 @@
     color: black;
 }
 
-.AccountHotkey .FormAction {
-
-}
-
 .AccountHotkey .FormValues .MenuAddIcon {
     width: 1.5rem;
     height: 1.5rem;
@@ -22,6 +18,16 @@
     margin-top: 6px;
 }
 
-.AccountHotkey{
-    width: 100%;
+.AccountHotkey {
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+}
+
+.AccountHotkey .SelectBox{
+    margin-top: 7px;
+}
+
+.AccountHotkey .SelectBox input{
+    text-indent: -10px;
 }

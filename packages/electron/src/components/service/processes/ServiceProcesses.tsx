@@ -1,11 +1,11 @@
-import './Processes.css';
+import './ServiceProcesses.css';
 import Icon from '@mdi/react'
 import { Link } from 'react-router-dom';
 import { mdiRefresh } from '@mdi/js';
 import {  interpret } from 'xstate';
 import ProcessStateMachine from './ProcessesState';
 
-export default function Processes () {
+export default function ServiceProcesses () {
   const processService = interpret(ProcessStateMachine())
     .onTransition((state) => console.log(state.value, state))
     .start();

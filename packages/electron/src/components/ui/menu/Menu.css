@@ -35,6 +35,10 @@
   margin-right: -3px;
 }
 
+.MenuFooter ul li a {
+  color: inherit;
+}
+
 .Menu ul li:hover {
   background: #101010;
   color: #d89a36;
@@ -58,6 +62,8 @@
   text-align: center;
   width: 150px;
   color: #bdbdbd8f;
+  border-top: 2px solid #0c0c0c;
+  padding-top: 10px;
 }
 
 
@@ -65,7 +71,7 @@
   text-align: center;
   align-items: center;
   margin: auto;
-  width: 60%;
+  width: 80%;
   padding: 10px;
 }
 

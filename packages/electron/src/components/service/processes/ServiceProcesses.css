@@ -1,0 +1,39 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+ .Accounts {
+    background: pink;
+  }
+  
+  .ProcessList p, .ProcessList table {
+    padding-left: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-left: 0px;
+  }
+  
+  .ProcessListContainer {
+    float: left;
+      width: 100%;
+  }
+  .ProcessList table thead th {
+    padding: 7px;
+  }
+  
+  .ProcessList table thead tr {
+    background: #d90e0e2b;
+  }
+  
+  .ProcessList table tbody td {
+    color: #bdbdbd;
+    text-align: center;
+    border: 1px solid #21212152;
+    padding: 7px;
+    font-weight: 700;
+    background: #ffffff14;
+  }
+  
+  .ProcessList h1 {
+    margin-bottom: 0px;
+  }

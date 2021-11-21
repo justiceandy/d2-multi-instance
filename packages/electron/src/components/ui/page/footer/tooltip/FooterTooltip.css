@@ -1,0 +1,50 @@
+.ui-page-footer-tool-tip {
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    max-width: 640px;
+    color: #bdbdbd;
+    font-size: 0.9em;
+}
+
+
+.ui-page-footer-icons, .ui-page-footer-tip-text {
+    flex: 1;
+}
+
+.ui-page-footer-icons {
+    text-align: right;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+
+.ui-page-footer-icons a:hover {
+    color: white;
+}
+.ui-page-footer-icons a {
+    color: inherit;
+    margin-right: 5px;
+}
+
+.ui-page-footer-tip-icon {
+    float: left;
+    margin-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    text-align: right;
+}
+
+
+
+.ui-page-footer-tip-text p {
+    float: left;
+    margin-top: 0px;
+    margin-left: 5px;
+}

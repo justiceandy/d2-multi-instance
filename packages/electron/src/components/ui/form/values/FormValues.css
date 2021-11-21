@@ -1,0 +1,63 @@
+
+
+.ui-form-values {
+    flex: 3;
+    box-sizing: border-box;
+}
+
+.ui-form-values ul {
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.ui-form-values li {
+    font-family: system-ui;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.ui-form-values-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #060606c7;
+    color: #ffffff;
+    font-family: system-ui;
+    font-size: 1em;
+    background: #232323;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-bottom: -2px;
+    padding: 10px;
+}
+
+.ui-form-li-centered {
+    text-align: center;
+    width: 21px;
+}
+
+.MuiFormGroup-root {
+    width: 30px;
+}
+
+.ui-form-values-select {
+    margin-top: 7px;
+}
+
+.ui-form-values-text {
+
+}
+
+.ui-form-values-password {
+
+}

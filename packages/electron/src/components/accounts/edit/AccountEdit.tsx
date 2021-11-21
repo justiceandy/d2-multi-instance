@@ -1,38 +1,46 @@
 
 import './AccountEdit.css';
-import Icon from '@mdi/react'
-import { mdiChevronRight } from '@mdi/js';
-import { Link } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 import AccountClientEdit from './client/AccountClient';
 import AccountGeneralEdit from './general/AccountGeneral';
 import AccountBnetEdit from './bnet/AccountBnet';
 import AccountWindowEdit from './window/AccountWindow';
 import AccountHotKeyEdit from './hotkey/AccountHotkey';
+import Tabs from 'components/ui/tabs/Tabs';
+import PageHeader from 'components/ui/page/header/PageHeader';
+import PageFooterToolTip from 'components/ui/page/footer/tooltip/FooterTooltip';
+import { mdiDelete, mdiArrowLeft, mdiArrowRight } from '@mdi/js';
+
 
 export default function AccountEdit (state:any) {
   const accountId = state.match.params.accountId;
   const accountData = state.accounts[accountId];
   const accountName = accountData.display;
 
+  const deleteAccount = (e:any) => {
+    console.log(e);
+    e.preventDefault();
+  }
     return (
       <div className="AccountEdit Page">
-        <h1>
-          <label> Account </label>   
-           <Icon className="chevIcon" path={mdiChevronRight}
-               title="Home" 
-               size={1} />
-            <label>{accountName} </label>  
-         </h1>
-        <div className="TabContainer">
-          <ul>
-            <Link to={`/accounts/${accountId}/edit/general`} className="General"><li>General</li></Link>
-            <Link to={`/accounts/${accountId}/edit/bnet`} className="BattleNet"><li>Battle Net</li></Link>
-            <Link to={`/accounts/${accountId}/edit/client`} className="Client"><li>Client Args</li></Link>
-            <Link to={`/accounts/${accountId}/edit/window`}  className="Window"><li>Window</li></Link>
-            <Link to={`/accounts/${accountId}/edit/hotkey`}  className="Window"><li>Hotkey</li></Link>
-          </ul>
-        </div>
+        <PageHeader 
+           breadcrumbs={[
+             'Account',
+             accountName,
+           ]}
+           icons={[
+             { icon: mdiDelete, title: 'Delete Account', onClick: deleteAccount },
+           ]}
+        />
+        <Tabs 
+            tabs={[
+              { url: `/accounts/${accountId}/edit/general`, label: 'General' },
+              { url: `/accounts/${accountId}/edit/bnet`, label: 'Battle Net' },
+              { url: `/accounts/${accountId}/edit/client`, label: 'Client Args' },
+              { url: `/accounts/${accountId}/edit/window`, label: 'Window' },
+              { url: `/accounts/${accountId}/edit/hotkey`, label: 'Hotkey' }
+            ]}
+         />
         <div className="ContentContainer">
           <Switch>
             <Route path="/accounts/:accountId/edit/general"
@@ -47,6 +55,13 @@ export default function AccountEdit (state:any) {
                    render={() => <AccountHotKeyEdit {...accountData} />} />
           </Switch>
         </div>
+        <PageFooterToolTip 
+            text={"Save events occur on changes"}
+            icons={[
+              { icon: mdiArrowLeft, title: 'Back to Accounts', onClick: deleteAccount },
+              { icon: mdiArrowRight, title: 'Next Account', onClick: deleteAccount },
+            ]}
+        />
       </div>
     );
   };

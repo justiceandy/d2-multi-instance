@@ -1,14 +1,8 @@
-import { Link } from 'react-router-dom';
 import Icon from '@mdi/react'
 import { mdiCheckboxBlankOutline } from '@mdi/js';
 
 import './AccountClient.css';
 
-const saveAccount = async (e:any) => {
-  e.preventDefault();
-  console.log('Saving')
-  return true;
-}
 
 const onValueChange = async (e:any) => {
   console.log('Value', e)
@@ -27,15 +21,12 @@ export default function AccountClientEdit () {
         </div>
         <div className="FormValues">
         <ul>
-            <li><input name="display" type="text" onChange={onValueChange} /></li>
-            <li><input name="bnetUser" type="text" onChange={onValueChange} /></li>
-            <li className="centered"><Icon className="MenuAddIcon" path={mdiCheckboxBlankOutline}
+            <li><input name="d2rLauncher" placeholder="-w" type="text" onChange={onValueChange} /></li>
+            <li><input name="bnetLauncher" placeholder="-mod lootfilter" type="text" onChange={onValueChange} /></li>
+            <li className="centered"><Icon className="CheckboxItem" path={mdiCheckboxBlankOutline}
               title="Add Acccount"
               size={1} /></li>
         </ul>
-        </div>
-        <div className="FormAction">
-        <Link to="/account/save" onClick={saveAccount}>Save</Link>
         </div>
     </div>
     );

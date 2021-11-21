@@ -1,24 +1,26 @@
 import './Settings.css';
-import { Link } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 import SettingsApiEdit from './api/SettingsAPI';
 import SettingsDriverEdit from './driver/SettingsDriver';
 import SettingsShortcutEdit from './shortcuts/SettingsShortcut';
 import SettingsGeneralEdit from './general/SettingsGeneral';
+import PageHeader from 'components/ui/page/header/PageHeader';
+import Tabs from 'components/ui/tabs/Tabs';
+import PageFooterToolTip from 'components/ui/page/footer/tooltip/FooterTooltip';
 
 export default function Settings (state:any) {
   console.log(state)
     return (
         <div className="SettingsPage Page">
-          <h1>Settings</h1>
-          <div className="TabContainer">
-            <ul>
-              <Link to={`/settings/general`} className="General"><li>General</li></Link>
-              <Link to={`/settings/api`} className="General"><li>API</li></Link>
-              <Link to={`/settings/shortcuts`} className="General"><li>Shortcuts</li></Link>
-              <Link to={`/settings/driver`} className="General"><li>Kernel Driver</li></Link>
-            </ul>
-          </div>
+          <PageHeader breadcrumbs={['Settings']}/>
+          <Tabs 
+              tabs={[
+                { url: `/settings/general`, label: 'General' },
+                { url: `/settings/api`, label: 'API' },
+                { url: `/settings/shortcuts`, label: 'Shortcuts' },
+                { url: `/settings/driver`, label: 'Kernel Driver' },
+              ]}
+          />
           <Switch>
             <Route path="/settings/general"
                    render={() => <SettingsGeneralEdit {...state} />} />
@@ -29,7 +31,7 @@ export default function Settings (state:any) {
             <Route path="/settings/driver" 
                    render={() => <SettingsDriverEdit {...state} />} />
           </Switch>
-           <p className="PageToolTip">These override account level settings</p>
+          <PageFooterToolTip text={"These override account level settings"} />
         </div>
     );
   };

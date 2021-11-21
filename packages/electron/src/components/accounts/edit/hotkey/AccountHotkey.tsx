@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Select from 'react-select';
 import { useState } from 'react';
 import Icon from '@mdi/react'
@@ -6,11 +5,6 @@ import { mdiCheckboxBlankOutline } from '@mdi/js';
 
 import './AccountHotkey.css';
 
-const saveAccount = async (e:any) => {
-  e.preventDefault();
-  console.log('Saving')
-  return true;
-}
 const options = [
   { value: 'shift', label: 'Shift' },
   { value: 'alt', label: 'Alt' },
@@ -41,28 +35,29 @@ export default function AccountHotKeyEdit () {
               size={1} /></li>
                <li>
                    <Select
-                    defaultValue={selectedOption}
-                    /* @ts-expect-error */
-                    onChange={setSelectedOption}
-                    options={options}
+                      className="SelectBox"
+                      defaultValue={selectedOption}
+                      /* @ts-expect-error */
+                      onChange={setSelectedOption}
+                      options={options}
                   />
                 </li>
                 <li>
                    <Select
-                    defaultValue={selectedOption}
-                    /* @ts-expect-error */
-                    onChange={setSelectedOption}
-                    options={letters.map(
-                      i => ({ value: i, label: i })
-                      )}
+                      className="SelectBox"
+                      defaultValue={selectedOption}
+                      /* @ts-expect-error */
+                      onChange={setSelectedOption}
+                      options={letters.map(
+                        i => ({ value: i, label: i })
+                        )}
                   />
                 </li>
         </ul>
         </div>
-        <div className="FormAction">
-        <Link to="/account/save" onClick={saveAccount}>Save</Link>
-        </div>
-        <p className="PageToolTip">Hotkeys to set current window</p>
+        {/* <div className="FormAction">
+          <Link to="/account/save" onClick={saveAccount}>Save</Link>
+        </div> */}
     </div>
     );
   };

@@ -1,28 +1,71 @@
 import './PageHeader.css';
+import Icon from '@mdi/react'
+import { mdiChevronRight } from '@mdi/js';
+import { Link } from 'react-router-dom';
 
-const singleNameHeader = ({ name, icons }:any) => {
+const singleNameHeader = ({ breadcrumbs, icons }:any) => {
     console.log(icons)
     return (
-        <h1>{name}</h1>
+        <div className="ui-page-header-single-title"><label>{breadcrumbs[0]}</label></div>
     )
 }
 
 const nestedNameHeader = ({ breadcrumbs, icons }:any) => {
     console.log(icons)
+    const nestedItem = ({ item, index }:any) => {
+        return (
+            <div>
+                 { index > 0  ?  
+                    <div>
+                        <Icon 
+                            className="chevIcon" 
+                            path={mdiChevronRight}
+                            title="Home" 
+                            size={1} />
+                    </div>
+                  : null
+                }
+                <label>{item}</label>
+            </div>
+        )
+    }
     return (
-        <h1>
-            {breadcrumbs.map((i:any) => <label>{i}</label>)}
-        </h1>
+        <div>
+            {/* @ts-expect-error */
+            breadcrumbs.map((item, index):any => nestedItem({ item, index }))}
+        </div>
     )
 }
-export default function PageHeader ({ name, breadcrumbs = [], icons = [] }:any) {
+
+const pageIcon = ({ icon, title, onClick }:any) => {
+    return (
+        <Link to="#" onClick={onClick}>
+            <Icon 
+                className="MenuAddIcon" 
+                path={icon}
+                title={title}
+                size={1} 
+            />
+        </Link>
+    )
+}
+
+
+export default function PageHeader ({ breadcrumbs = [], icons = [] }:any) {
     return (
         <div className="ui-page-header">
+            <h1>
             {
-                breadcrumbs.length 
+                breadcrumbs.length > 1
                  ? nestedNameHeader({ breadcrumbs, icons }) 
-                 : singleNameHeader({ name, icons })
+                 : singleNameHeader({ breadcrumbs, icons })
             }
+            <div className="ui-page-header-icons">
+            {
+                icons.map(({ icon, title }:any) => pageIcon({ icon, title }))
+            }
+            </div>
+            </h1>
         </div>
     );
   };

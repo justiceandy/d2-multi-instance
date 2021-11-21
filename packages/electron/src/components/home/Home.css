@@ -3,8 +3,6 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 
-
-
 .Page {
   margin-top: 0px;
   margin-left: 150px;
@@ -12,39 +10,9 @@
   font-family: system-ui;
 }
 
-.Page h1 {
-  background: #0e0e0e;
-  margin-top: 0;
-  border-bottom: 1px solid #000000;
-  padding-left: 10px;
-  font-size: 1.2em;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-weight: 700;
-  border-top: 1px solid #0a0a0ad9;
-  color: #bdbdbd;
-  border-left: 1px solid #242424;
-  min-height: 48px;
-  box-sizing: border-box;
-  margin-bottom: 0px;
-}
-
-
-.PageToolTip {
-  position: absolute;
-  bottom: 10px;
-  margin-left:10px;
-  font-size: 0.9em;
-  color: #808080d1;
-}
-
-.PageContent {
-
-}
-
-
 .PageTopMenu {
-  height: 285px;
+  height: 235px;
+  box-sizing: border-box;
 }
 
 .PageTopMenu div {
@@ -64,6 +32,10 @@
   box-sizing: border-box;
 }
 
+.PageTopMenu ul li .disabled {
+  color: #666666 !important;
+}
+
 .PageTopMenu ul li {
   margin-bottom: 10px;
   border-bottom: 1px dotted #bdbdbd3d;
@@ -77,8 +49,53 @@
 }
 
 .PageTopMenu ul li span {
-  color: #00bf44;
+  color: #008d2f;
   font-weight: 700;
   float: right;
   margin-right: 10px;
+}
+
+
+.Page .ContentContainer {
+  z-index: 1;
+  font-family: system-ui;
+  float: left;
+  margin: auto;
+  width: 100%;
+  padding-top: 15px;
+  display: flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  height: 100vh;
+  flex-wrap: wrap;
+  background: #181818;
+}
+
+.StatCard {
+  background: #121212;
+  margin-left: 20px;
+  border-radius: 4px;
+  border-color: #000000;
+  color: #8d8d8d;
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+  height: 112px;
+  width: 330px !important;
+  text-indent: -10px;
+  margin-left: 13px !important;
+}
+
+.StatCard span {
+  float: left;
+  width: 100%;
+  font-size: 2em;
+  color: #6d8d9d;
+}
+
+.StatCard label {
+  font-size: 0.9em;
 }
