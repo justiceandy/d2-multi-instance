@@ -3,6 +3,7 @@ import 'regenerator-runtime/runtime';
 import { app, ipcMain } from 'electron';
 import initHandlers from '../handlers';
 import createMainWindow from '../window/main'
+import windowHandlers from '../handlers/window/window.handler';
 
 const start  = () => {
     if (process.env.NODE_ENV === 'production') {
@@ -24,14 +25,15 @@ const start  = () => {
     
     app
     .whenReady()
-    .then(() => {
+    .then(async () => {
         initHandlers({ ipcMain });
-        const mainWindow = createMainWindow({ isDevelopment, ipcMain });
-
-        app.on('activate', () => {
+        const mainWindow = await createMainWindow({ isDevelopment });
+        console.log(mainWindow)
+        windowHandlers({ ipcMain, window: mainWindow })
+        app.on('activate', async () => {
             // On macOS it's common to re-create a window in the app when the
             // dock icon is clicked and there are no other windows open.
-            if (mainWindow === null) createMainWindow({ isDevelopment, ipcMain });
+            if (mainWindow === null) await createMainWindow({ isDevelopment, ipcMain });
         });
 
         return mainWindow

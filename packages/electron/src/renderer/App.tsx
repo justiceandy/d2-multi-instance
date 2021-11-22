@@ -13,8 +13,8 @@ import Integrations from 'components/integrations/Integrations';
 export default function App({ settings }:any) {
   return (
     <div>
+    <Router>
       <Header />
-      <Router>
         <Menu />
         <Switch>
           <Route exact path="/" render={() => <Home {...settings} />} />

@@ -5,7 +5,7 @@ export default function init({ ipcMain, window }:any) {
         return true;
     })
     ipcMain.handle('window/minimize', () => {
-        window.hide()
+        window.minimize();
         return true;
     })
     return ipcMain;

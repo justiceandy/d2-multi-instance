@@ -1,11 +1,11 @@
 import installExtensions from "../extensions/install";
 import path from 'path';
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Tray } from 'electron';
 import MenuBuilder from '../menu';
 import { resolveHtmlPath } from '../util';
 import { autoUpdater } from 'electron-updater';
-import windowHandlers from '../handlers/window/window.handler';
 import log from 'electron-log';
+import CreateTray from './tray';
 
 class AppUpdater {
     constructor() {
@@ -14,12 +14,16 @@ class AppUpdater {
       autoUpdater.checkForUpdatesAndNotify();
     }
 }
+
+
+
 /*
     Module Handles Creating Main Entry Window
 */
-export default async function createMainWindow({ isDevelopment, ipcMain }:any){
+export default async function createMainWindow({ isDevelopment }:any){
     
     let mainWindow: BrowserWindow | null = null;
+    let tray: Tray | null = null;
 
     if (isDevelopment) {
       await installExtensions();
@@ -53,7 +57,7 @@ export default async function createMainWindow({ isDevelopment, ipcMain }:any){
       },
       ...conditionalWindowProps,
     });
-  
+    
     mainWindow.loadURL(resolveHtmlPath('index.html'));
   
     mainWindow.on('ready-to-show', () => {
@@ -67,15 +71,26 @@ export default async function createMainWindow({ isDevelopment, ipcMain }:any){
         
       }
     });
-  
+
+    mainWindow.on('minimize', (event:any) => {
+        event.preventDefault();
+        /* @ts-expect-error */
+        mainWindow.hide();
+        tray = CreateTray({ mainWindow, icon: getAssetPath('icon.png')});
+    });
+    
+    mainWindow.on('restore',  () => {
+        /* @ts-expect-error */
+        mainWindow.show();
+        /* @ts-expect-error */
+        tray.destroy();
+    });
     mainWindow.on('closed', () => {
       mainWindow = null;
     });
   
     const menuBuilder = new MenuBuilder(mainWindow);
     menuBuilder.buildMenu();
-    
-    windowHandlers({ ipcMain, window: mainWindow })
 
     // Open urls in the user's browser
     // mainWindow.webContents.on('new-window', (event, url) => {

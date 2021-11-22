@@ -7,6 +7,7 @@
  * When running `npm run build` or `npm run build:main`, this file is compiled to
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
+
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import cluster from '@d2r/libs/dist/service/cluster';

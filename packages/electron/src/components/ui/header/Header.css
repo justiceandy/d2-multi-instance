@@ -38,11 +38,16 @@
  }
 
  .HeaderBtns{
-    position: absolute;
+    position: fixed;
+    -webkit-app-region: no-drag;
     right: 0px;
     margin-right: 7px;
     margin-top: 7px;
     color: #d99434;
+ }
+
+ .HeaderBtns a {
+   -webkit-app-region: no-drag;
  }
 
 

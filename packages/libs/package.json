@@ -13,7 +13,7 @@
     "postbuild": "tsc -p ./tsconfig.json",
     "predevpub": "npm run build && npm unpublish --registry http://127.0.0.1:4873/ --force",
     "devpub": "npm publish --registry http://127.0.0.1:4873/ --force"
-   },
+  },
   "author": "",
   "license": "ISC",
   "publishConfig": {
@@ -36,7 +36,8 @@
     "robotjs": "^0.6.0",
     "short-hash": "^1.0.0",
     "sudo-prompt": "^9.2.1",
-    "win32-api": "^9.6.0"
+    "win32-api": "^9.6.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
