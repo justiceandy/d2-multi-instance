@@ -1,7 +1,5 @@
-const { ipcRenderer } = require('electron');
 
-
-export default function WindowPreload() {
+module.exports = (ipcRenderer) => {
    return {
       windowClose: async () => {
         const close = await ipcRenderer.invoke('window/close');

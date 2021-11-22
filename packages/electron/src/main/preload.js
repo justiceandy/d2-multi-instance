@@ -1,15 +1,12 @@
 const { contextBridge, ipcRenderer } = require('electron');
+const windowPreload = require('./handlers/window/window.preload');
+const workerPreload = require('./handlers/window/window.preload');
+const settingsPreload = require('./handlers/settings/settings.preload');
+const accountPreload = require('./handlers/account/account.preload');
+const processPreload = require('./handlers/process/process.preload');
 
 contextBridge.exposeInMainWorld('electron', {
   ipcRenderer: {
-    getSettings: async () => {
-      const settings = await ipcRenderer.invoke('settings/get');
-      return settings;
-    },
-    getProcesses: async () => {
-      const processes = await ipcRenderer.invoke('processes/get');
-      return processes;
-    },
     myPing() {
       ipcRenderer.send('ipc-example', 'ping');
     },
@@ -27,6 +24,11 @@ contextBridge.exposeInMainWorld('electron', {
         ipcRenderer.once(channel, (event, ...args) => func(...args));
       }
     },
+    ...windowPreload(ipcRenderer),
+    ...workerPreload(ipcRenderer),
+    ...settingsPreload(ipcRenderer),
+    ...accountPreload(ipcRenderer),
+    ...processPreload(ipcRenderer),
   },
 });
 

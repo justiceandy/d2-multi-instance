@@ -4,7 +4,7 @@ import { app, BrowserWindow } from 'electron';
 import MenuBuilder from '../menu';
 import { resolveHtmlPath } from '../util';
 import { autoUpdater } from 'electron-updater';
-import windowHandlers from '../handlers/window';
+import windowHandlers from '../handlers/window/window.handler';
 import log from 'electron-log';
 
 class AppUpdater {
@@ -15,7 +15,7 @@ class AppUpdater {
     }
 }
 /*
-    Module Handles Creating Main Window
+    Module Handles Creating Main Entry Window
 */
 export default async function createMainWindow({ isDevelopment, ipcMain }:any){
     

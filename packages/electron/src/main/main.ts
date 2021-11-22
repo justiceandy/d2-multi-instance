@@ -14,7 +14,7 @@ import { settings } from '@d2r/libs';
 import primary from './cluster/primary';
 import workers from './cluster/workers';
 import { ipcMain } from 'electron';
-import workerIpcHandler from './handlers/worker';
+import workerIpcHandler from './handlers/worker/worker.handler';
 
 // Initialize Process Cluster
 const activeCluster = cluster.init();
@@ -24,7 +24,6 @@ const config = cluster.defaultConfig();
 const executeMainThread = async () => {
   // Start Main Window
   const mainWindow = primary.start();
-
   //const appSettings = await settings.get();
   
   // Start the Process Fork
@@ -37,8 +36,7 @@ const executeMainThread = async () => {
     id => workers.init({ config, worker: { id } })
   );
   // Create IPC Handles with Context
-  workerIpcHandler.init({ ipcMain, workers: workerPayloads });
-
+  workerIpcHandler({ ipcMain, workers: workerPayloads });
   return { mainWindow, primaryFork, workerPayloads }
 }
 
