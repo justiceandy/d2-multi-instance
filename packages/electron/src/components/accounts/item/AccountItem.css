@@ -66,6 +66,13 @@
     display: contents;
 }
 
+.AccountItem .LaunchButtons label {
+  color: #9b9b9b;
+  float: left;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
 .AccountItem .OrderIcon {
     width: 1.5rem;
     height: 1.5rem;
@@ -76,11 +83,19 @@
 .AccountItem:hover .AccountNameContainer,  .AccountItem:hover .OrderIcon {
   color: #bdbdbd;
 }
-
+.AccountNameText{
+  width: fit-content;
+  float: left;
+  max-width: 135px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .AccountItem:hover {
   background: #161616;
 }
-.AccountItem .LaunchIcon, .AccountItem .RefreshIcon, .AccountItem .EditIcon {
+.AccountItem .LaunchIcon, .AccountItem .RefreshIcon, 
+.AccountItem .EditIcon, .addQueIcon, .removeQueIcon,
+.IdleButtons .termIcon {
     float: right;
     padding: 8px;
     margin-top: -4px;
@@ -90,6 +105,23 @@
     box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
   }
 
+  .TermButtons label {
+    color: #8d8d8d;
+    float: left;
+    margin-top: 4px;
+    font-size: 0.9em;
+    text-transform: capitalize;
+  }
+
+  .TermButtons .termIcon {
+    margin-right: 0px;
+    padding: 8px;
+    margin-top: -4px;
+    border-radius: 3px;
+    margin-left: 10px;
+    color: #c70001eb;
+    box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
+  }
   .AccountItem .LaunchIcon {
     background: #0d7600
   }

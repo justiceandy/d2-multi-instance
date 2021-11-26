@@ -1,9 +1,10 @@
 import './ServiceEvents.css';
+import DataTable from 'components/ui/table/DataTable'
 
 export default function ServiceEvents () {
     return (
-      <div>
-        <h1>Service Events</h1>
-      </div>
+        <div className="ContentContainer ServiceEvents">
+            <DataTable />
+        </div>
     );
   };

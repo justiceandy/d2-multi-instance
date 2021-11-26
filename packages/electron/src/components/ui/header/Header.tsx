@@ -22,7 +22,7 @@ export default function Header () {
     return (
       <div>
         <div className="Header">
-          <img width="100px" alt="icon" src={icon} />
+          <img alt="icon" src={icon} />
           <div className="HeaderText">
             <h1>Diablo II Launcher</h1>
             <label>Multi Account Authenticator</label>
@@ -32,11 +32,16 @@ export default function Header () {
           </div> */}
           <div className="HeaderBtns">
               <Link to="/home" onClick={minimizeApp}>
-                <Icon path={ mdiWindowMinimize} title="Home" size={1} />
+                <Icon path={ mdiWindowMinimize} size={1} />
               </Link>
               <Link to="/home" onClick={closeApp}>
-                <Icon path={ mdiClose} title="Home" size={1} />
+                <Icon path={ mdiClose} size={1} />
               </Link>
+          </div>
+
+          <div className="HeaderStatus">
+            <label className="rank">Early Adopter</label>
+            <label className="version">Version: 1.0.0</label>
           </div>
         </div>
       </div>

@@ -37,3 +37,7 @@
   .ProcessList h1 {
     margin-bottom: 0px;
   }
+
+  .ServiceProcesses {
+    background: #000000 !important;
+  }

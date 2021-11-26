@@ -1,0 +1,18 @@
+
+
+.SettingsGeneral .ui-form-labels {
+    padding-top: 30px;
+    margin-top: 0px;
+    max-width: 290px;
+    height: 355px !important;
+}
+
+
+.SettingsGeneral .ui-form-values {
+    height: 355px;
+    padding-top: 29px;
+}
+
+.SettingsGeneral .ui-form-values ul {
+    max-width: 220px;
+}

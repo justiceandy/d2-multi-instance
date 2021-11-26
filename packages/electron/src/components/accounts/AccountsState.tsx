@@ -1,46 +1,95 @@
+// @ts-nocheck
 import { createMachine, assign } from 'xstate';
 
-export default function AccountsStateMachine() {
+/*
+    Parent State Machine for Account List
+        - Needed to lock states while an account action is being performed
+*/
+export default function AccountStateMachine() {
     return createMachine({
-        id: 'Accounts Component',
+        id: 'AccountState',
         initial: 'idle',
         context: {
-            dog: null,
-            processes: null
+            accounts: [],
+            que: [],
+            isLocked: true,
+        },
+        services: {
+            getAccounts: (context, event) => window.electron.ipcRenderer.getProcesses().then((data:any) =>
+                data
+            ),
+            triggerNextItem: (context, event) => window.electron.ipcRenderer.getProcesses().then((data:any) =>
+                data
+            ),
+            que: (context, event) => window.electron.ipcRenderer.getProcesses().then((data:any) =>
+                data
+            ),
         },
         states: {
             idle: {
                 on: {
-                    FETCH: 'loading'
+                    LOAD: 'loading'
                 }
             },
             loading: {
                 invoke: {
-                    id: 'fetchDog',
-                    src: () =>
-                    /* @ts-expect-error */
-                    window.electron.ipcRenderer.getProcesses().then((data:any) =>
-                        data
-                    ),
+                    id: 'getAccounts',
+                    src: 'getAccounts',
                     onDone: {
-                    target: 'resolved',
-                    actions: assign({
-                        processes: (_, event) => event.data
-                    }),
+                        target: 'loaded',
                     },
                     onError: 'rejected'
                 },
+                on: { CANCEL: 'idle' }
+            },
+            que: {
+                invoke: {
+                    id: 'queItem',
+                    src: 'queItem',
+                    onDone: {
+                        target: 'locked',
+                    },
+                    onError: 'rejected'
+                },
+                on: {  CANCEL: 'loaded' }
+            },
+            locked: {
                 on: {
-                    CANCEL: 'idle'
+                    UNLOCK: 'loaded',
+                    NEXT: 'checkQue'
                 }
             },
-            resolved: {
-               type: 'final'
+            checkQue: {
+                invoke: {
+                    id: 'triggerNextItem',
+                    src: 'triggerNextItem',
+                    onDone: {
+                        target: 'locked',
+                    },
+                    onError: 'loaded'
+                },
+                on: {
+                    NEXT: 'locked',
+                    UNLOCK: 'loaded',
+                }
             },
+            loaded: {
+                on: {
+                     LOCK: {
+                        actions: [
+                            assign({ 
+                                process: (context, event) => {
+                                    console.log('Lock Event')
+                                }
+                            })
+                        ],
+                     },
+                     QUE: 'que',
+                     REFRESH: 'loading'
+                 }
+             },
             rejected: {
-                on: {
-                    FETCH: 'loading'
-                }
+                on: { RETRY: 'loading' }
             }
         }
     });

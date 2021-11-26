@@ -24,14 +24,12 @@ export default function Home (settings:any) {
     )
   }
   const statusLabel = (settingValue:string) => {
-    console.log('settingValue', settingValue)
     return settingValue ?
       enabledLabel()
       :
       disabledLabel()
   }
 
-  console.log(settings)
     return (
       <div className="Page">
          <PageHeader 
@@ -40,23 +38,7 @@ export default function Home (settings:any) {
             ]}
           />
         <div className="PageTopMenu">
-          <div>
-            <ul>
-              <li>Registered Accounts:  <span>{accountNumber}</span></li>
-              <li>Running Processes:  <span>0</span></li>
-            </ul>
-
-            <div className="StatCard">
-              <div>
-                <span>20%</span>
-                <label>CPU Usage</label>
-              </div>
-              <div>
-                <span>200mb</span>
-                <label>Memory Usage</label>
-              </div>
-            </div>
-          </div>
+          
           <div>
             <ul>
               <li>Notifications:  {statusLabel(notifications)}</li>
@@ -65,6 +47,22 @@ export default function Home (settings:any) {
               <li>Manage Window Titles: {statusLabel(changeWindowTitles)}</li>
               <li>Kernel Driver:  {statusLabel(kernelDriver)}</li>
             </ul>
+          </div>
+          <div>
+            <ul>
+              <li>Registered Accounts:  <span>{accountNumber}</span></li>
+              <li>Running Processes:  <span>0</span></li>
+            </ul>
+            <div className="StatCard">
+              <div className="StatCPU">
+                <span>20%</span>
+                <label>CPU Usage</label>
+              </div>
+              <div className="StatMem">
+                <span>200mb</span>
+                <label>Memory Usage</label>
+              </div>
+            </div>
           </div>
         </div>
         <div className="PageContent">

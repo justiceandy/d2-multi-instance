@@ -7,7 +7,7 @@ import './Integrations.css';
 export default function Integrations (state:any) {
   console.log(state)
     return (
-        <div className="Page">
+        <div className="Page IntegrationPage">
           <PageHeader breadcrumbs={['Integrations']} />
           <div className="ContentContainer">
             {/* <Switch>
@@ -23,7 +23,7 @@ export default function Integrations (state:any) {
                     render={() => <ServiceEvents  />} />
             </Switch> */}
             <div className="ComingSoon">
-                 <p>Coming Soon</p>
+                 <p>Feature Disabled</p>
             </div>
           </div>
           <PageFooterToolTip 

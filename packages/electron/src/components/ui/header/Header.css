@@ -16,20 +16,28 @@
    background-image: radial-gradient(circle farthest-corner at 50% calc(50% - 200px), rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 90%, black 100%), var(--stone-bg);
    overflow-x: hidden;
    --row-gap: var(--size-600);
-   -webkit-app-region: drag
+   -webkit-app-region: drag;
+   height: 106px;
+   overflow: hidden;
+   /* opacity: 0.85; */
+   /* border-bottom: 2px solid #95601e; */
  }
 
  .Header img {
-    float: left;
-    margin-right: 10px;
-    margin-left: 28px;
-    margin-top: -7px;
-    padding-bottom: 10px;
+   float: left;
+   margin-right: 10px;
+   margin-left: -39px;
+   margin-top: -35px;
+   padding-bottom: 10px;
+   position: absolute;
+   height: 245px;
+   opacity: 0.75;
+   z-index: 1;
  }
 
  .Header h1 {
    float: left;
-   margin-top: 23px;
+   margin-top: 22px;
    margin-left: 25px;
    margin-bottom: 0px;
    color: #bdbdbd;
@@ -37,22 +45,78 @@
    text-shadow: 2px 2px #0e0e0e;
  }
 
+ .StatCPU{
+   border-right: 1px solid #252525;
+   box-sizing: border-box;
+ }
  .HeaderBtns{
-    position: fixed;
-    -webkit-app-region: no-drag;
-    right: 0px;
-    margin-right: 7px;
-    margin-top: 7px;
-    color: #d99434;
+   position: fixed;
+   -webkit-app-region: no-drag;
+   right: 0px;
+   margin-right: 7px;
+   margin-top: 3px;
+   color: #d99434;
+ }
+
+ .StatCard div {
+   padding-top: 0px;
+   margin-top: 11px;
  }
 
  .HeaderBtns a {
-   -webkit-app-region: no-drag;
+    -webkit-app-region: no-drag;
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+    color: inherit;
+    margin-left: 5px;
  }
+ 
+ .HeaderBtns a:hover {
+    color: white;
+}
 
+.HeaderStatus .version {
+   float: left;
+   clear: both;
+   width: 105px;
+   color: #626262eb;
+   font-weight: 700;
+   margin-top: 3px;
+}
+
+.HeaderStatus {
+   position: absolute;
+   right: 0;
+   top: 31px;
+   font-family: system-ui;
+   font-size: 0.9em;
+   padding: 9px;
+   padding-top: 0px;
+   height: 53px;
+   box-sizing: border-box;
+   width: 130px;
+   text-align: center;
+   border-right: 0px;
+   padding-right: 0px;
+   padding-left: 0px;
+}
+
+.HeaderStatus .rank {
+   margin: auto;
+   float: left;
+   width: 105px;
+   background: #060606;
+   padding: 3px;
+   border-radius: 3px;
+   box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+   font-weight: 700;
+   opacity: 0.5;
+}
 
 .HeaderText {
-   float:left;
+   float: left;
+   margin-left: 138px;
+   position: relative;
+   z-index: 3;
 }
 
 .HeaderText label {
@@ -60,4 +124,5 @@
    clear: left;
    margin-left: 54px;
    color: #d89a36;
+   margin-top: 4px;
 }

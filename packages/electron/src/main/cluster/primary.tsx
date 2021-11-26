@@ -3,9 +3,14 @@ import 'regenerator-runtime/runtime';
 import { app, ipcMain } from 'electron';
 import initHandlers from '../handlers';
 import createMainWindow from '../window/main'
+import createOnboardingWindow from '../window/onboarding';
+
 import windowHandlers from '../handlers/window/window.handler';
 
-const start  = () => {
+const start  = ({ window, windowRoute, settings }:any) => {
+    console.log(windowRoute);
+    console.log(settings);
+
     if (process.env.NODE_ENV === 'production') {
         const sourceMapSupport = require('source-map-support');
         sourceMapSupport.install();
@@ -27,8 +32,11 @@ const start  = () => {
     .whenReady()
     .then(async () => {
         initHandlers({ ipcMain });
-        const mainWindow = await createMainWindow({ isDevelopment });
-        console.log(mainWindow)
+        
+        const mainWindow = await window === 'main'
+            ? createMainWindow({ isDevelopment })
+            : createOnboardingWindow({ isDevelopment });
+            
         windowHandlers({ ipcMain, window: mainWindow })
         app.on('activate', async () => {
             // On macOS it's common to re-create a window in the app when the

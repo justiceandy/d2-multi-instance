@@ -2,11 +2,7 @@
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
-.AccountEdit .FormLabels, .AccountEdit .FormValues{
-  float: left;
-  width: 40%;
-  box-sizing: border-box;
-}
+
 
 .AccountEdit .ContentContainer ul {
   list-style: none;
@@ -27,89 +23,6 @@
   flex: 1;
 }
 
-.AccountEdit .FormLabels {
-  padding-top: 5px;
-  max-width: 200px;
-  text-align: center;
-}
-.AccountEdit .ContentContainer ul li {
-  font-family: system-ui;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.AccountEdit .Container {
-  max-width: 505px;
-  margin-top: -10px;
-}
-
-.AccountEdit .FormLabels {
-}
-
-.AccountEdit .FormLabels ul li {
-  padding: 5px;
-  padding-left: 0px;
-  text-align: center;
-  padding-top: 10px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 11px;
-  margin-bottom: 9px;
-}
-.AccountEdit .FormLabels ul li:last-of-type{
-  border-bottom: 0px;
-}
-.AccountEdit .FormValues {
-  flex: 3;
-}
-
-
-.AccountClient {
-  display: flex;
-    flex-wrap: wrap;
-}
-.AccountEdit .FormValues input {
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #060606c7;
-  color: #ffffff;
-  font-family: system-ui;
-  font-size: 1em;
-  background: #232323;
-  font-weight: 700;
-  border-radius: 4px;
-  padding: 10px;
-}
-
-.AccountEdit .FormAction {
-  width: 100%;
-  text-align: right;
-  box-sizing: border-box;
-  height: 50px;
-  margin-top: 5px;
-}
-
-.AccountEdit .FormAction p {
-  float: left;
-  padding-left: 22px;
-  font-size: .9em;
-  color: #bbbbbb;
-}
-.AccountEdit .FormAction a {
-  color: white;
-  text-decoration: none;
-  background: #005068;
-  padding: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
-  border-radius: 5px;
-  font-weight: 700;
-  border: 1px solid #00222c;
-  float: right;
-}
 
 .AccountEdit .TabContainer {
   float: left;
@@ -142,38 +55,7 @@
   background: #222222;
   color: #d89a36;
  }
-.AccountEdit {
-  margin-top: 0px;
-  margin-left: 150px;
-  z-index: 1;
-  font-family: system-ui;
-}
 
-.AccountEdit .ContentContainer {
-  z-index: 1;
-  font-family: system-ui;
-  float: left;
-  margin: auto;
-  width: 100%;
-  padding-top: 15px;
-  display: flex;
-  align-content: flex-start;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
-  height: 100vh;
-  flex-wrap: wrap;
-  background: #181818;
-}
-
-.AccountEdit .ContentContainer .AccountClient {
-  width: 70vw;
-  max-width: 630px;
-}
-
-.FormValues .centered {
-  text-align: center;
-}
 .CheckboxItem {
   color: white;
   margin-right: 40px;
@@ -198,4 +80,13 @@
 .AccountEdit .FormValues li {
   padding-top: 0;
   margin-bottom: -2px;
+}
+
+
+.AccountEdit .ContentContainer .ui-form-labels {
+  max-width: 300px;
+}
+
+.AccountEdit .ContentContainer .ui-form-values ul {
+  max-width: 335px;
 }

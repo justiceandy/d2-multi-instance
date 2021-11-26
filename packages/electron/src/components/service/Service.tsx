@@ -7,7 +7,7 @@ import ServiceOverview from './overview/ServiceOverview';
 import ServiceAPI from './api/ServiceAPI';
 import ServiceProcesses from './processes/ServiceProcesses';
 import ServiceEvents from './events/ServiceEvents';
-import ServiceRegistry from './registry/ServiceRegistry';
+import ServiceStorage from './storage/ServiceStorage';
 
 import './Service.css';
 
@@ -19,24 +19,22 @@ export default function Service (state:any) {
           <Tabs tabs={[
               { url: '/service/general', label: 'General' },
               { url: '/service/process', label: 'Processes' },
-              { url: '/service/registry', label: 'Registry Keys' },
+              { url: '/service/registry', label: 'Storage' },
               { url: '/service/api', label: 'API' },
               { url: '/service/events', label: 'Events' }
            ]} />
-          <div className="ContentContainer">
-            <Switch>
-              <Route path="/service/general"
-                    render={() => <ServiceOverview />} />
-              <Route path="/service/api"
-                    render={() => <ServiceAPI  />} /> 
-              <Route path="/service/process"
-                    render={() => <ServiceProcesses  />} />
-              <Route path="/service/registry" 
-                    render={() => <ServiceRegistry  />} />
-              <Route path="/service/events" 
-                    render={() => <ServiceEvents  />} />
-            </Switch>
-          </div>
+          <Switch>
+            <Route path="/service/general"
+                  render={() => <ServiceOverview />} />
+            <Route path="/service/api"
+                  render={() => <ServiceAPI  />} /> 
+            <Route path="/service/process"
+                  render={() => <ServiceProcesses  />} />
+            <Route path="/service/registry" 
+                  render={() => <ServiceStorage  />} />
+            <Route path="/service/events" 
+                  render={() => <ServiceEvents  />} />
+          </Switch>
           <PageFooterToolTip 
               text={"Save events occur on changes"}
               icons={[

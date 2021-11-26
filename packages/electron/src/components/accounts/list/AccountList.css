@@ -7,16 +7,21 @@ h1 .MenuAddIcon{
   color: #c3c3c3;
 }
 
+.AccountListContainer {
+  max-width: 750px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .AccountList ul {
   list-style: none;
   width: 100%;
-  padding-left: 15px;
   margin: auto;
+  padding-left: 0px;
   box-sizing: border-box;
   text-align: center;
-  align-items: flex-end;
+  align-items: baseline;
   display: flex;
-  align-content: center;
+  align-content: stretch;
   flex-wrap: wrap;
   flex-direction: row;
   padding-top: 10px;
@@ -26,12 +31,11 @@ h1 .MenuAddIcon{
 .AccountList ul li {
   list-style: none;
   margin-left: 0px;
-  max-width: 370px;
-  width: 48%;
   padding-right: 10px;
   height: 55px;
   margin-bottom: 11px;
   border-radius: 3px;
   box-sizing: border-box;
+  min-width: 50%;
 }
 

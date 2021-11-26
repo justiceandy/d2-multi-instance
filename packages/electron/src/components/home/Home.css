@@ -5,14 +5,23 @@
 
 .Page {
   margin-top: 0px;
-  margin-left: 150px;
+  margin-left: 151px;
   z-index: 1;
   font-family: system-ui;
 }
-
+:focus {
+  outline: -webkit-focus-ring-color auto 0px !important;
+}
+a:-webkit-any-link:focus-visible {
+  outline-offset: 0px !important;
+}
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
 .PageTopMenu {
   height: 235px;
   box-sizing: border-box;
+  background: #00203021;
 }
 
 .PageTopMenu div {
@@ -21,15 +30,19 @@
   max-width: 350px;
   margin: auto;
   padding-top: 10px;
+  position: relative;
+    z-index: 3;
 }
 
 .PageTopMenu ul {
   list-style: none;
   margin-left: 0;
-  padding-left: 10px;
-  margin-top: -1px;
+  padding-left: 14px;
+  margin-top: 3px;
   max-width: 400px;
   box-sizing: border-box;
+  z-index: 1;
+    position: relative;
 }
 
 .PageTopMenu ul li .disabled {
@@ -37,15 +50,17 @@
 }
 
 .PageTopMenu ul li {
-  margin-bottom: 10px;
-  border-bottom: 1px dotted #bdbdbd3d;
-  padding-bottom: 11px;
+  margin-bottom: 7px;
+  border-bottom: 1px dotted #bdbdbd1a;
   color: #bdbdbd;
   padding: 5px;
-  box-sizing: border-box;
   font-family: system-ui;
-  text-shadow: 2px 2px #0e0e0e;
   width: 100%;
+  padding-bottom: 7px;
+  box-sizing: border-box;
+  padding-top: 2px;
+  height: 35px;
+  text-indent: 4px;
 }
 
 .PageTopMenu ul li span {
@@ -53,6 +68,7 @@
   font-weight: 700;
   float: right;
   margin-right: 10px;
+  text-shadow: 1px 1px 5px black;
 }
 
 
@@ -62,7 +78,6 @@
   float: left;
   margin: auto;
   width: 100%;
-  padding-top: 15px;
   display: flex;
   align-content: flex-start;
   justify-content: flex-start;
@@ -70,12 +85,10 @@
   flex-direction: row;
   height: 100vh;
   flex-wrap: wrap;
-  background: #181818;
 }
 
 .StatCard {
-  background: #121212;
-  margin-left: 20px;
+  background: #0e0e0ea3;
   border-radius: 4px;
   border-color: #000000;
   color: #8d8d8d;
@@ -87,15 +100,27 @@
   width: 330px !important;
   text-indent: -10px;
   margin-left: 13px !important;
+  padding-right: 0px;
 }
 
 .StatCard span {
   float: left;
   width: 100%;
   font-size: 2em;
-  color: #6d8d9d;
+  color: #0086c7 !important;
+  text-shadow: -1px 2px 2px #000000;
 }
-
+.StatCard div:hover span {
+  color: #0086c7 !important;
+}
 .StatCard label {
   font-size: 0.9em;
+}
+
+.StatCPU{
+  width: 45% !important;
+}
+
+.StatMem {
+  width: 55% !important;
 }

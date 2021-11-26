@@ -1,35 +1,47 @@
 import { Link } from 'react-router-dom';
 import {  useMachine } from '@xstate/react';
-import AccountsStateMachine from './AccountItemState';
 import { accountOrderIcon } from './components/ItemIcons';
-import { activeButtons, launchingButtons, runningButtons, idleButtons } from './components/ItemActionButtons';
+import AccountItemStateMachine from './state/AccountItemState';
+import { 
+    activeButtons, launchingButtons, 
+    runningButtons, idleButtons, 
+    queButtons, terminatingButtons,
+    authButtons 
+} from './components/ItemActionButtons';
+
 import './AccountItem.css';
 
-const accountItemState = AccountsStateMachine();
+let existingItemState:any = null;
+let existingQueState:any = null;
 
-export default function AccountItem ({ name, id }:any) {
-    const [ state, send ] = useMachine(accountItemState);
+/** 
+ *  AccountItem:
+ *  Component Renders a component inside AccountList
+ *      - Has internal state / action management
+ *      - Optional Que Machine for multiple instances
+ **/
+export default function AccountItem ({ name, id, QueState = null, ItemState = null }:any) {
 
-    const killProcess = (e:any) => {
-        e.preventDefault();
-        send('KILL');
-    };
-    const launchGame = (e:any) => {
-        e.preventDefault();
-        send('LAUNCH');
-    };
-    const refreshAccount = (e:any) => {
-        e.preventDefault();
-        send('AUTH');
-    };
+    // Item State (passed or initialized)
+    const thisItemStateMachine = ItemState || existingItemState || AccountItemStateMachine({ 
+        index: id, 
+        QueMachine: QueState,
+    });
+    existingItemState = thisItemStateMachine;
 
-    send("UNLOCK");
-    console.log(state.value)
+    // Que State (passed or initialized)
+     const thisQueState = QueState || existingQueState;
+           existingQueState = thisQueState;
+
+    // Destruct machines
+    const [ state, send ] = useMachine(thisItemStateMachine);
+    const [ qState ] = useMachine(thisQueState);
+    
     return (
         <div className="AccountItem">
             <Link 
                 className="AccountLink" to={{
-                pathname: `/accounts/${id}/edit/general`, 
+                 pathname: `/accounts/${id}/edit/general`, 
             }}>
             <div className="AccountNameContainer">
                 {accountOrderIcon(id)}
@@ -42,25 +54,12 @@ export default function AccountItem ({ name, id }:any) {
               {activeButtons({ state, send })}
             </div>
             <div className="actIcons">
-                   {state.value !== 'idle' && state.value !== 'running' ? 
-                        launchingButtons({ 
-                            state,
-                            launchGame,
-                        })  : null 
-                    }
-                    {state.value === 'running' ? 
-                        runningButtons({ 
-                            state,
-                            killProcess,
-                        }) : null 
-                    }
-                    {state.value === 'idle' ? 
-                        idleButtons({ 
-                            state,
-                            launchGame,
-                            refreshAccount,
-                        }) : null 
-                    }
+                { launchingButtons({ state, send, qState, id }) }
+                { runningButtons({ state,  send, qState, id }) }
+                { idleButtons({ state, send, qState, id }) }
+                { queButtons({ state, send, qState, id }) }
+                { authButtons({ state, send, id }) }
+                { terminatingButtons({ state, send, id }) }
             </div>
         </div>
     );

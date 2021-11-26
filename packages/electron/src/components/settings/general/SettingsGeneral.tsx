@@ -5,12 +5,13 @@ import FormLabels from 'components/ui/form/labels/FormLabels';
 export default function SettingsGeneralEdit (settings:any) {
   console.log(settings)
     return (
-      <div className="ContentContainer">
+      <div className="ContentContainer SettingsGeneral">
             <FormLabels 
                 items={[
-                  'Windows Notifications:',
-                  'Automated Battle.net Login:',
-                  'Change Window Titles:'
+                  'Notifications:',
+                  'Automated Login:',
+                  'Change Window Titles:',
+                  'Debug Mode',
                 ]}
             />
             <FormValues
@@ -21,6 +22,8 @@ export default function SettingsGeneralEdit (settings:any) {
                   { type: 'checkbox', checked: true },
                    /* @ts-expect-error */
                   { type: 'checkbox', checked: true },
+                  /* @ts-expect-error */
+                  { type: 'checkbox',  checked: true },
                 ]}
             />
       </div>

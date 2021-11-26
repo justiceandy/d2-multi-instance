@@ -1,5 +1,6 @@
-import Icon from '@mdi/react'
-import { mdiCheckboxBlankOutline } from '@mdi/js';
+
+import FormValues from 'components/ui/form/values/FormValues';
+import FormLabels from 'components/ui/form/labels/FormLabels';
 
 import './AccountClient.css';
 
@@ -11,23 +12,27 @@ const onValueChange = async (e:any) => {
 
 export default function AccountClientEdit () {
     return (
-      <div className="AccountClient">
-        <div className="FormLabels">
-        <ul>
-            <li>D2R Launcher:</li>
-            <li>Battle Net Launcher:</li>
-            <li>Skip Intro:</li>
-        </ul>
-        </div>
-        <div className="FormValues">
-        <ul>
-            <li><input name="d2rLauncher" placeholder="-w" type="text" onChange={onValueChange} /></li>
-            <li><input name="bnetLauncher" placeholder="-mod lootfilter" type="text" onChange={onValueChange} /></li>
-            <li className="centered"><Icon className="CheckboxItem" path={mdiCheckboxBlankOutline}
-              title="Add Acccount"
-              size={1} /></li>
-        </ul>
-        </div>
+      <div className="ContentContainer AccountClientEdit">
+         <FormLabels 
+            items={[
+              'D2R Launcher:',
+              'Skip Intro:',
+              'Pre-Launch:',
+              'Post-Launch:',
+            ]}
+        />
+         <FormValues
+            rows={[
+              /* @ts-expect-error */
+              { type: 'text', placeholder: "-w- mod lootfilter", onChange: onValueChange, checked: true },
+              /* @ts-expect-error */
+              { type: 'checkbox', defaultValue: '', onChange: onValueChange, checked: true },
+               /* @ts-expect-error */
+               { type:  'text', placeholder: "/path/to/script.exe", onChange: onValueChange, checked: true },
+                /* @ts-expect-error */
+              { type:  'text', placeholder: "/path/to/script.exe", onChange: onValueChange, checked: true },
+            ]}
+         />
     </div>
     );
   };

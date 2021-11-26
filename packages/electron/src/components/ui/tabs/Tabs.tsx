@@ -1,12 +1,17 @@
 import './Tabs.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Tabs ({ tabs }:any) {
     return (
         <div className="ui-tab-container">
             <ul>
             {tabs.map(
-                ({ url, label }:any) => <Link to={url}><li>{label}</li></Link>
+                ({ url, label, exact = false }:any) => <NavLink 
+                exact={exact}
+                className={isActive =>
+                "nav-link" + (!isActive ? " unselected" : "")}
+              
+                    to={url}><li>{label}</li></NavLink>
             )}
             </ul>
         </div>

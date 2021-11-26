@@ -1,6 +1,12 @@
 .ComingSoon {
-    text-align: center;
-    width: 800px;
+    width: 100%;
     font-size: 1.5em;
     color: #565656;
+    text-align: center;
+    height: 0px;
+    padding-top: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 97px;
+    top: 200px;
 }

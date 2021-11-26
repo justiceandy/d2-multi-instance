@@ -1,8 +1,20 @@
 
 
 .ui-form-values {
-    flex: 3;
+    flex: 2;
     box-sizing: border-box;
+    text-align: center;
+    background: #00000085;
+    padding-top: 20px;
+    background: #00000085;
+    padding-bottom: 20px;
+}
+
+.ui-form-page .ContentContainer {
+    background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
+    background-color: #1a1a1a;
+    background-size: 16px 16px;
+    font-weight: 600;
 }
 
 .ui-form-values ul {
@@ -20,27 +32,87 @@
     text-align: center;
 }
 
-.ui-form-values li {
-    font-family: system-ui;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
-    box-sizing: border-box;
+.ui-form-value-grid-li {
+    padding-top: 17px !important;
+    height: auto !important;
 }
-.ui-form-values-input {
-    width: 100%;
+
+.ui-form-action-li {
+    background: #104158d1;
+    text-shadow: none !important;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-top: 20px;
+    padding-top: 12px !important;
+    color: white;
+    text-transform: uppercase;
+}
+.ui-form-action-li a {
+    text-decoration: none;
+    color: inherit;
+}
+.MuiInputLabel-root {
+    color: grey !important;
+}
+.MuiInputBase-input {
+    color: white !important;
+}
+.ui-form-select-box-label {
+    margin-top: -5px;
+}
+.MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-root {
+    border: 1px solid #0e0e0e !important;
+}
+.MuiOutlinedInput-root {
+    height: 45px;
+}
+.MuiSvgIcon-root {
+    color: #b1b1b1 !important;
+}
+.MuiPaper-root {
+    margin-top: -10px;
+}
+.MuiFormControl-root {
+    text-shadow: none;
     box-sizing: border-box;
-    border: 1px solid #060606c7;
-    color: #ffffff;
+    color: #0c0c0c;
     font-family: system-ui;
     font-size: 1em;
     background: #232323;
     font-weight: 700;
     border-radius: 4px;
-    margin-bottom: -2px;
+    height: 45px;
+    max-width: 265px;
+    text-align: center;
+}
+.ui-form-values li {
+    font-family: system-ui;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    box-sizing: border-box;
+    text-shadow: -2px 4px 6px black;
+    width: 100%;
+    height: 51px;
+}
+.ui-form-values-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #060606c7;
+    color: #d3d3d3;
+    font-family: system-ui;
+    font-size: 1em;
+    background: #232323;
+    font-weight: 700;
+    border-radius: 4px;
     padding: 10px;
 }
 
+.ui-form-values-input-container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
 .ui-form-li-centered {
     text-align: center;
     width: 21px;

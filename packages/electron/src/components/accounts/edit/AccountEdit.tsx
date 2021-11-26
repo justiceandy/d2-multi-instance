@@ -21,8 +21,16 @@ export default function AccountEdit (state:any) {
     console.log(e);
     e.preventDefault();
   }
+  const nextAccount = (e:any) => {
+    console.log(e);
+    e.preventDefault();
+  }
+  const prevAccount = (e:any) => {
+    console.log(e);
+    e.preventDefault();
+  }
     return (
-      <div className="AccountEdit Page">
+      <div className="AccountEdit Page ui-form-page">
         <PageHeader 
            breadcrumbs={[
              'Account',
@@ -35,31 +43,29 @@ export default function AccountEdit (state:any) {
         <Tabs 
             tabs={[
               { url: `/accounts/${accountId}/edit/general`, label: 'General' },
-              { url: `/accounts/${accountId}/edit/bnet`, label: 'Battle Net' },
-              { url: `/accounts/${accountId}/edit/client`, label: 'Client Args' },
+              { url: `/accounts/${accountId}/edit/bnet`, label: 'Battle.Net' },
+              { url: `/accounts/${accountId}/edit/client`, label: 'Client' },
               { url: `/accounts/${accountId}/edit/window`, label: 'Window' },
               { url: `/accounts/${accountId}/edit/hotkey`, label: 'Hotkey' }
             ]}
          />
-        <div className="ContentContainer">
-          <Switch>
-            <Route path="/accounts/:accountId/edit/general"
-                   render={() => <AccountGeneralEdit {...accountData} />} />
-            <Route path="/accounts/:accountId/edit/client"
-                   render={() => <AccountClientEdit {...accountData} />} /> 
-            <Route path="/accounts/:accountId/edit/bnet"
-                   render={() => <AccountBnetEdit {...accountData} />} />
-            <Route path="/accounts/:accountId/edit/window"
-                   render={() => <AccountWindowEdit {...accountData} />} />
-            <Route path="/accounts/:accountId/edit/hotkey" 
-                   render={() => <AccountHotKeyEdit {...accountData} />} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route path="/accounts/:accountId/edit/general"
+                  render={() => <AccountGeneralEdit {...accountData} />} />
+          <Route path="/accounts/:accountId/edit/client"
+                  render={() => <AccountClientEdit {...accountData} />} /> 
+          <Route path="/accounts/:accountId/edit/bnet"
+                  render={() => <AccountBnetEdit {...accountData} />} />
+          <Route path="/accounts/:accountId/edit/window"
+                  render={() => <AccountWindowEdit {...accountData} />} />
+          <Route path="/accounts/:accountId/edit/hotkey" 
+                  render={() => <AccountHotKeyEdit {...accountData} />} />
+        </Switch>
         <PageFooterToolTip 
             text={"Save events occur on changes"}
             icons={[
-              { icon: mdiArrowLeft, title: 'Back to Accounts', onClick: deleteAccount },
-              { icon: mdiArrowRight, title: 'Next Account', onClick: deleteAccount },
+              { icon: mdiArrowLeft, title: 'Back to Accounts', onClick: prevAccount },
+              { icon: mdiArrowRight, title: 'Next Account', onClick: nextAccount },
             ]}
         />
       </div>

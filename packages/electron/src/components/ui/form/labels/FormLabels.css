@@ -1,9 +1,11 @@
 .ui-form-labels {
-    float: left;
-    width: 40%;
+    flex: 2;
     box-sizing: border-box;
-    padding-top: 5px;
     text-align: center;
+    background: #00000085;
+    padding-top: 20px;
+    background: #00000085;
+    padding-bottom: 20px;
 }
 
 .MuiCheckbox-root {
@@ -30,11 +32,12 @@
     padding: 5px;
     padding-left: 0px;
     text-align: center;
-    padding-top: 10px;
-    text-align: center;
     justify-content: center;
     align-items: center;
-    padding-bottom: 11px;
-    margin-bottom: 9px;
+    height: 50px;
     box-sizing: border-box;
+    color: #cbcbcbd1;
+    padding-top: 13px;
+    text-shadow: -2px 4px 6px black;
+    width: 100%;
 }

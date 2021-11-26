@@ -1,0 +1,13 @@
+
+
+.ui-page-loader-container{
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    color: #707070;
+}
+
+
+.ui-page-loader-spin-container {
+    margin-bottom: 15px;
+}

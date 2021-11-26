@@ -1,5 +1,5 @@
 import './Menu.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Icon from '@mdi/react'
 import { mdiDiscord, mdiGithub, mdiConsoleLine } from '@mdi/js';
 
@@ -8,10 +8,22 @@ export default function Menu () {
       <div>
         <div className="Menu">
          <ul>
-           <li><Link to="/">Home</Link></li>
-           <li><Link to="/accounts">Accounts</Link></li>
-            <li><Link to="/integrations">Integrations</Link></li>
-           <li><Link to="/settings/general">Settings</Link></li>
+            <NavLink 
+              className={isActive => "menu-nav-link" + (!isActive ? " unselected" : "")} 
+              exact to="/"><li>Home</li>
+            </NavLink>
+            <NavLink 
+              className={isActive => "menu-nav-link" + (!isActive ? " unselected" : "")} 
+              to="/accounts"><li>Accounts</li>
+            </NavLink>
+            <NavLink 
+              className={isActive => "menu-nav-link" + (!isActive ? " unselected" : "")} 
+              to="/integrations"><li>Integrations</li>
+            </NavLink>
+            <NavLink 
+              className={isActive => "menu-nav-link" + (!isActive ? " unselected" : "")} 
+              to="/settings"><li>Settings</li>
+            </NavLink>
          </ul>
         </div>
         <div className="MenuFooter">

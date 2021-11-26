@@ -17,7 +17,6 @@ const tipIcon = ({ icon, title, onClick }:any) => {
 }
 
 export default function PageFooterToolTip ({ text, icons = [] }:any) {
-    console.log(icons)
     return (
         <div className="ui-page-footer-tool-tip-container">
             <div className="ui-page-footer-tool-tip">

@@ -4,6 +4,7 @@ const workerPreload = require('./handlers/window/window.preload');
 const settingsPreload = require('./handlers/settings/settings.preload');
 const accountPreload = require('./handlers/account/account.preload');
 const processPreload = require('./handlers/process/process.preload');
+const appInfoPreload = require('./handlers/app/app.preload');
 
 contextBridge.exposeInMainWorld('electron', {
   ipcRenderer: {
@@ -29,6 +30,7 @@ contextBridge.exposeInMainWorld('electron', {
     ...settingsPreload(ipcRenderer),
     ...accountPreload(ipcRenderer),
     ...processPreload(ipcRenderer),
+    ...appInfoPreload(ipcRenderer),
   },
 });
 

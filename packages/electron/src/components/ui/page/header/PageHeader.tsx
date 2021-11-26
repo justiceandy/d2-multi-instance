@@ -4,14 +4,16 @@ import { mdiChevronRight } from '@mdi/js';
 import { Link } from 'react-router-dom';
 
 const singleNameHeader = ({ breadcrumbs, icons }:any) => {
-    console.log(icons)
+    icons.map((i:any) => i);
     return (
         <div className="ui-page-header-single-title"><label>{breadcrumbs[0]}</label></div>
     )
 }
 
 const nestedNameHeader = ({ breadcrumbs, icons }:any) => {
-    console.log(icons)
+    
+    icons.map((i:any) => i);
+
     const nestedItem = ({ item, index }:any) => {
         return (
             <div>
@@ -37,9 +39,9 @@ const nestedNameHeader = ({ breadcrumbs, icons }:any) => {
     )
 }
 
-const pageIcon = ({ icon, title, onClick }:any) => {
+const pageIcon = ({ icon, index, title, onClick }:any) => {
     return (
-        <Link to="#" onClick={onClick}>
+        <Link key={index} to="#" onClick={onClick}>
             <Icon 
                 className="MenuAddIcon" 
                 path={icon}
@@ -62,7 +64,7 @@ export default function PageHeader ({ breadcrumbs = [], icons = [] }:any) {
             }
             <div className="ui-page-header-icons">
             {
-                icons.map(({ icon, title }:any) => pageIcon({ icon, title }))
+                icons.map(({ icon, title }:any, index:any) => pageIcon({ icon, title, index }))
             }
             </div>
             </h1>

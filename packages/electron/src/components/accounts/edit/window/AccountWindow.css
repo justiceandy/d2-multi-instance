@@ -1,0 +1,25 @@
+
+.AccountWindowEdit .ui-form-labels {
+    width: 149px;
+    max-width: 200px !important;
+    text-align: revert;
+    height: 345px;
+}
+.AccountWindowEdit .ui-form-labels ul li {
+    text-indent: 30px;
+}
+.AccountWindowEdit .ui-form-values ul {
+    max-width: 300px;
+}
+
+.AccountWindowEdit .ui-form-labels ul {
+    padding-top: 10px;
+}
+.AccountWindowEdit .ui-form-values ul {
+    padding-top: 20px;
+}
+
+.AccountWindowEdit .ui-form-values {
+    height: 345px;
+    padding-top: 10px;
+}

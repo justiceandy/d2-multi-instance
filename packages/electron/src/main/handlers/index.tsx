@@ -1,6 +1,7 @@
 import AccountDataHandler from "./account/account.handler";
 import ProcessDataHandler from "./process/process.handler"
 import SettingsDataHandler from "./settings/settings.handler"
+import AppInfoHandler from "./app/app.handler"
 
 export default ({ ipcMain }:any) => {
     ipcMain.on('ipc-example', async (event:any, arg:any) => {
@@ -12,5 +13,6 @@ export default ({ ipcMain }:any) => {
     AccountDataHandler({ ipcMain });
     ProcessDataHandler({ ipcMain });
     SettingsDataHandler({ ipcMain });
+    AppInfoHandler({ ipcMain })
 }
 

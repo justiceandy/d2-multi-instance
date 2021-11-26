@@ -4,10 +4,13 @@
  */
 .Menu {
   background: #101010;
+  background: #141414;
   float: left;
   width: 150px;
   height: 100vh;
   border-top: 1px solid #0e0e0e;
+  border-right: 1px solid #0e0e0e;
+  box-shadow: rgb(0 0 0 / 20%) 4px 3px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
 }
 
 
@@ -19,13 +22,7 @@
 }
 
 .Menu ul li {
-  text-align: center;
-  text-decoration: none;
-  color: #bdbdbd;
-  border-top: 1px solid #131313;
-  text-indent: -6px;
-  border-bottom: 3px solid #0a0a0a;
-  font-family: system-ui;
+
 }
 
 .MenuIcon {
@@ -39,13 +36,17 @@
   color: inherit;
 }
 
-.Menu ul li:hover {
-  background: #101010;
-  color: #d89a36;
+ .menu-nav-link.active {
+  /* background: #0e0e0e; */
+  color: #d7d7d7;
   text-decoration: none;
-  border-bottom: 3px solid #ff9d00fc;
+  font-weight: 500;
+  border-bottom: 3px solid #035177;
+  border-bottom: 3px solid #d89a3699;
 }
-
+.menu-nav-link:hover {
+  background: #0c0c0c;
+}
 .Menu ul li a {
   text-decoration: inherit;
   color: inherit;
@@ -53,6 +54,22 @@
   display: block;
   padding-bottom: 11px;
   box-sizing: border-box;
+}
+
+.menu-nav-link {
+  float: left;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: #8f8f8f;
+  border-top: 1px solid #131313;
+  text-indent: -6px;
+  border-bottom: 3px solid #0e0e0e;
+  font-family: system-ui;
+  height: 52px;
+  padding-top: 11px;
+  box-sizing: border-box;
+  font-weight: 500;
 }
 
 .MenuFooter {
@@ -82,4 +99,10 @@
 
 .MenuFooter ul li:hover {
   color: white;
+}
+
+.ui-tab-container .nav-link.active li {
+  color: white;
+  background: #003f52;
+  border-bottom: 2px solid #222222;
 }

@@ -3,10 +3,47 @@ import { mdiAccountPlus, mdiExpandAllOutline} from '@mdi/js';
 import AccountItem from '../item/AccountItem';
 import PageHeader from 'components/ui/page/header/PageHeader';
 import PageFooterToolTip from 'components/ui/page/footer/tooltip/FooterTooltip';
+import PageLoader from 'components/ui/page/loader/PageLoader';
+import AccountListStateMachine from './state/AccountListState';
+import AccountListQueStateMachine from './state/AccountListQueState';
+import {  useMachine } from '@xstate/react';
 
+let existingAccountListState:any = null;
+let existingAccountQue:any = null;
 
-export default function AccountList ({ accounts = [] }:any) {
-  console.log(accounts)
+export default function AccountList ({ accounts = [], AccountState = null, QueState = null  }:any) {
+
+    const thisListState = AccountState || existingAccountListState || AccountListStateMachine();
+          existingAccountListState = thisListState;
+  
+    const thisQueState = QueState || existingAccountQue || AccountListQueStateMachine();
+          existingAccountQue = thisQueState;
+
+    const [ state, send ] = useMachine(thisListState);
+
+    send('LOAD');
+
+    const showAccountList = (accounts:any) => {
+      return (
+        <ul>
+            {accounts.map(({ display }:any, i:any) => 
+              <li key={i}>
+                <AccountItem 
+                    id={i} 
+                    name={display} 
+                    QueState={thisQueState}
+                />
+              </li>
+            )}
+        </ul> 
+      )
+    }
+    const showLoading = () => {
+      return (
+        <PageLoader text="Loading Accounts" />
+      )
+    }
+
     return (
       <div className="AccountList">
         <PageHeader 
@@ -19,11 +56,8 @@ export default function AccountList ({ accounts = [] }:any) {
            ]}
         />
         <div className="AccountListContainer">
-          <ul>
-              {accounts.map(
-                ({ display }:any, i:any) => 
-                <li key={i}><AccountItem name={display} id={i} /></li>)}
-          </ul>
+          { /*@ts-expect-error */
+            state.context.accounts2 ? showAccountList(accounts) : showLoading() }
         </div>
         <PageFooterToolTip 
             text={"Only 1 account can launch at a time"}

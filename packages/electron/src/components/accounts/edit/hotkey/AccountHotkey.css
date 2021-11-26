@@ -1,33 +1,25 @@
-.AccountHotkey .FormValues ul {
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
+
+.AccountHotkeyEdit .ui-form-labels {
+    width: 149px;
+    max-width: 200px !important;
+    text-align: revert;
+    height: 345px;
+}
+.AccountHotkeyEdit .ui-form-labels ul li {
+    text-indent: 30px;
+}
+.AccountHotkeyEdit .ui-form-values ul {
+    max-width: 300px;
 }
 
-.AccountHotkey .FormValues li {
-    padding-top: 5px;
-    padding-bottom: 8px;
-    color: black;
+.AccountHotkeyEdit .ui-form-labels ul {
+    padding-top: 10px;
+}
+.AccountHotkeyEdit .ui-form-values ul {
+    padding-top: 20px;
 }
 
-.AccountHotkey .FormValues .MenuAddIcon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: white;
-    margin-right: 40px;
-    margin-top: 6px;
-}
-
-.AccountHotkey {
-    display: flex;
-    width: 500px;
-    flex-wrap: wrap;
-}
-
-.AccountHotkey .SelectBox{
-    margin-top: 7px;
-}
-
-.AccountHotkey .SelectBox input{
-    text-indent: -10px;
+.AccountHotkeyEdit .ui-form-values {
+    height: 345px;
+    padding-top: 10px;
 }
