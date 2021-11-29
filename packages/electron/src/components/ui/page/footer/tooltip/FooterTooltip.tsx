@@ -5,7 +5,7 @@ import { mdiInformationOutline } from '@mdi/js';
 
 const tipIcon = ({ icon, title, onClick }:any) => {
     return (
-        <Link to="#" onClick={onClick}>
+        <Link key={`foot-${title}`} to="#" onClick={onClick}>
             <Icon 
                 className="MenuAddIcon" 
                 path={icon}

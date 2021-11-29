@@ -1,21 +1,32 @@
 
 import './AccountEdit.css';
-import { Switch, Route } from 'react-router-dom';
-import AccountClientEdit from './client/AccountClient';
-import AccountGeneralEdit from './general/AccountGeneral';
-import AccountBnetEdit from './bnet/AccountBnet';
-import AccountWindowEdit from './window/AccountWindow';
-import AccountHotKeyEdit from './hotkey/AccountHotkey';
+import AccountClientEdit from './components/client/AccountClient';
+import AccountGeneralEdit from './components/general/AccountGeneral';
+import AccountBnetEdit from './components/bnet/AccountBnet';
+import AccountWindowEdit from './components/window/AccountWindow';
+import AccountHotKeyEdit from './components/hotkey/AccountHotkey';
 import Tabs from 'components/ui/tabs/Tabs';
 import PageHeader from 'components/ui/page/header/PageHeader';
 import PageFooterToolTip from 'components/ui/page/footer/tooltip/FooterTooltip';
 import { mdiDelete, mdiArrowLeft, mdiArrowRight } from '@mdi/js';
+import {  useMachine } from '@xstate/react';
+import AccountEditStateMachine from './state/AccountEditState'
 
-
-export default function AccountEdit (state:any) {
-  const accountId = state.match.params.accountId;
-  const accountData = state.accounts[accountId];
+export default function AccountEdit (routeState:any) {
+  const accountId = routeState.match.params.accountId;
+  const accountData = routeState.accounts[accountId];
   const accountName = accountData.display;
+
+  
+  //   // Item State (passed or initialized)
+  const thisStateMachine = AccountEditStateMachine({ 
+    accountId,
+    ...accountData,
+  });
+
+  const [ state, send ]:any = useMachine(thisStateMachine);
+
+  console.log(state.value);
 
   const deleteAccount = (e:any) => {
     console.log(e);
@@ -29,6 +40,11 @@ export default function AccountEdit (state:any) {
     console.log(e);
     e.preventDefault();
   }
+
+  const navigateTo = ({ event, route }:any) => {
+    event.preventDefault();
+    send(route);
+  }
     return (
       <div className="AccountEdit Page ui-form-page">
         <PageHeader 
@@ -41,26 +57,34 @@ export default function AccountEdit (state:any) {
            ]}
         />
         <Tabs 
+            type="state"
+            active={state.value}
             tabs={[
-              { url: `/accounts/${accountId}/edit/general`, label: 'General' },
-              { url: `/accounts/${accountId}/edit/bnet`, label: 'Battle.Net' },
-              { url: `/accounts/${accountId}/edit/client`, label: 'Client' },
-              { url: `/accounts/${accountId}/edit/window`, label: 'Window' },
-              { url: `/accounts/${accountId}/edit/hotkey`, label: 'Hotkey' }
+              { notify: navigateTo, route: 'general', label: 'General' },
+              { notify: navigateTo, route: 'battlenet', label: 'Battle.Net' },
+              { notify: navigateTo, route: 'client', label: 'Client' },
+              { notify: navigateTo, route: 'window', label: 'Window' },
+              { notify: navigateTo, route: 'hotkey', label: 'Hotkey' }
             ]}
          />
-        <Switch>
-          <Route path="/accounts/:accountId/edit/general"
-                  render={() => <AccountGeneralEdit {...accountData} />} />
-          <Route path="/accounts/:accountId/edit/client"
-                  render={() => <AccountClientEdit {...accountData} />} /> 
-          <Route path="/accounts/:accountId/edit/bnet"
-                  render={() => <AccountBnetEdit {...accountData} />} />
-          <Route path="/accounts/:accountId/edit/window"
-                  render={() => <AccountWindowEdit {...accountData} />} />
-          <Route path="/accounts/:accountId/edit/hotkey" 
-                  render={() => <AccountHotKeyEdit {...accountData} />} />
-        </Switch>
+          { state.value === 'idle' ?
+            <span>Loading</span>
+          : null}
+          { state.value === 'general' ?
+            <AccountGeneralEdit {...accountData} />
+          : null}
+          { state.value === 'client' ?
+            <AccountClientEdit {...accountData} />
+          : null}
+          { state.value === 'battlenet' ?
+            <AccountBnetEdit {...accountData} />
+          : null}
+          { state.value === 'window' ?
+            <AccountWindowEdit {...accountData} />
+          : null}
+          { state.value === 'hotkey' ?
+            <AccountHotKeyEdit {...accountData} />
+          : null }
         <PageFooterToolTip 
             text={"Save events occur on changes"}
             icons={[

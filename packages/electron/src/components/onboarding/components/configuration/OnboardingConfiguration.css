@@ -1,0 +1,51 @@
+.TopConfigForm {
+    max-width: 100% !important;
+
+    
+}
+
+.TopConfigForm .ui-form-labels {
+    max-width: 255px;
+    margin-top: 4px;
+}
+
+
+.OnboardingConfiguration .TopConfigForm {
+    margin-top: 20px;
+}
+.OnboardingConfiguration .MiddleConfigForm {
+    margin-top: 25px;
+}
+.TopConfigForm .ui-form-values {
+    max-width: 440px;
+    font-size: 0.9em;
+}
+
+.TopConfigForm .ui-form-values li {
+    width: 95% !important;
+}
+.TopConfigForm .ui-form-values ul {
+    justify-content: flex-start !important;
+}
+.TopConfigForm .ui-form-values-input {
+    font-weight: normal !important;
+    text-overflow: ellipsis;
+    color: #9d9d9d !important;
+}
+
+.MiddleConfigForm .ui-form-labels {
+    margin-top: 2px;
+    padding-top: 0px;
+}
+
+.MiddleConfigForm .ui-form-values {
+    padding-top: 0px;
+}
+
+.OnboardingConfiguration h1 {
+    margin-top: 0px !important;
+}
+
+.OnboardingConfiguration .ui-form-labels li {
+  
+}

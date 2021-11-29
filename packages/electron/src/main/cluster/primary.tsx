@@ -7,9 +7,7 @@ import createOnboardingWindow from '../window/onboarding';
 
 import windowHandlers from '../handlers/window/window.handler';
 
-const start  = ({ window, windowRoute, settings }:any) => {
-    console.log(windowRoute);
-    console.log(settings);
+const start  = ({ window }:any) => {
 
     if (process.env.NODE_ENV === 'production') {
         const sourceMapSupport = require('source-map-support');
@@ -32,12 +30,20 @@ const start  = ({ window, windowRoute, settings }:any) => {
     .whenReady()
     .then(async () => {
         initHandlers({ ipcMain });
-        
-        const mainWindow = await window === 'main'
-            ? createMainWindow({ isDevelopment })
-            : createOnboardingWindow({ isDevelopment });
-            
-        windowHandlers({ ipcMain, window: mainWindow })
+        const mainWindow = window === 'main'
+            ? await createMainWindow({ isDevelopment })
+            : await createOnboardingWindow({ isDevelopment });
+        mainWindow.on('ready-to-show', () => {
+            if (!mainWindow) {
+            throw new Error('"mainWindow" is not defined');
+            }
+            if (process.env.START_MINIMIZED) {
+                mainWindow.minimize();
+            } else {
+                mainWindow.show();
+            }
+        });
+        windowHandlers({ ipcMain, currentWindow: mainWindow, window, isDevelopment })
         app.on('activate', async () => {
             // On macOS it's common to re-create a window in the app when the
             // dock icon is clicked and there are no other windows open.

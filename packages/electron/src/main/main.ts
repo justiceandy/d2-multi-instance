@@ -16,11 +16,15 @@ import primary from './cluster/primary';
 import workers from './cluster/workers';
 import { ipcMain, app } from 'electron';
 import workerIpcHandler from './handlers/worker/worker.handler';
+import { accounts, preferences } from './store';
 
 // Initialize Process Cluster
 const activeCluster = cluster.init();
 const config = cluster.defaultConfig();
+const accountStore = accounts.init();
+const preferenceStore = preferences.init();
 
+console.log(accountStore.path, preferenceStore.path);
 
 // Determine what window to open from Launch Args
 const chooseWindow = async () => {
@@ -48,10 +52,8 @@ const chooseWindow = async () => {
   }
 }
 
-
 // Main Process
 const executeMainThread = async ({ window, windowRoute, settings }:any) => {
-
 
   const mainWindow = primary.start({ window, windowRoute, settings });
 

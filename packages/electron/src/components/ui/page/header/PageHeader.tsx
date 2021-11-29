@@ -16,7 +16,7 @@ const nestedNameHeader = ({ breadcrumbs, icons }:any) => {
 
     const nestedItem = ({ item, index }:any) => {
         return (
-            <div>
+            <div key={`nestedHeader${index}`}>
                  { index > 0  ?  
                     <div>
                         <Icon 

@@ -17,21 +17,22 @@ const defaultOnChanged = (e:any) => {
 };
 
 const inputs = {
-    checkbox: ({ index, title = '', onChange = defaultOnChanged }:any) => {
+    checkbox: ({ index, name, title = '', value = false, onChange = defaultOnChanged }:any) => {
         return (
         <li key={`ui-value-row${index}`} className="ui-form-li-centered">
             <div className="ui-form-values-input-container">
                 <FormGroup>
                     <FormControlLabel 
-                            control={<Checkbox onChange={onChange} className="ui-form-values-input" />}
-                            label={title}  
+                        control={ <Checkbox checked={value} onClick={(event) => onChange({ event, name })}
+                                    className="ui-form-values-input" /> }
+                        label={title}  
                     />
                 </FormGroup>
             </div>
         </li>
         )
     },
-    select: ({ index, label, options, onChange = defaultOnChanged,  value }:any) => {
+    select: ({ index, name, label, options, onChange = defaultOnChanged,  value }:any) => {
        
         return (
             <li key={`ui-value-row${index}`}>
@@ -43,7 +44,7 @@ const inputs = {
                         id={`${label}-select`}
                         value={value}
                         label={label}
-                        onChange={onChange}
+                        onChange={(event) => onChange({ event, name })}
                     >
                     {options.map(
                         (i:any) => <MenuItem className="ui-form-select-box-item" value={i.value}>{i.label}</MenuItem>
@@ -62,7 +63,8 @@ const inputs = {
                     value={value}
                     defaultValue={defaultValue} 
                     placeholder={placeholder} 
-                    onChange={onChange} />
+                    onChange={(event) => onChange({ event, name })}
+                />
             </li>
         )
     },
@@ -95,7 +97,7 @@ const inputs = {
                     value={value}
                     defaultValue={defaultValue} 
                     placeholder={placeholder} 
-                    onChange={onChange} />
+                    onChange={(event) => onChange({ event, name })} />
             </li>
         )
     },

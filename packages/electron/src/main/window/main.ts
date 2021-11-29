@@ -3,18 +3,7 @@ import path from 'path';
 import { app, BrowserWindow, Tray } from 'electron';
 import MenuBuilder from '../menu';
 import { resolveHtmlPath } from '../util';
-import { autoUpdater } from 'electron-updater';
-import log from 'electron-log';
 import CreateTray from './tray';
-
-class AppUpdater {
-    constructor() {
-      log.transports.file.level = 'info';
-      autoUpdater.logger = log;
-      autoUpdater.checkForUpdatesAndNotify();
-    }
-}
-
 
 
 /*
@@ -46,7 +35,7 @@ export default async function createMainWindow({ isDevelopment }:any){
         maxWidth: 1024,
       };
     
-
+    console.log('Going to Main')  
     mainWindow = new BrowserWindow({
       show: false,
       autoHideMenuBar: true,
@@ -60,25 +49,12 @@ export default async function createMainWindow({ isDevelopment }:any){
     
     mainWindow.loadURL(resolveHtmlPath('index.html'));
   
-    mainWindow.on('ready-to-show', () => {
-      if (!mainWindow) {
-        throw new Error('"mainWindow" is not defined');
-      }
-      if (process.env.START_MINIMIZED) {
-        mainWindow.minimize();
-      } else {
-        mainWindow.show();
-        
-      }
-    });
-
     mainWindow.on('minimize', (event:any) => {
         event.preventDefault();
         /* @ts-expect-error */
         mainWindow.hide();
         tray = CreateTray({ mainWindow, icon: getAssetPath('icon.png')});
     });
-    
     mainWindow.on('restore',  () => {
         /* @ts-expect-error */
         mainWindow.show();
@@ -88,19 +64,8 @@ export default async function createMainWindow({ isDevelopment }:any){
     mainWindow.on('closed', () => {
       mainWindow = null;
     });
-  
     const menuBuilder = new MenuBuilder(mainWindow);
     menuBuilder.buildMenu();
-
-    // Open urls in the user's browser
-    // mainWindow.webContents.on('new-window', (event, url) => {
-    //   event.preventDefault();
-    //   shell.openExternal(url);
-    // });
-  
-    // Remove this if your app does not use auto updates
-    // eslint-disable-next-line
-    new AppUpdater();
 
     return mainWindow;
   };

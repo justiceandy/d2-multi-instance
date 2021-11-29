@@ -1,0 +1,51 @@
+.ConfiguredAccountContainer label {
+    float: left;
+    width: 100%;
+    border: 1px solid #20202073;
+    background: #121212;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 6px;
+    color: #959595;
+    font-size: 1.2em;
+}
+
+.OnboardingFinalize .ConfiguredAccountContainer {
+    font-size: 0.93em;
+    clear: both;
+    width: 100%;
+    display: grid;
+    float: left;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    grid-template-columns: repeat(3, 25%);
+    text-overflow: clip;
+    gap: 0.5rem;
+    overflow: auto;
+    max-height: 205px;
+}
+
+.OnboardingFinalize .MiddleConfigForm {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    color: #d5d5d5c7;
+    padding-bottom: 15px;
+}
+.OnboardingFinalize .OnboardingAccountTop {
+    height: 275px;
+    margin-bottom: 0px;
+}
+
+.ConfiguredAccountContainer label:hover {
+    background: #242424;
+    color: #dbdbdb;
+}
+
+.MuiTooltip-tooltip {
+    background: #242424 !important;
+    padding: 10px !important;
+}

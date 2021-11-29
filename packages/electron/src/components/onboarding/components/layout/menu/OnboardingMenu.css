@@ -1,0 +1,74 @@
+.OnboardingMenu{
+    list-style: none;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    padding-left: 0px;
+    background: #121212;
+    height: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.OnboardingMenu ul li span {
+    float: left;
+    width: 100%;
+    color: #878787;
+}
+.OnboardingMenu ul li label {
+    cursor: pointer;
+}
+.OnboardingMenu ul {
+    list-style: none;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    font-size: 0.9em;
+    width: 100%;
+    padding-left: 0px;
+    margin: auto;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 65px;
+}
+
+.OnboardingMenu a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.OnboardingMenu ul li {
+    font-family: system-ui;
+    padding-top: 11px;
+    padding-bottom: 8px;
+    cursor: pointer;
+    height: 65px;
+    width: 175px;
+    box-sizing: border-box;
+}
+.OnboardingMenu ul .active li {
+    background: #100f0e;
+    color: black;
+}
+
+.OnboardingMenu ul .active li span {
+    color: #d99434;
+    font-weight: 600;
+}
+.OnboardingMenu ul .active li label {
+    color: #d99434;
+    font-weight: 600;
+}
+
+.OnboardMenuChev {
+    position: absolute;
+    margin-top: -13px;
+    margin-left: 25px;
+    color: #5a5a5a4f;
+}
+

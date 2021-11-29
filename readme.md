@@ -1,6 +1,8 @@
 ### D2 Multi Instance Launcher
 React + Electron Multi Account Authenticator
 
+![Example](./docs/images/alpha.png)
+
 ### Tech / Development Stack
 - Electron
 - React
