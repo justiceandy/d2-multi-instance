@@ -1,8 +1,12 @@
 // @ts-nocheck
+import { PreferenceStore } from '../../../store/preferences';
+import { AccountStore } from '../../../store/accounts'
 
-export default async (event:any, args:any) => {
-    console.log('Onboard Submitted to Main Proc', args);
+export default async ({ accounts, preferences }) => {
+    await AccountStore.set({ accounts });
+    await PreferenceStore.set(preferences);
     return {
-        args
+        accounts,
+        preferences,
     }
 }

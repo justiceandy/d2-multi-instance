@@ -1,45 +1,54 @@
+
 // @ts-nocheck
+import { defaultBattleNet } from '../components/bnet/libs/defaults';
+import { defaultHotkeys } from '../components/hotkey/libs/defaults';
+import { defaultWindow } from '../components/window/libs/defaults';
+import defaultClient from '../components/client/libs/defaults';
+
 export default {
     update: {
         src: async (context, event) => {
-            console.log('Updating Account');
+            console.log('Updating Account State Serv', event);
+            console.log(context);
+            console.log('----');
             return true;
         },
     },
     getInfo: {
         src: async (context, event) => {
-            console.log('Getting Account Info');
-            return {
-                id: 1,
-                display: 'example1',
-                battlenet: {
-                    region: 'NA',
-                    local: '',
-                    credentials: {
-                        email: '',
-                        password: '',
-                    },
-                    automated: true,
+            // Get This Accounts Data + All Accounts 
+            const { account, accounts, order } = await window.electron.ipcRenderer.getAccount({
+                display: context.name,
+                includeAll: true,
+            });
+            // Apply State Machine Data Format Defaults
+            const { 
+                battlenet = defaultBattleNet, 
+                client = defaultClient, 
+                hotkey = defaultHotkeys, 
+                display,
+                folder,
+                main,
+            } = account;
+
+            // Return Payload
+            const payload = {
+                doc: account,
+                accounts: accounts,
+                general: {
+                    order: 
+                    display,
+                    folder,
+                    main,
+                    order,
                 },
-                client: {
-                    d2r: '-w',
-                    launch: {
-                        pre: '',
-                        post: '',
-                    },
-                    skipIntro: true,
-                },
-                window: {
-                    powertrays: {
-                        enabled: false
-                    }
-                },
-                hotkey: {
-                    enabled: false,
-                    modifier: '',
-                    key: '',
-                }
-            };
+                battlenet, 
+                client, 
+                hotkey, 
+                window: account.window || defaultWindow, 
+            }
+            console.log(payload);
+            return payload;
         },
     },
     isRunning: {
@@ -50,29 +59,46 @@ export default {
     },
     getCredentials: {
         src: async (context, event) => {
-            console.log('Get Credentials');
-            return true;
+            console.log(context)
+            const account = await window.electron.ipcRenderer.getAccount({
+                display: context.name
+            });
+            console.log('Creds', account.battlenet)
+            return account.battlenet || defaultBattleNet;
         },
     },
     getClientScripts: {
         src: async (context, event) => {
-            console.log('Get Client Scripts');
-            return true;
+            const account = await window.electron.ipcRenderer.getAccount({
+                display: context.name
+            });
+            return account.client || defaultClient;
         },
     },
     getWindowPrefs: {
         src: async (context, event) => {
-            console.log('Get Window Prefs');
-            return true;
+            console.log(context)
+            const account = await window.electron.ipcRenderer.getAccount({
+                display: context.name
+            });
+            return account.window || defaultWindow;
         },
     },
     getHotkeyPrefs: {
         src: async (context, event) => {
-            console.log('Get Hotkey Prefs');
-            return true;
+            const account = await window.electron.ipcRenderer.getAccount({
+                display: context.name
+            });
+            return account.hotkey || defaultHotkeys;
         },
     },
     deleteAccount: {
+        src: async (context, event) => {
+            console.log('Deleting Account');
+            return true;
+        },
+    },
+    setMainAccount: {
         src: async (context, event) => {
             console.log('Deleting Account');
             return true;

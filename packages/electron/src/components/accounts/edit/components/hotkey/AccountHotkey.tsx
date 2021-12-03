@@ -1,24 +1,12 @@
 
 import FormValues from 'components/ui/form/values/FormValues';
 import FormLabels from 'components/ui/form/labels/FormLabels';
+import { modifiers, letters, defaultHotkeys } from './libs/defaults';
+
 import './AccountHotkey.css';
 
-const modOptions = [
-  { value: 'shift', label: 'Shift' },
-  { value: 'alt', label: 'Alt' },
-  { value: 'ctrl', label: 'Ctrl' },
-];
-
-const letterOptions = [
-  'A','B','C','D','E','F','G','H',
-  'I','J','K','L','M','N','O','P',
-  'Q','R','S','T','U','V','W','X',
-  'Y','Z'
-].map(
-  i => ({ value: i, label: i })
-);
-
-export default function AccountHotKeyEdit () {
+export default function AccountHotKeyEdit ({ account, onAttributeChanged }:any) {
+  const { hotkey = defaultHotkeys } = account;
     return (
       <div className="ContentContainer AccountHotkeyEdit">
         <FormLabels 
@@ -31,11 +19,11 @@ export default function AccountHotKeyEdit () {
          <FormValues
             rows={[
               /* @ts-expect-error */
-              { type: 'checkbox', defaultValue: '', checked: true },
+              { type: 'checkbox', name: 'enabled', value: hotkey.enabled, onChange: onAttributeChanged },
               /* @ts-expect-error */
-              { type: 'select', defaultValue: '', options: modOptions, checked: true },
+              { type: 'select', value: hotkey.modifier, name: 'modifier', options: modifiers, onChange: onAttributeChanged },
               /* @ts-expect-error */
-              { type: 'select', defaultValue: '', options: letterOptions, checked: true },
+              { type: 'select', value: hotkey.key, name: 'key', options: letters, onChange: onAttributeChanged },
             ]}
          />
     </div>

@@ -10,15 +10,15 @@
     "build": "babel src -d dist",
     "watch": "babel --watch src -d dist",
     "postbuild": "tsc -p ./tsconfig.json",
-    "kill": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action kill",
-    "list": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action list",
-    "setup": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action setup",
-    "service": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action service",
-    "notify": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action notify",
-    "shortcuts": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action shortcuts",
-    "inject": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action inject",
-    "login": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action login",
-    "rotate": "node --experimental-specifier-resolution=node --experimental-modules ./index.js --action rotate"
+    "kill": "node --experimental-specifier-resolution=node --experimental-modules ./dist/index.js --action kill",
+    "list": "node --experimental-specifier-resolution=node --experimental-modules ./dist/index.js --action list",
+    "setup": "node --experimental-specifier-resolution=node --experimental-modules ./dist/index.js --action setup",
+    "service": "node --experimental-specifier-resolution=node --experimental-modules ./dist/index.js --action service",
+    "notify": "node --experimental-specifier-resolution=node --experimental-modules ./dist/index.js --action notify",
+    "shortcuts": "node --experimental-specifier-resolution=node --experimental-modules ./dist/index.js --action shortcuts",
+    "inject": "node --experimental-specifier-resolution=node --experimental-modules ./dist/index.js --action inject",
+    "login": "node --experimental-specifier-resolution=node --experimental-modules ./dist/index.js --action login",
+    "rotate": "node --experimental-specifier-resolution=node --experimental-modules ./dist/index.js --action rotate"
   },
   "publishConfig": {
     "registry": "http://127.0.0.1:4873/"

@@ -5,3 +5,4 @@ utils/handle64.exe
 dist
 yarn-error.log
 .npmrc
+packages/cli/preferences.json

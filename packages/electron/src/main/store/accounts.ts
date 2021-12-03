@@ -2,9 +2,12 @@ import Store from 'electron-store';
 
 const accountSchema = {
 	id: {
-		type: 'number',
+		type: 'string',
 	},
 	display: {
+		type: 'string',
+	},
+    folder: {
 		type: 'string',
 	},
     order: {
@@ -38,6 +41,26 @@ const accountSchema = {
 				type: 'boolean',
 				default: false
 			},
+            token: {
+                type: 'object',
+                properties: {
+                    REGION: {
+                        type: 'string',
+                    },
+                    ACCOUNT: {
+                        type: 'string',
+                    },
+                    ACCOUNT_STATE: {
+                        type: 'string',
+                    },
+                    ACCOUNT_TS: {
+                        type: 'string',
+                    },
+                    WEB_TOKEN: {
+                        type: 'string',
+                    },
+                }
+            },
 		}
 	},
 	client: {
@@ -99,8 +122,16 @@ let AccountStore = null;
 const init = () => {
 	AccountStore = new Store({ 
 		name: 'accounts',
-		/* @ts-expect-error */
-		schema: accountSchema,
+		schema: {
+            accounts: {
+                type: 'array',
+		        /* @ts-expect-error */
+                items: {
+                    type: 'object',
+                    properties: accountSchema,
+                }
+            }
+        },
 		// this is just to obfuscate so file is less likely to be modified 
 		// by another process, not for security
 		encryptionKey: 'MASKED'
@@ -112,4 +143,9 @@ const init = () => {
 export default {
 	AccountStore,
 	init,
+}
+
+export {
+    AccountStore,
+    init,
 }

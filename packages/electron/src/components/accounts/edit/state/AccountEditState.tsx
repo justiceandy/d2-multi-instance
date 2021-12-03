@@ -9,14 +9,16 @@ const createAccountEditStateMachine = (context) => {
     return createMachine({
         id: 'AccountEdit',
         initial: 'idle',
-        context: context,
+        context: {
+            ...context,
+        },
         on : {
-            general: 'general',
-            battlenet: 'battlenet',
-            client: 'client',
-            window: 'window', 
-            hotkey: 'hotkey',
-            delete: 'delete',
+            GENERAL: 'general',
+            BATTLENET: 'battlenet',
+            CLIENT: 'client',
+            WINDOW: 'window', 
+            HOTKEY: 'hotkey',
+            DELETE: 'delete',
         },
         states: {
             idle: {
@@ -28,79 +30,268 @@ const createAccountEditStateMachine = (context) => {
                     },
                     onDone: {
                         actions: assign({
-                            account: (context, event) => event.data,
+                            general: (context, event) => event.data.general,
+                            accounts: (context, event) => event.data.accounts,
+                            battlenet: (context, event) => event.data.battlenet,
+                            client: (context, event) => event.data.client,
+                            hotkey: (context, event) => event.data.hotkey,
+                            window: (context, event) => event.data.window,
                         }),
                         target: 'general'
                     },
                 },
             },
             general: {
-                invoke: {
-                    id: `isAccountRunning`,
-                    ...AccountEditStateServices.isRunning,
-                    onError: {
-                       // target: 'onKillFailed'
+                initial: 'loading',
+                states: {
+                    loading: {
+                        invoke: {
+                            id: `isAccountRunning`,
+                            ...AccountEditStateServices.isRunning,
+                            onError: {
+                               // target: 'onKillFailed'
+                            },
+                            onDone: {
+                                actions: assign({
+                                    running: (context, event) => event.data,
+                                }),
+                                target: 'loaded'
+                            },
+                        },
                     },
-                    onDone: {
-                        actions: assign({
-                            general: (context, event) => event.data,
-                        }),
+                    loaded: {
+                        on: {
+                            UPDATE_DISPLAY: {
+                                actions: [
+                                    assign({
+                                       
+                                    })
+                                ]
+                            },
+                            UPDATE_GAME_FOLDER: {
+                                actions: [
+                                    assign({
+                                       
+                                    })
+                                ]
+                            },
+                            target: 'saving'
+                        }
+                    },
+                    saving: {
+                        invoke: {
+                            id: `saveBnetChanges`,
+                            ...AccountEditStateServices.update,
+                            onError: {
+                               // target: 'onKillFailed'
+                            },
+                            onDone: {
+                                actions: assign({
+                                    battlenet: (context, event) => event.data,
+                                }),
+                                target: 'saved'
+                            },
+                        },
+                    },
+                    saved: {
+                        target: 'loaded'
                     },
                 },
             },
             battlenet: {
-                invoke: {
-                    id: `getAccountAuth`,
-                    ...AccountEditStateServices.getCredentials,
-                    onError: {
-                       // target: 'onKillFailed'
+                initial: 'loading',
+                states: {
+                    loading: {
+                        invoke: {
+                            id: `getAccountAuth`,
+                            ...AccountEditStateServices.getCredentials,
+                            onError: {
+                               // target: 'onKillFailed'
+                            },
+                            onDone: {
+                                actions: assign({
+                                    battlenet: (context, event) => event.data,
+                                }),
+                                target: 'loaded'
+                            },
+                        },
                     },
-                    onDone: {
-                        actions: assign({
-                            battlenet: (context, event) => event.data,
-                        }),
+                    loaded: {
+                        on: {
+                            UPDATE_ATTRIBUTE: {
+                               target: 'saving'
+                            },
+                        }
+                    },
+                    saving: {
+                        invoke: {
+                            id: `saveBnetChanges`,
+                            ...AccountEditStateServices.update,
+                            onError: {
+                               // target: 'onKillFailed'
+                            },
+                            onDone: {
+                                actions: assign({
+                                    battlenet: (context, event) => {
+                                        console.log('On Save Bnet Alert', event);
+                                    }
+                                }),
+                                target: 'saved'
+                            },
+                        },
+                    },
+                    saved: {
+                        target: 'loaded'
                     },
                 },
             },
             client: {
-                invoke: {
-                    id: `getClientScripts`,
-                    ...AccountEditStateServices.getClientScripts,
-                    onError: {
-                       // target: 'onKillFailed'
+                initial: 'loading',
+                context: {},
+                states: {
+                    loading: {
+                        invoke: {
+                            id: `getClientScripts`,
+                            ...AccountEditStateServices.getClientScripts,
+                            onError: {
+                               // target: 'onKillFailed'
+                            },
+                            onDone: {
+                                actions: assign({
+                                    client: (context, event) => event.data,
+                                }),
+                                target: "loaded"
+                            },
+                        },
                     },
-                    onDone: {
-                        actions: assign({
-                            client: (context, event) => event.data,
-                        }),
+                    loaded: {
+                        on: {
+                            UPDATE_ATTRIBUTE: {
+                                actions: [
+                                    (context, event) => {
+                                    console.log('Updating Client', event);
+                                    }
+                                ]
+                            },
+                        }
+                    },
+                    saving: {
+                        invoke: {
+                            id: `saveClientChanges`,
+                            ...AccountEditStateServices.update,
+                            onError: {
+                               // target: 'onKillFailed'
+                            },
+                            onDone: {
+                                actions: assign({
+                                    battlenet: (context, event) => event.data,
+                                }),
+                                target: 'saved'
+                            },
+                        },
+                    },
+                    saved: {
+                        target: 'loaded'
                     },
                 },
             },
             window: {
-                invoke: {
-                    id: `getAccountWindowSettings`,
-                    ...AccountEditStateServices.getWindowPrefs,
-                    onError: {
-                       // target: 'onKillFailed'
+                initial: 'loading',
+                context: {},
+                states: {
+                    loading: {
+                        invoke: {
+                            id: `getAccountWindowSettings`,
+                            ...AccountEditStateServices.getWindowPrefs,
+                            onError: {
+                               // target: 'onKillFailed'
+                            },
+                            onDone: {
+                                actions: assign({
+                                    window: (context, event) => event.data,
+                                }),
+                                target: "loaded"
+                            },
+                        },
                     },
-                    onDone: {
-                        actions: assign({
-                            window: (context, event) => event.data,
-                        }),
+                    loaded: {
+                        on: {
+                            UPDATE_ATTRIBUTE: {
+                                actions: [
+                                    (context, event) => {
+                                    console.log('Updating Window', event);
+                                    }
+                                ]
+                            },
+                        }
+                    },
+                    saving: {
+                        invoke: {
+                            id: `saveWindowChanges`,
+                            ...AccountEditStateServices.update,
+                            onError: {
+                               // target: 'onKillFailed'
+                            },
+                            onDone: {
+                                actions: assign({
+                                    window: (context, event) => event.data,
+                                }),
+                                target: 'saved'
+                            },
+                        },
+                    },
+                    saved: {
+                        target: 'loaded'
                     },
                 },
             },
             hotkey: {
-                invoke: {
-                    id: `getAccountHotkeySettings`,
-                    ...AccountEditStateServices.getHotkeyPrefs,
-                    onError: {
-                       // target: 'onKillFailed'
+                initial: 'loading',
+                context: {},
+                states: {
+                    loading: {
+                        invoke: {
+                            id: `getAccountHotkeySettings`,
+                            ...AccountEditStateServices.getHotkeyPrefs,
+                            onError: {
+                               // target: 'onKillFailed'
+                            },
+                            onDone: {
+                                actions: assign({
+                                    hotkey: (context, event) => event.data,
+                                }),
+                                target: "loaded"
+                            },
+                        },
                     },
-                    onDone: {
-                        actions: assign({
-                            hotkey: (context, event) => event.data,
-                        }),
+                    loaded: {
+                        on: {
+                            UPDATE_ATTRIBUTE: {
+                                actions: [
+                                    (context, event) => {
+                                    console.log('Updating Hotkey', event);
+                                    }
+                                ]
+                            },
+                        }
+                    },
+                    saving: {
+                        invoke: {
+                            id: `saveWindowChanges`,
+                            ...AccountEditStateServices.update,
+                            onError: {
+                               // target: 'onKillFailed'
+                            },
+                            onDone: {
+                                actions: assign({
+                                    hotkey: (context, event) => event.data,
+                                }),
+                                target: 'saved'
+                            },
+                        },
+                    },
+                    saved: {
+                        target: 'loaded'
                     },
                 },
             },

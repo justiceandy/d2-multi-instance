@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { Command } from 'commander/esm.mjs';
-import actions from '@d2r/cli/actions/index.js';
+import { Command } from 'commander';
+import actions from './actions';
 
 /*
   Command Line Interface for Library

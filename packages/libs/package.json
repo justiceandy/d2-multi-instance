@@ -20,13 +20,16 @@
     "registry": "http://127.0.0.1:4873/"
   },
   "dependencies": {
+    "@nut-tree/nut-js": "^1.7.0",
     "base-64": "^1.0.0",
     "es-dirname": "^0.1.0",
     "express": "^4.17.1",
     "find-process": "^1.4.5",
     "fstream": "^1.0.12",
+    "node-cache": "^5.1.2",
     "node-notifier": "^10.0.0",
     "node-stream-zip": "^1.15.0",
+    "pidusage": "^3.0.0",
     "queue-promise": "^2.2.1",
     "ref-napi": "^2.1.2",
     "ref-wchar-napi": "^1.0.3",
@@ -35,14 +38,19 @@
     "request": "^2.88.2",
     "robotjs": "^0.6.0",
     "short-hash": "^1.0.0",
+    "sqlite-async": "^1.1.2",
+    "sqlite3": "^5.0.2",
     "sudo-prompt": "^9.2.1",
     "win32-api": "^9.6.0",
+    "windows-cpu": "^1.1.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
+    "babel-jest": "^27.4.2",
+    "jest": "^27.3.1",
     "lerna": "^4.0.0",
     "typescript": "^4.4.4"
   }

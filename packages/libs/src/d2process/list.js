@@ -10,7 +10,7 @@ import cache from './cache';
 
 export default async function() {
     const d2Processes = await find('name', 'D2R.exe');
-    const existing = await cache.get();
+    const existing = await cache.list();
    
     const combineAccountData = async (i) => {
         const account = await settings.account.getByFolder(i.bin.replace('\\D2R.exe', ''));
@@ -42,7 +42,8 @@ export default async function() {
     // Remove Missing
     missingProcesses.map(i => delete existing[i]);
 
-    cache.update(existing);
+    console.log(payload);
+    cache.update(payload);
 
     return payload;
 }

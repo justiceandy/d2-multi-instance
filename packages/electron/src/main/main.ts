@@ -24,7 +24,8 @@ const config = cluster.defaultConfig();
 const accountStore = accounts.init();
 const preferenceStore = preferences.init();
 
-console.log(accountStore.path, preferenceStore.path);
+console.log('File Store:',
+  accountStore.path, preferenceStore.path);
 
 // Determine what window to open from Launch Args
 const chooseWindow = async () => {

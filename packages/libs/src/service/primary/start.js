@@ -1,5 +1,4 @@
 
-
 export default function ({ config, cluster }) {
     console.log(`Running in Cluster Mode: ${process.pid} is primary`);
     // Fork workers.

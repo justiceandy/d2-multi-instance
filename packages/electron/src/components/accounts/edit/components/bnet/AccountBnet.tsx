@@ -1,20 +1,13 @@
 
 import FormValues from 'components/ui/form/values/FormValues';
 import FormLabels from 'components/ui/form/labels/FormLabels';
+import { defaultBattleNet, regions, locals } from './libs/defaults';
 
 import './AccountBnet.css';
 
-const modOptions = [
-  { value: 'shift', label: 'Shift' },
-  { value: 'alt', label: 'Alt' },
-  { value: 'ctrl', label: 'Ctrl' },
-];
-
-const onValueChange = async (e:any) => {
-  console.log('Value', e)
-  return true;
-}
-export default function AccountBnetEdit () {
+export default function AccountBnetEdit ({  account, onAttributeChanged }:any) {
+  console.log(account);
+   const { battlenet = defaultBattleNet } = account
     return (
       <div className="ContentContainer AccountBnetEdit">
         <FormLabels 
@@ -29,15 +22,15 @@ export default function AccountBnetEdit () {
          <FormValues
             rows={[
               /* @ts-expect-error */
-              { type:  'text', placeholder: "automated@blizzard.com", onChange: onValueChange, checked: true },
+              { type: 'text', name: "credentials.username", placeholder: "automated@blizzard.com", value: battlenet.credentials.email, onChange: onAttributeChanged },
               /* @ts-expect-error */
-              { type: 'password', placeholder: "Encrypted", onChange: onValueChange, checked: true },
+              { type: 'password', name: "credentials.password", placeholder: "Encrypted", value: battlenet.credentials.password, onChange: onAttributeChanged },
               /* @ts-expect-error */
-              { type: 'select', defaultValue: '', options: modOptions },
+              { type: 'select', name: "region", value: battlenet.region, options: regions, onChange: onAttributeChanged },
               /* @ts-expect-error */
-              { type: 'select', defaultValue: '', options: modOptions },
+              { type: 'select', name: "local", value: battlenet.local, options: locals, onChange: onAttributeChanged },
               /* @ts-expect-error */
-              { type: 'checkbox', defaultValue: '', onChange: onValueChange, checked: true },
+              { type: 'checkbox', name: "automated", value: battlenet.automated, onChange: onAttributeChanged },
           ]}
          />
     </div>

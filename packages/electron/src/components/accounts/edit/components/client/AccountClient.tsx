@@ -1,16 +1,12 @@
 
 import FormValues from 'components/ui/form/values/FormValues';
 import FormLabels from 'components/ui/form/labels/FormLabels';
+import defaultClient from './libs/defaults';
 
 import './AccountClient.css';
 
-
-const onValueChange = async (e:any) => {
-  console.log('Value', e)
-  return true;
-}
-
-export default function AccountClientEdit () {
+export default function AccountClientEdit ({ account, onAttributeChanged }:any) {
+    const { client = defaultClient } = account;
     return (
       <div className="ContentContainer AccountClientEdit">
          <FormLabels 
@@ -24,13 +20,13 @@ export default function AccountClientEdit () {
          <FormValues
             rows={[
               /* @ts-expect-error */
-              { type: 'text', placeholder: "-w- mod lootfilter", onChange: onValueChange, checked: true },
+              { type: 'text', name: "dr", value: client.d2r, placeholder: "-w- mod lootfilter", onChange: onAttributeChanged },
               /* @ts-expect-error */
-              { type: 'checkbox', defaultValue: '', onChange: onValueChange, checked: true },
+              { type: 'checkbox', name: "skipIntro", value: client.skipIntro, onChange: onAttributeChanged },
                /* @ts-expect-error */
-               { type:  'text', placeholder: "/path/to/script.exe", onChange: onValueChange, checked: true },
+               { type:  'text', name: "launch.pre", value: client.launch.pre, placeholder: "/path/to/script.exe", onChange: onAttributeChanged },
                 /* @ts-expect-error */
-              { type:  'text', placeholder: "/path/to/script.exe", onChange: onValueChange, checked: true },
+              { type:  'text', name: "launch.post", value: client.launch.post, placeholder: "/path/to/script.exe", onChange: onAttributeChanged },
             ]}
          />
     </div>

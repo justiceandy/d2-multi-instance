@@ -42,7 +42,8 @@
     box-sizing: border-box;
 }
 
-.ui-tab-container .nav-link.active li {
+.ui-tab-container .nav-link.active li,
+.ui-tab-container .active li {
     color: #a3a3a3;
     background: #0c0c0c;
     font-weight: 500;

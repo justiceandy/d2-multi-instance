@@ -5,9 +5,13 @@ import {
     isValidGameDirectory,
     remove,
     update,
+    get,
 } from './handles';
 
 export default function AccountDataHandler({ ipcMain }:any) {
+
+    ipcMain.handle('account/get', 
+        async (event, args) => get(args))
 
     ipcMain.handle('account/update', 
         async (event, args) => update(args))

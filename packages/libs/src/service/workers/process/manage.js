@@ -1,5 +1,5 @@
  import { d2process } from "../../..";
- import registry from "../../../registry/battle-net";
+ import registry from "../../../battle.net/registry";
  import killHandler from "@d2r/cli/dist/actions/kill";
  
  // Manage Running Processes

@@ -1,20 +1,24 @@
 
 module.exports = (ipcRenderer) => {
     return {
-        updateAccount: async () => {
-            const paths = await ipcRenderer.invoke('account/update');
+        getAccount: async (payload) => {
+            const account = await ipcRenderer.invoke('account/get', payload);
+            return account;
+        },
+        updateAccount: async (payload) => {
+            const account = await ipcRenderer.invoke('account/update', payload);
             return paths;
         },
-        createAccount: async () => {
-            const paths = await ipcRenderer.invoke('account/create');
+        createAccount: async (payload) => {
+            const paths = await ipcRenderer.invoke('account/create', payload);
             return paths;
         },
-        deleteAccount: async () => {
-            const paths = await ipcRenderer.invoke('account/delete');
+        deleteAccount: async (name) => {
+            const paths = await ipcRenderer.invoke('account/delete', { name });
             return paths;
         },
-        isValidGameDirectory: async () => {
-            const paths = await ipcRenderer.invoke('account/isValidGameDirectory');
+        isValidGameDirectory: async (dir) => {
+            const paths = await ipcRenderer.invoke('account/isValidGameDirectory', { dir });
             return paths;
         },
         

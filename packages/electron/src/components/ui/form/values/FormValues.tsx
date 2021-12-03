@@ -47,7 +47,7 @@ const inputs = {
                         onChange={(event) => onChange({ event, name })}
                     >
                     {options.map(
-                        (i:any) => <MenuItem className="ui-form-select-box-item" value={i.value}>{i.label}</MenuItem>
+                        (i:any, index:any) => <MenuItem key={`ui-label-${label}-item-${index}`} className="ui-form-select-box-item" value={i.value}>{i.label}</MenuItem>
                     )}
                     </Select>
                 </FormControl>

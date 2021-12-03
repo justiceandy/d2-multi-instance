@@ -4,6 +4,10 @@ const accountSchema = {
 	startMinimized: {
 		type: 'boolean',
 	},
+	onboarded: {
+		type: 'boolean',
+		default: false,
+	},
 	shortcutDirectory: {
 		type: 'string',
 	},
@@ -66,6 +70,11 @@ const init = () => {
 }
 
 export default {
+	PreferenceStore,
+	init,
+}
+
+export {
 	PreferenceStore,
 	init,
 }

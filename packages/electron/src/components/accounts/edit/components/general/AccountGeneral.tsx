@@ -1,16 +1,10 @@
-import './AccountGeneral.css';
 import FormValues from 'components/ui/form/values/FormValues';
 import FormLabels from 'components/ui/form/labels/FormLabels';
 
+import './AccountGeneral.css';
 
-
-const onValueChange = async (e:any) => {
-  console.log('Value', e)
-  return e.target.value;
-}
-
-export default function AccountGeneralEdit (account:any) {
-  const { display = "", folder = "", region = 'NA' } = account;
+export default function AccountGeneralEdit ({ onAttributeChanged, account }:any) {
+  const { display, folder, main = false } = account.general;
     return (
       <div className="ContentContainer AccountGeneralEdit">
         <FormLabels 
@@ -22,25 +16,14 @@ export default function AccountGeneralEdit (account:any) {
         />
         <FormValues
             rows={[
-              /* @ts-expect-error */
-              { type: 'text', defaultValue: display, onChange: onValueChange, checked: true },
+               /* @ts-expect-error */
+               { type: 'text', name: "display", value: display, onChange: onAttributeChanged },
                 /* @ts-expect-error */
-                { type: 'text', defaultValue: folder, onChange: onValueChange, checked: true },
+                { type: 'text', name: "folder", value: folder, onChange: onAttributeChanged },
                 /* @ts-expect-error */
-                { type: 'checkbox', defaultValue: region, onChange: onValueChange, checked: true },
+                { type: 'checkbox', name: "main", value: main, onChange: onAttributeChanged },
             ]}
         />
-
-        {/* <div className="FormValues">
-            {folder === "" ?
-                <input 
-                      directory={folder} 
-                      webkitdirectory={folder}  
-                      type="file"
-                      onChange={onUploadHandler}/>
-                : <input name="region" type="text" defaultValue={folder} onChange={onValueChange} />
-            }
-        </div> */}
     </div>
     );
   };
