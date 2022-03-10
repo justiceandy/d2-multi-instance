@@ -1,0 +1,48 @@
+{
+  "name": "@d2r/level-db",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.1.1",
+  "main": "./dist/index.js",
+  "bin": "./dist/index.js",
+  "scripts": {
+    "start": "node ./cli",
+    "generate-accounts": "node ./cli --action generate --filter accounts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build",
+    "watch": "tsc-watch",
+    "clean": "tsc --build --clean",
+    "build-native": "electron-rebuild -v 15.3.0",
+    "postbuild": "tsc -p ./tsconfig.json"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@d2r/level-db": "dist"
+  },
+  "devDependencies": {
+    "@types/level": "^6.0.0",
+    "@types/levelup": "^5.1.0",
+    "@types/module-alias": "^2",
+    "@types/node": "16.11.19",
+    "@types/subleveldown": "^4.1.1",
+    "@types/tsc-watch": "^4",
+    "@types/uuid": "^8",
+    "@types/winston": "^2.4.4",
+    "commander": "^8.3.0",
+    "dotenv": "^14.3.2",
+    "module-alias": "^2.2.2",
+    "nodemon": "^2.0.15",
+    "ts-node": "10.4.0",
+    "tsc-watch": "^4.6.0",
+    "typescript": "4.5.4"
+  },
+  "dependencies": {
+    "keytar": "^7.7.0",
+    "level": "^7.0.1",
+    "reflect-metadata": "^0.1.13",
+    "subleveldown": "^6.0.1",
+    "type-graphql": "^1.1.1",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
+  }
+}

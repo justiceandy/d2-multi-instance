@@ -1,0 +1,4 @@
+node_modules
+old
+.yarn
+src/bridge/db/testing.db

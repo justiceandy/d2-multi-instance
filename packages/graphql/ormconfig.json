@@ -1,0 +1,20 @@
+{
+   "synchronize": true,
+   "type": "sqlite",
+   "database": "./src/bridge/db/default-db.sqlite",
+   "logging": true,
+   "entities": [
+      "src/data/types/game/GameProfile.ts"
+   ],
+   "migrations": [
+      "src/data/migrations/**/*.ts"
+   ],
+   "subscribers": [
+      "src/data/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
+}

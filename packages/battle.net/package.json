@@ -1,0 +1,46 @@
+{
+  "name": "@d2r/battle.net",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.1.1",
+  "main": "./dist/index.js",
+  "bin": "./dist/index.js",
+  "scripts": {
+    "start": "nodemon ./dev.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build",
+    "watch": "tsc-watch",
+    "clean": "tsc --build --clean",
+    "build-native": "electron-rebuild -v 15.3.0",
+    "postbuild": "tsc -p ./tsconfig.json"
+  },
+  "workspaces": [
+    "../level-db",
+    "../utils"
+  ],
+  "dependencies": {
+    "@d2r/level-db": "1.0.0",
+    "@d2r/utils": "1.0.0",
+    "base-64": "^1.0.0",
+    "find-process": "^1.4.5",
+    "moment": "^2.29.1",
+    "node-cache": "^5.1.2",
+    "regedit": "^5.0.0",
+    "shorthash2": "^1.0.3",
+    "sqlite-async": "^1.1.2",
+    "sqlite3": "^5.0.2",
+    "sudo-prompt": "^9.2.1",
+    "win32-api": "^9.6.0",
+    "winreglib": "^2.0.3",
+    "wmi-datetime": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/base-64": "^1.0.0",
+    "@types/promise-queue": "^2",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.15",
+    "ts-node": "10.4.0",
+    "tsc-watch": "^4.6.0",
+    "typescript": "4.5.4"
+  }
+}

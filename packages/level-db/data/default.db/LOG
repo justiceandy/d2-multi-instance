@@ -1,0 +1,12 @@
+2022/01/08-20:47:07.539 bf8c Recovering log #60
+2022/01/08-20:47:07.539 bf8c Level-0 table #63: started
+2022/01/08-20:47:07.549 bf8c Level-0 table #63: 201 bytes OK
+2022/01/08-20:47:07.564 bf8c Delete type=2 #42
+2022/01/08-20:47:07.565 bf8c Delete type=2 #44
+2022/01/08-20:47:07.566 bf8c Delete type=2 #47
+2022/01/08-20:47:07.566 bf8c Delete type=2 #50
+2022/01/08-20:47:07.566 bf8c Delete type=2 #53
+2022/01/08-20:47:07.568 bf8c Delete type=2 #56
+2022/01/08-20:47:07.569 bf8c Delete type=2 #59
+2022/01/08-20:47:07.570 bf8c Delete type=0 #60
+2022/01/08-20:47:07.571 bf8c Delete type=3 #58

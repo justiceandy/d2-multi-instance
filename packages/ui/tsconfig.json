@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "declaration": true,
+    "declarationMap": true,
+    "jsx": "react-jsx",
+    "strict": false,
+    "pretty": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    /* Additional Checks */
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    //"suppressImplicitAnyIndexErrors": true,
+    "allowUmdGlobalAccess": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "dist/components"
+  },
+  "include": [
+    "src/components/*"  
+  ],
+  "exclude": [
+    "node_modules",
+    "./node_modules",
+    "./node_modules/*",
+    "dist",
+    "./node_modules/@types/node/index.d.ts",
+  ],
+}

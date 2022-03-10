@@ -1,64 +1,18 @@
 {
-  "name": "@d2r/launcher",
+  "name": "@d2r/maa",
   "version": "1.0.0",
-  "bin": "index.js",
-  "private": "true",
-  "description": "supports logging into multiple bnet accounts for diablo 2 multiboxing",
-  "main": "index.js",
-  "scripts": {
-    "bootstrap": "lerna exec npm install --no-bail",
-    "registry": "docker run -it --rm --name verdaccio -p 4873:4873 verdaccio/verdaccio",
-    "postbootstrap" : "lerna link"
-   },
-  "author": "",
-  "license": "ISC",
-  "workspaces": {
-    "packages": [
-      "packages/api",
-      "packages/libs",
-      "packages/cli",
-      "packages/electron",
-      "packages/web",
-      "packages/ui"
-    ],
-    "nohoist": [
-      "**/electron-webpack",
-      "**/electron-webpack/**",
-      "**/electron-rebuilder/**",
-      "**/electron-rebuilder",
-      "**/electron-builder/**",
-      "**/electron-builder",
-      "**/electron-rebuild",
-      "**/electron-rebuild/**",
-      "**/electron-react-boilerplate/**",
-      "**/electron-react-boilerplate",
-      "**/iconv/**",
-      "**/iconv",
-      "**/iconv/**",
-      "**/robotjs",
-      "**/robotjs/**",
-      "**/ref-wchar-napi/**",
-      "**/ref-wchar-napi",
-      "electron",
-      "@electron",
-      "**/@electron",
-      "**/@electron/**",
-      "**/cross-env",
-      "**/cross-env/**",
-      "**/webpack",
-      "**/webpack/**",
-      "**/opencollective-postinstall/**",
-      "**/opencollective-postinstall"
-    ]
-  },
-  "engines": {
-    "yarn": "^1.4.2"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "lerna": "^4.0.0",
-    "typescript": "^4.4.4"
-  }
+  "license": "MIT",
+  "private": true,
+  "packageManager": "yarn@3.1.1",
+  "workspaces": [
+    "packages/automation",
+    "packages/batlle.net",
+    "packages/graphql",
+    "packages/devel-db",
+    "packages/ui",
+    "packages/utils",
+    "apps/electron",
+    "apps/web",
+    "apps/wiki"
+  ]
 }

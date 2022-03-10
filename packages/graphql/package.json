@@ -1,0 +1,47 @@
+{
+  "name": "@d2r/graphql",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.1.1",
+  "scripts": {
+    "start": "nodemon src/bridge/start-server.ts",
+    "prisma": "prisma generate --schema=./prisma/schema.prisma"
+  },
+  "workspaces": [
+    "../level-db",
+    "../automation",
+    "../utils",
+    "../battle.net"
+  ],
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "16.11.19",
+    "@types/uuid": "^8",
+    "@types/level": "^6.0.0",
+    "@types/levelup": "^5.1.0",
+    "@types/subleveldown": "^4.1.1",
+    "nodemon": "^2.0.15",
+    "ts-node": "10.4.0",
+    "typescript": "4.5.4"
+  },
+  "dependencies": {
+    "@d2r/level-db": "1.0.0",
+    "@d2r/battle-net": "1.0.0",
+    "@d2r/automation": "1.0.0",
+    "@d2r/utils": "1.0.0",
+    "@graphql-tools/schema": "^8.3.1",
+    "apollo-server": "^3.5.0",
+    "apollo-server-express": "^3.5.0",
+    "class-validator": "^0.13.2",
+    "conf": "^10.1.1",
+    "electron-store": "^8.0.1",
+    "express": "^4.17.1",
+    "graphql": "^15.3.0",
+    "graphql-subscriptions": "^2.0.0",
+    "level": "^7.0.1",
+    "reflect-metadata": "^0.1.13",
+    "subleveldown": "^6.0.1",
+    "subscriptions-transport-ws": "^0.11.0",
+    "type-graphql": "^1.1.1",
+    "uuid": "^8.3.2"
+  }
+}

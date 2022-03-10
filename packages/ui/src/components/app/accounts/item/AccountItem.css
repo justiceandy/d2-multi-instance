@@ -1,0 +1,174 @@
+
+
+.AccountItem {
+  border: 1px solid #0e0e0e;
+  background: #121212;
+  color: black;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0) 0px 2px 1px -1px, rgb(0 0 0) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+  padding-left: 4px;
+  display: flex;
+  align-content: flex-start;
+  width: 100%;
+  padding-right: 9px;
+}
+
+.AccountItem .ActiveButtons {
+  float: left;
+}
+
+.AccountItem .SquadLeader {
+  margin-right: 10px;
+  color: #d89a36;
+}
+
+.AccountItem .ActiveProcess {
+  color: green;
+}
+.AccountItem .InActiveProcess {
+  color: #222222;
+}
+.AccountItem .NotSquadLeader {
+  margin-right: 10px;
+  color: #222222;
+}
+.AccountItem .ActiveButtons a {
+  color: inherit
+}
+.AccountItem .AccountNameContainer {
+  float: left;
+  background: none;
+  margin-left: 0px;
+  box-sizing: border-box;
+  color: #8d8d8d;
+  font-size: 1.3em;
+  padding-right: 5px;
+  border-right: 0px;
+  text-shadow: 2px 2px #0e0e0e;
+  overflow: hidden;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  text-indent: 6px;
+  padding-top: 3px;
+  text-transform: capitalize;
+}
+
+.AccountItem .StatusIcons {
+  margin-top: 2px;
+}
+.AccountItem .AccountIdIcon {
+  float: left;
+  margin-top: 3px;
+}
+.AccountItem .actIcons {
+    color: #2a2a2a;
+    margin-right: 5px;
+    display: contents;
+}
+
+.AccountItem .LaunchButtons label {
+  color: #9b9b9b;
+  float: left;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+.AccountItem .OrderIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    float: left;
+    color: #8d8d82;
+    margin-top: -3px;
+}
+.AccountItem:hover .AccountNameContainer,  .AccountItem:hover .OrderIcon {
+  color: #bdbdbd;
+}
+.AccountNameText{
+  width: fit-content;
+  float: left;
+  max-width: 135px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.AccountItem:hover {
+  background: #161616;
+}
+.AccountItem .LaunchIcon, .AccountItem .RefreshIcon, 
+.AccountItem .EditIcon, .addQueIcon, .removeQueIcon,
+.IdleButtons .termIcon {
+    float: right;
+    padding: 8px;
+    margin-top: -4px;
+    border-radius: 3px;
+    margin-left: 10px;
+    color: white;
+    box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
+  }
+
+  .TermButtons label {
+    color: #8d8d8d;
+    float: left;
+    margin-top: 4px;
+    font-size: 0.9em;
+    text-transform: capitalize;
+  }
+
+  .TermButtons .termIcon {
+    margin-right: 0px;
+    padding: 8px;
+    margin-top: -4px;
+    border-radius: 3px;
+    margin-left: 10px;
+    color: #c70001eb;
+    box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
+  }
+  .AccountItem .LaunchIcon {
+    background: #0d7600
+  }
+  
+  .AccountItem .LaunchIcon:hover {
+    background: #00a53d;
+  }
+  .AccountItem .RefreshIcon {
+    background: #025177;
+  }
+  .AccountItem .RefreshIcon:hover {
+    background: #047bb5;
+  }
+  .AccountItem .EditIcon {
+    background: #3a3a3a;
+    display: none;
+  }
+  .AccountItem .EditIcon:hover {
+    background: #535353;
+  }
+
+  .AccountItem:hover .EditIcon{
+    display: block;
+}
+
+.TokenCapturedIcon{
+  padding: 8px;
+  margin-top: -4px;
+  border-radius: 3px;
+  margin-left: 10px;
+  color: #8d8d8d;
+  box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
+}
+.AccountItem .KillProcessIcon {
+  padding: 8px;
+  margin-top: -4px;
+  border-radius: 3px;
+  margin-left: 10px;
+  color: #cdcdcd;
+  background: #222222;
+  box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
+}
+
+.AccountItem .AccountLink {
+  display: flex;
+  flex: 2;
+}
