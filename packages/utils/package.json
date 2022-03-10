@@ -1,0 +1,43 @@
+{
+  "name": "@d2r/utils",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.1.1",
+  "main": "./dist/index.js",
+  "bin": "./dist/index.js",
+  "scripts": {
+    "start": "nodemon ./dev.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build",
+    "watch": "tsc-watch",
+    "clean": "tsc --build --clean",
+    "build-native": "electron-rebuild -v 15.3.0",
+    "postbuild": "tsc -p ./tsconfig.json"
+  },
+  "dependencies": {
+    "download": "^8.0.0",
+    "download-git-repo": "^3.0.2",
+    "glob-promise": "^4.2.2",
+    "node-notifier": "^10.0.0",
+    "node-stream-zip": "^1.15.0",
+    "node-window-manager": "^2.2.4",
+    "promise-queue": "^2.2.5",
+    "ref-napi": "^3.0.3",
+    "replace-color": "^2.3.0",
+    "request": "^2.88.2",
+    "simple-git": "^2.48.0",
+    "win32-api": "^9.6.0"
+  },
+  "devDependencies": {
+    "@types/download": "^8",
+    "@types/node-notifier": "^8.0.2",
+    "@types/promise-queue": "^2",
+    "@types/ref-napi": "^3",
+    "@types/request": "^2.48.8",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.15",
+    "ts-node": "10.4.0",
+    "tsc-watch": "^4.6.0",
+    "typescript": "4.5.4"
+  }
+}

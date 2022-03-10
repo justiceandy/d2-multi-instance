@@ -1,0 +1,49 @@
+{
+  "name": "@d2r/automation",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.1.1",
+  "workspaces": [
+    "../utils",
+    "../level-db",
+    "../battle.net"
+  ],
+  "main": "./dist/index.js",
+  "bin": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "scripts": {
+    "start": "node ./cli",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build",
+    "watch": "tsc-watch",
+    "clean": "tsc --build --clean",
+    "build-native": "electron-rebuild -v 15.3.0",
+    "postbuild": "tsc -p ./tsconfig.json"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@d2r/level-db": "./node_modules/@d2r/level-db",
+    "@d2r/utils": "./node_modules/@d2r/utils",
+    "@d2r/automation": "./dist"
+  },
+  "dependencies": {
+    "@d2r/battle.net": "1.0.0",
+    "@d2r/level-db": "1.0.0",
+    "@d2r/utils": "1.0.0",
+    "@nut-tree/nut-js": "^2.0.0",
+    "@nut-tree/template-matcher": "^1.0.1",
+    "node-abort-controller": "^3.0.1",
+    "p-retry": "4.6.1"
+  },
+  "devDependencies": {
+    "commander": "^8.3.0",
+    "module-alias": "^2.2.2",
+    "nodemon": "^2.0.15",
+    "ts-node": "10.4.0",
+    "tsc-watch": "^4.6.0",
+    "typescript": "4.5.4"
+  }
+}

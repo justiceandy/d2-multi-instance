@@ -1,0 +1,25 @@
+
+.AccountClientEdit .ui-form-labels {
+    width: 149px;
+    max-width: 200px !important;
+    text-align: revert;
+    height: 345px;
+}
+.AccountClientEdit .ui-form-labels ul li {
+    text-indent: 30px;
+}
+.AccountClientEdit .ui-form-values ul {
+    max-width: 300px;
+}
+
+.AccountClientEdit .ui-form-labels ul {
+    padding-top: 10px;
+}
+.AccountClientEdit .ui-form-values ul {
+    padding-top: 20px;
+}
+
+.AccountClientEdit .ui-form-values {
+    height: 345px;
+    padding-top: 10px;
+}

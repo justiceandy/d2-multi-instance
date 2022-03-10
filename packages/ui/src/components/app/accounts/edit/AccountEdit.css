@@ -1,0 +1,92 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+
+
+.AccountEdit .ContentContainer ul {
+  list-style: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.TabContainer ul a {
+  flex: 1;
+}
+
+
+.AccountEdit .TabContainer {
+  float: left;
+  width: 100%;
+  background: #0e0e0e;
+  margin-top: -12px;
+  height: 45px;
+  border-bottom: 2px solid #323232;
+}
+.AccountEdit .TabContainer ul li {
+  float: left;
+  padding-right: 15px;
+  background: #222222;
+  color: white;
+  padding-left: 15px;
+  border-bottom: 1px solid #0e0e0e;
+  margin-right: 1px;
+  width: 100%;
+  padding-bottom: 13px;
+  text-align: center;
+}
+.AccountEdit .ui-tab-container ul {
+  max-width:715px;
+}
+.AccountEdit .TabContainer ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+.AccountEdit .TabContainer ul li:active {
+  background: #222222;
+  color: #d89a36;
+ }
+
+.CheckboxItem {
+  color: white;
+  margin-right: 40px;
+  margin-top: 6px;
+}
+
+.CheckboxItem:before li {
+  text-align: center;
+}
+
+.AccountEdit h1 .chevIcon {
+  float: left;
+  margin-top: 3px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.AccountEdit h1 label {
+  float: left;
+}
+
+.AccountEdit .FormValues li {
+  padding-top: 0;
+  margin-bottom: -2px;
+}
+
+
+.AccountEdit .ContentContainer .ui-form-labels {
+  max-width: 300px;
+}
+
+.AccountEdit .ContentContainer .ui-form-values ul {
+  max-width: 335px;
+}

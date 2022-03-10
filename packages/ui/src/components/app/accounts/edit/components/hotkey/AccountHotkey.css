@@ -1,0 +1,25 @@
+
+.AccountHotkeyEdit .ui-form-labels {
+    width: 149px;
+    max-width: 200px !important;
+    text-align: revert;
+    height: 345px;
+}
+.AccountHotkeyEdit .ui-form-labels ul li {
+    text-indent: 30px;
+}
+.AccountHotkeyEdit .ui-form-values ul {
+    max-width: 300px;
+}
+
+.AccountHotkeyEdit .ui-form-labels ul {
+    padding-top: 10px;
+}
+.AccountHotkeyEdit .ui-form-values ul {
+    padding-top: 20px;
+}
+
+.AccountHotkeyEdit .ui-form-values {
+    height: 345px;
+    padding-top: 10px;
+}

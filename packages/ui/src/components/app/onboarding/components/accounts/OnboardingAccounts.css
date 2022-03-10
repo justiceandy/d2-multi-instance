@@ -1,0 +1,159 @@
+.OnboardingInnerAccount {
+    width: 85%;
+    margin: auto;
+    padding: 30px;
+    font-family: system-ui;
+    font-size: 0.95em;
+    padding-top: 0px;
+}
+
+.OnboardingAccountTop div {
+    font-size: 0.93em;
+    text-align: center;
+}
+
+.CurrentGameAccounts {
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    background: #62626229;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    height: 345px;
+    border-bottom: 1px solid #100f0e;
+    overflow: auto;
+}
+
+.BoldRedP{
+    font-weight: 600;
+    color: #b7b7b7;
+    margin-top: 20px;
+}
+.AccountBar button {
+    float: right;
+    margin-top: -10px;
+    color: white;
+    font-weight: 600;
+    padding-right: 17px;
+    float: left;
+}
+.AddAccountIcon {
+    padding: 5px;
+    border-radius: 5px;
+    float: right;
+    color: #dfdfdf;
+    margin-right: 6px;
+}
+
+.RemoveAccountIcon {
+    padding: 5px;
+    border-radius: 5px;
+    float: right;
+    color: #606060;
+    margin-right: 6px;
+}
+
+
+.OnboardAccount:hover {
+    background: #0e0e0e;
+    color: grey;
+}
+
+.NoCurrentAccounts {
+    margin-bottom: 7px;
+    margin-left: 10px;
+    padding-top: 125px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    color: #6e6e6e;
+}
+
+
+.OnboardAccount {
+    float: left;
+    background: #121212;
+    padding: 8px;
+    border: 1px solid #1a1a1a75;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+
+.ValidAccountIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 2px;
+    float: left;
+    margin-left: 10px;
+    color: grey;
+}
+.AccountBar {
+    height: 45px;
+    border-bottom: 1px solid #202020;
+    box-sizing: border-box;
+    padding-top: 4px;
+    box-shadow: 1px 1px 1px 1px rgb(18 18 18 / 32%);
+}
+.AccountBar label {
+    float: right;
+    margin-top: 7px;
+    margin-right: 16px;
+    font-weight: 600;
+    font-size: 1em;
+}
+.OnboardingAccountTop {
+    width: 100%;
+    height: 135px;
+    box-sizing: border-box;
+    padding-top: 14px;
+    background: #1c1c1c00;
+    margin-bottom: 25px;
+}
+
+.OnboardAccountName {
+    width: 30%;
+}
+.OnboardAccount span {
+    color:grey;
+}
+
+.OnboardAccountDir {
+    color: #606060;
+    width: 70%;
+    text-align: left;
+    text-indent: 25px;
+}
+
+.ValidFolderAccountIcon {
+    float: left;
+    margin-right: 0px;
+}
+.OnboardAccountDir label {
+    float: left;
+    text-align: left;
+    text-indent: 10px;
+    margin-top: 2px;
+}
+
+.AddedAccounts {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+}

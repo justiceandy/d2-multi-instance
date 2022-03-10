@@ -1,0 +1,44 @@
+
+.OnboardNavFooter .footerIcon {
+    color: #666666;
+    margin-right: 15px;
+}
+.OnboardNavFooter .footerIcon:hover {
+    color: white;
+}
+.OnboardNavFooter {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 19px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    z-index: 3;
+    justify-content: center;
+    margin-left: 5%;
+}
+.OnboardNavFooter ul {
+    margin: auto;
+    display: flex;
+    box-sizing: border-box;
+    list-style: none;
+    text-align: center;
+    padding-left: 10px;
+}
+
+.NextFooterLink, .PreviousFooterLink {
+    width: 20%;
+}
+
+.PreviousFooterLink a, .NextFooterLink a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.OnboardNavFooter ul li {
+    flex: 1;
+}

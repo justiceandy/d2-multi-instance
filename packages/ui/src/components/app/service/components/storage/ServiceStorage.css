@@ -1,0 +1,11 @@
+.SettingsStorage .ui-form-labels {
+    max-width: 275px;
+    height: 375px;
+}
+.SettingsStorage .ui-form-values {
+    height: 375px;
+}
+
+.SettingsStorage .ui-form-values ul {
+    max-width: 350px;
+}

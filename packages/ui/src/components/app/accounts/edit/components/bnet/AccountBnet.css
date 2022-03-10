@@ -1,0 +1,30 @@
+
+.AccountBnetEdit .ui-form-labels {
+    width: 149px;
+    max-width: 200px !important;
+    text-align: revert;
+    height: 345px;
+}
+.AccountBnetEdit .ui-form-labels ul li {
+    text-indent: 30px;
+}
+.AccountBnetEdit .ui-form-values ul {
+    max-width: 300px;
+}
+.AccountBnetEdit .ui-form-values-text,
+.AccountBnetEdit .ui-form-values-password {
+    width: 260px;
+}
+
+
+.AccountBnetEdit .ui-form-labels ul {
+    padding-top: 10px;
+}
+.AccountBnetEdit .ui-form-values ul {
+    padding-top: 20px;
+}
+
+.AccountBnetEdit .ui-form-values {
+    height: 345px;
+    padding-top: 10px;
+}

@@ -1,0 +1,108 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+.Menu {
+  background: #101010;
+  background: #141414;
+  float: left;
+  width: 150px;
+  height: 100vh;
+  border-top: 1px solid #0e0e0e;
+  border-right: 1px solid #0e0e0e;
+  box-shadow: rgb(0 0 0 / 20%) 4px 3px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+}
+
+
+.Menu ul, .MenuFooter ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.Menu ul li {
+
+}
+
+.MenuIcon {
+  margin-top: -4px;
+  float: left;
+  margin-left: 9px;
+  margin-right: -3px;
+}
+
+.MenuFooter ul li a {
+  color: inherit;
+}
+
+ .menu-nav-link.active {
+  /* background: #0e0e0e; */
+  color: #d7d7d7;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 3px solid #035177;
+  border-bottom: 3px solid #d89a3699;
+}
+.menu-nav-link:hover {
+  background: #0c0c0c;
+}
+.Menu ul li a {
+  text-decoration: inherit;
+  color: inherit;
+  padding-top: 12px;
+  display: block;
+  padding-bottom: 11px;
+  box-sizing: border-box;
+}
+
+.menu-nav-link {
+  float: left;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: #8f8f8f;
+  border-top: 1px solid #131313;
+  text-indent: -6px;
+  border-bottom: 3px solid #0e0e0e;
+  font-family: system-ui;
+  height: 52px;
+  padding-top: 11px;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.MenuFooter {
+  position: absolute;
+  bottom: 15px;
+  float: left;
+  text-align: center;
+  width: 150px;
+  color: #bdbdbd8f;
+  border-top: 2px solid #0c0c0c;
+  padding-top: 10px;
+}
+
+
+.MenuFooter ul {
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
+
+.MenuFooter ul li {
+  float: left;
+  margin-right: 10px;
+}
+
+.MenuFooter ul li:hover {
+  color: white;
+}
+
+.ui-tab-container .nav-link.active li {
+  color: white;
+  background: #003f52;
+  border-bottom: 2px solid #222222;
+}

@@ -1,1 +1,0 @@
-node --experimental-specifier-resolution=node --experimental-modules ../index.js --action kill

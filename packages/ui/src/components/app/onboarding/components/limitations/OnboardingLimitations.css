@@ -1,0 +1,28 @@
+.OnboardingLimitations ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.OnboardingLimitations .about ol li {
+    margin-bottom: 10px;
+}
+
+.OnboardingLimitations .legal ul li {
+    margin-bottom: 12px;
+    color: #adadad;
+}
+
+
+.OnboardingLimitations .about ol {
+    width: 300px;
+    padding-left: 70px !important;
+    color: #d9d9d9;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.OnboardingLimitations .legal {
+    margin-top: 50px;
+}
